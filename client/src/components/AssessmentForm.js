@@ -5,7 +5,7 @@ import "./AssessmentForm.css";
 const AssessmentForm = props => (
   <div className="card">
     <div className="img-container">
-      <img id = "mood" src= { require('images/pain_scale.jpg } height="100px" width="100px" />
+      <img id = "mood" src= {require("images/pain_scale.jpg" } height="100px" width="100px" />
     </div>
 
 	<div className="row">
