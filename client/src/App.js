@@ -11,12 +11,12 @@ import Navbar from "./components/Navbar"
 const App = () => (
   <Router>
     <div>
+      <Navbar />
       <Switch>
-        <Navbar />
-          <Route exact path="/help" component={Help} />
-          <Route exact path="/dashboard" component={Dashboard} />
-          <Route exact path="/patientform" component={PatientInputForm} />
-          <Route exact path="/medicalservices" component={MedicalServices} />
+        <Route exact path="/help" component={Help} />
+        <Route exact path="/dashboard" component={Dashboard} />
+        <Route exact path="/patientform" component={PatientInputForm} />
+        <Route exact path="/medicalservices" component={MedicalServices} />
       </Switch>
     </div>
   </Router>
