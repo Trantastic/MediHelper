@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import {PatientDropDown, DropdownList} from './PatientDropDown';
 // import calendar component
-// import API methods
 
 class Dashboard extends Component {
 
@@ -14,7 +13,7 @@ class Dashboard extends Component {
 		// API calls to DB to get all patients and calendar events
 		this.getPatients();
 		this.getCalendar();
-	}
+	};
 
 	// Retrieves all patients associated with caretaker and 
 	// creates a button for each of them in the drop drop menu
