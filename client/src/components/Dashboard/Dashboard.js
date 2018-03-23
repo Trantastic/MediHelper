@@ -1,18 +1,9 @@
 import React, {Component} from 'react';
-import './PatientDropDown';
+import {PatientDropDown, DropdownList} from './PatientDropDown';
 // import calendar component
 // import API methods
 
 class Dashboard extends Component {
-	/*Psuedo-code
-Hierarchy:
-	Ultimate parent - App.js
-	Wrapper - Navbar
-	Dashboard
-	Calendar - PatientDropDown
-				->PatientProfile || PatientInputForm
-
-	*/
 
 	state = {
 		patient: [],
@@ -27,27 +18,24 @@ Hierarchy:
 
 	// Retrieves all patients associated with caretaker and 
 	// creates a button for each of them in the drop drop menu
-	/*
 	getPatients = () => {
+		// Need to feed caretaker id into get.Patients
 		API.getPatients()
 			.then(res =>
-				this.setState({patient: res.data.name})
+				this.setState({patient: res.data})
 			)
 			.catch(error => console.log(error));
 	};
-
-	*/
 
 	render(){
 		return(
 			<div>
 				<Calendar />
 				<PatientDropDown 
-					// getPatients: {this.getPatients}
 					{this.state.patient.map(patient => (
-						<DropdownListItem 
-						patientName: {patient.name}
-
+						<DropdownList
+							patientName: {patient.name}
+							patientId: {patient.id}
 						/>
 					))}		
 				/>
