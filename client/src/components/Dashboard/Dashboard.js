@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, {Component} from 'react';
 import {PatientDropDown, DropdownList} from './PatientDropDown';
 // import calendar component
