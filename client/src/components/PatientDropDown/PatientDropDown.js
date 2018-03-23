@@ -6,8 +6,8 @@ const PatientDropDown = props => {
 			Dropdown button
 		</button>
 		<div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-			<a className="dropdown-item" href="#">Add Patient</a>
-			<Link to="#">{props.patientName}</Link>
+			<Link to="#" className="dropdown-item">Add Patient</Link>
+			{props.children}
 		</div>
 	</div>
 }
