@@ -1,37 +1,37 @@
-import React from "React";
+import React from "react";
 import "./PatientInputForm.css";
 
-const PatientInputForm = props => (
-	<div class="card border-secondary mb-3">
-    <div class="card-header">Patient Infomation Form</div>
-      <div class="card-body text-secondary">
+const PatientInputForm = () => (
+	<div className="card border-secondary mb-3">
+    <div className="card-header">Patient Infomation Form</div>
+      <div className="card-body text-secondary">
 
 		    <form>
           <div className="row">
-            <div className="col">
+            <div className="col-md-6">
             <label for="firstName">First Name</label>
-              <input type="text" className="form-control" id="firstName">
+              <input type="text" className="form-control" id="firstName" />
             </div>
-            <div className="col">
+            <div className="col-md-6">
               <label for="lastName">Last Name</label>
-              <input type="text" className="form-control" id="lastName">
+              <input type="text" className="form-control" id="lastName" />
             </div>
           </div>
 
           <div className="form-group">
             <label for="address">Address</label>
-            <input type="text" className="form-control" id="address" placeholder="1234 Main St">
+            <input type="text" className="form-control" id="address" placeholder="1234 Main St" />
           </div>
 
           <div className="form-group">
             <label for="address2">Address 2</label>
-            <input type="text" className="form-control" id="address2" placeholder="Apartment, studio, or floor">
+            <input type="text" className="form-control" id="address2" placeholder="Apartment, studio, or floor" />
           </div>
 
           <div className="form-row">
             <div className="form-group col-md-6">
               <label for="city">City</label>
-              <input type="text" className="form-control" id="city">
+              <input type="text" className="form-control" id="city" />
             </div>
 
             <div className="form-group col-md-4">
@@ -93,65 +93,65 @@ const PatientInputForm = props => (
 
             <div className="form-group col-md-2">
               <label for="zip">Zip</label>
-              <input type="text" className="form-control" id="zip">
+              <input type="text" className="form-control" id="zip" />
             </div>
           </div>
 
           <div className="form-row">
       	    <div className="form-group col-md-6">
      		      <label for="primaryCare">Primary Care Physician</label>
-      	   	  <input type="text" className="form-control" id="primaryCareName" placeholder="Physician Name">
+      	   	  <input type="text" className="form-control" id="primaryCareName" placeholder="Physician Name" />
             </div>
             
             <div className="form-group col-md-6">  
-      		    <input type="text" className="form-control" id="primaryCareNumb" placeholder="Physician's Phone Number">
+      		    <input type="text" className="form-control" id="primaryCareNumb" placeholder="Physician's Phone Number" />
       	    </div>
           </div>  
 
           <div className="form-row"> 
       	    <div className="form-group col-md-6">
      			    <label for="emergencyContact">Emergency Contact</label>
-      		    <input type="text" className="form-control" id="contactFirstName" placeholder="First Name">
+      		    <input type="text" className="form-control" id="contactFirstName" placeholder="First Name" />
             </div>
               
             <div className="form-group col-md-6">  
-      		    <input type="text" className="form-control" id="contactLastNAme" placeholder="Last Name">
+      		    <input type="text" className="form-control" id="contactLastNAme" placeholder="Last Name" />
             </div>
           </div>
 
           <div className="form-row">
             <div className="form-group col-md-6">     
-      		    <input type="text" className="form-control" id="contactRelationship" placeholder="Relationship">
+      		    <input type="text" className="form-control" id="contactRelationship" placeholder="Relationship" />
             </div>
             
             <div className="form-group col-md-6">  
-      		    <input type="text" className="form-control" id="contactNumb" placeholder="Phone Number">
+      		    <input type="text" className="form-control" id="contactNumb" placeholder="Phone Number" />
       	    </div>
           </div>  
 
     	    <div className="form-group">
    		    	<label for="language">Preferred Language</label>
-    	    	<input type="text" className="form-control" id="preferredLanguage">
+    	    	<input type="text" className="form-control" id="preferredLanguage" />
     	    </div>
 
   		    <div className="form-group">
     	   	  <label for="medicalCond">Medical Condition(s)</label>
-    	   	  <input type="text" className="form-control" id="medicalCond">
+    	   	  <input type="text" className="form-control" id="medicalCond" />
   		    </div>
 
   		    <div className="form-group">
     	   	  <label for="medication">Medication(s)</label>
-    	   	  <input type="text" className="form-control" id="medication">
+    	   	  <input type="text" className="form-control" id="medication" />
   		    </div>
 
   		    <div className="form-group">
     	   	  <label for="allergies">Allergies</label>
-    	   	  <input type="text" className="form-control" id="allergies" placeholder="Foods, Medications, Other">
+    	   	  <input type="text" className="form-control" id="allergies" placeholder="Foods, Medications, Other" />
   		    </div>
 
   		    <div className="form-group">
     		    <label for="notes">Notes</label>
-    		    <input type="text" className="form-control" id="notes">
+    		    <input type="text" className="form-control" id="notes" />
   		    </div>
       
   		    <button type="submit" className="btn btn-primary">Submit</button>
@@ -159,3 +159,5 @@ const PatientInputForm = props => (
     </div>
   </div>    
 );
+
+export default PatientInputForm;
