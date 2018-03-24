@@ -1,5 +1,9 @@
 import React, {Component} from 'react';
 import {PatientDropDown, DropDownList} from '../PatientDropDown';
+// import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+
+// import React from "react";
+import LinkToAssessmentForm from '../LinkToAssessmentForm';
 // import calendar component
 
 class Dashboard extends Component {
@@ -29,6 +33,9 @@ class Dashboard extends Component {
 	render(){
 		return(
 			<div>
+		
+				<LinkToAssessmentForm />
+				
 				{/*<Calendar />*/}
 				<PatientDropDown>
 					{this.state.patient.map(patients => {
@@ -46,3 +53,7 @@ class Dashboard extends Component {
 }
 
 export default Dashboard;
+
+// const App = () => <AssessmentForm />;
+
+// export default App;

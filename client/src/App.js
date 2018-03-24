@@ -25,3 +25,12 @@ const App = () => (
 );
   
 export default App;
+
+// import React from "react";
+// import AssessmentForm from "./components/AssessmentForm";
+
+// const App = () => <AssessmentForm />;
+
+// export default App;
+
+
