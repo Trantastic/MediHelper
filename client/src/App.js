@@ -6,6 +6,7 @@ import Dashboard from "./components/Dashboard";
 import PatientInputForm from "./components/PatientInputForm";
 import MedicalServices from "./components/MedicalServices";
 import "./App.css";
+import Home from "./components/Home";
 import Navbar from "./components/Navbar"
 
 const App = () => (
@@ -13,6 +14,7 @@ const App = () => (
     <div>
       <Navbar />
       <Switch>
+        <Route exact path="/" component={Home} />
         <Route exact path="/help" component={Help} />
         <Route exact path="/dashboard" component={Dashboard} />
         <Route exact path="/patientform" component={PatientInputForm} />
