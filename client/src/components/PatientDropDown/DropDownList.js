@@ -1,5 +1,6 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 
-const DropDownList = props => {
-	<Link to="props.patientId" className="dropdown-item">{props.patientName}</Link>
-}
+ export const DropDownList = props => (
+	<Link to="#" className="dropdown-item">{props.name}</Link>
+);
