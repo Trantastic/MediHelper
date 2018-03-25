@@ -1,5 +1,11 @@
 import React, {Component} from 'react';
 import {PatientDropDown, DropDownList} from '../PatientDropDown';
+import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
+
+// import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+
+// import React from "react";
+import AssessmentButton from '../AssessmentButton';
 // import calendar component
 
 class Dashboard extends Component {
@@ -29,7 +35,8 @@ class Dashboard extends Component {
 	render(){
 		return(
 			<div>
-				{/*<Calendar />*/}
+
+				 {/*<Calendar />*/}
 				<PatientDropDown>
 					{this.state.patient.map(patients => {
 						return (
@@ -40,6 +47,7 @@ class Dashboard extends Component {
 						);
 					})}		
 				</PatientDropDown>
+				<button class="assessmentbtn"><Link to="/dashboard/assessment">Assessment Form</Link></button>
 			</div>
 		);
 	}

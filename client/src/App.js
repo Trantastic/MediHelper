@@ -5,6 +5,7 @@ import Help from "./components/Help";
 import Dashboard from "./components/Dashboard";
 import PatientInputForm from "./components/PatientInputForm";
 import MedicalServices from "./components/MedicalServices";
+import AssessmentButton from "./components/AssessmentButton";
 import "./App.css";
 import Home from "./components/Home";
 import Navbar from "./components/Navbar";
@@ -17,6 +18,7 @@ const App = () => (
         <Route exact path="/" component={Home} />
         <Route exact path="/help" component={Help} />
         <Route exact path="/dashboard" component={Dashboard} />
+        <Route exact path="/dashboard/assessment" component={AssessmentButton} />
         <Route exact path="/patientform" component={PatientInputForm} />
         <Route exact path="/medicalservices" component={MedicalServices} />
       </Switch>
@@ -25,3 +27,12 @@ const App = () => (
 );
   
 export default App;
+
+// import React from "react";
+// import AssessmentForm from "./components/AssessmentForm";
+
+// const App = () => <AssessmentForm />;
+
+// export default App;
+
+
