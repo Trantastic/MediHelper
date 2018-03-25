@@ -5,7 +5,7 @@ import humanImage from "../images/human_anatomy.png"
 
 
 class AssessmentForm extends Component {
-  // Setting the initial values of this.state.username and this.state.password
+  
   state = {
     painlevel: "",
     painlocation: "",
@@ -23,7 +23,7 @@ class AssessmentForm extends Component {
     });
   };
 
-  // When the form is submitted, prevent the default event and alert the username and password
+  
   handleAssessmentFormSubmit = event => {
     event.preventDefault();
     alert(`Painlevel: ${this.state.painlevel}\nPainLocation: ${this.state.painlocation}\nOtherPainLocation: ${this.state.otherpainlocation}`);
@@ -32,8 +32,7 @@ class AssessmentForm extends Component {
 
   render() {
     return (
-
-     <div className="App-header">
+     <div className="header">
           <img src={image} className="pain-scale" alt="image" />
 
         <form>
@@ -51,7 +50,7 @@ class AssessmentForm extends Component {
           onChange={this.handleInputChange}
         />
        <p><strong>Location of Pain: {this.state.painlocation}</strong></p>
-                <select class="selectpicker" data-style="btn-primary" multiple data-max-options="4" id="Q4">
+                <select class="selectpicker" data-style="btn-primary" multiple data-max-options="23" id="painlevel">
                     <option>Head</option>
                     <option>Eye</option>
                     <option>Mouth</option>
@@ -75,7 +74,7 @@ class AssessmentForm extends Component {
                     <option>Left Foot</option>
                     <option>Toes</option>
                 </select>
-<p><strong>Other Pain Locations Not Listed Above: {this.state.otherpainlocation}</strong></p>
+      <p><strong>Other Pain Locations Not Listed Above: {this.state.otherpainlocation}</strong></p>
         <input
           type="text"
           placeholder=""
@@ -85,8 +84,7 @@ class AssessmentForm extends Component {
         />
 
         <button class="btn btn-primary" onClick={this.handleFormSubmit}>Submit</button>
-      </form>
-
+    </form>
           <img src={humanImage} className="human-image" alt="humanimage"/>
 
  </div>
