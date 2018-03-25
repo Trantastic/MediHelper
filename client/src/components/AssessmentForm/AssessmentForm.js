@@ -32,7 +32,7 @@ class AssessmentForm extends Component {
 
   render() {
     return (
-     <div className="header">
+     <div id="header">
           <img src={image} className="pain-scale" alt="image" />
 
         <form>
@@ -83,7 +83,7 @@ class AssessmentForm extends Component {
           onChange={this.handleInputChange}
         />
 
-        <button class="btn btn-primary" onClick={this.handleFormSubmit}>Submit</button>
+        <button id="assessmentbtn" onClick={this.handleFormSubmit}>Submit</button>
     </form>
           <img src={humanImage} className="human-image" alt="humanimage"/>
 
