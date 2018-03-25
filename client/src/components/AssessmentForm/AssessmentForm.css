@@ -1,7 +1,10 @@
-* {
+form {
 	text-align: center;
 }
 
+#header {
+	text-align: center;
+}
 .pain-scale {
 	width: 700px;
 	height: 250px;
@@ -13,9 +16,10 @@
 	margin-top: 100px
 }
 
-.btn-primary {
+#assessmentbtn {
 	position: absolute;
-	right:50%;
-	left:47%;
 	margin-top: 50px;
+	 left: 48%;
+	 background-color: lightgrey;
+	 padding: 10px;
 }
