@@ -1,10 +1,8 @@
 import React from 'react';
-import {Link, Route} from 'react-router-dom';
-import PatientProfile from '../PatientProfile';
+import { Link } from 'react-router-dom';
 
- export const DropDownList = props => (
+export const DropDownList = props => (
  	<div>
-		<Link to="dashboard/patientprofile" className="dropdown-item">{props.name}</Link>
-		<Route exact path="dashboard/patientprofile" component={PatientProfile}/>
+		<Link to="/dashboard/patientprofile" className="dropdown-item">{props.name}</Link>
 	</div>
 );

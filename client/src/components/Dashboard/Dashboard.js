@@ -1,5 +1,5 @@
-import React, {Component} from 'react';
-import {PatientDropDown, DropDownList} from '../PatientDropDown';
+import React, { Component } from 'react';
+import { PatientDropDown, DropDownList } from '../PatientDropDown';
 // import calendar component
 
 class Dashboard extends Component {
@@ -26,8 +26,8 @@ class Dashboard extends Component {
 	// 		.catch(error => console.log(error));
 	// };
 
-	render(){
-		return(
+	render() {
+		return (
 			<div>
 				{/*<Calendar />*/}
 				<PatientDropDown>

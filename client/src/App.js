@@ -5,9 +5,11 @@ import Help from "./components/Help";
 import Dashboard from "./components/Dashboard";
 import PatientInputForm from "./components/PatientInputForm";
 import MedicalServices from "./components/MedicalServices";
+import AssessmentButton from "./components/AssessmentButton";
 import "./App.css";
 import Home from "./components/Home";
 import Navbar from "./components/Navbar";
+import PatientProfile from './components/PatientProfile';
 
 const App = () => (
   <Router>
@@ -16,7 +18,9 @@ const App = () => (
       <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/help" component={Help} />
-        <Route path="/dashboard" component={Dashboard} />
+        <Route exact path="/dashboard" component={Dashboard} />
+        <Route exact path="/dashboard/assessment" component={AssessmentButton} />
+        <Route exact path="/dashboard/patientprofile" component={PatientProfile} />
         <Route exact path="/patientform" component={PatientInputForm} />
         <Route exact path="/medicalservices" component={MedicalServices} />
       </Switch>
