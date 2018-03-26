@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { PatientDropDown, DropDownList } from '../PatientDropDown';
+import PatientProfile from '../PatientProfile';
 // import calendar component
 
 class Dashboard extends Component {
@@ -35,6 +36,7 @@ class Dashboard extends Component {
 						return (
 							<DropDownList
 								name={patients}
+								key={patients}
 								/*patientId: {patients.id}*/
 							/>
 						);

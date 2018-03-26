@@ -1,10 +1,13 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Route } from 'react-router-dom';
+import AssessmentButton from "../AssessmentButton";
+import Dashboard from "../Dashboard";
 import './PatientProfile.css';
 
 const PatientProfile = props => (
 	<div>
-		<button class="assessmentbtn">
+		<Dashboard />
+		<button className="assessmentbtn">
 			<Link to="/dashboard/assessment">Assessment Form</Link>
 		</button>
 		<table className="table table-bordered table-striped w-50 float-right">
@@ -14,17 +17,17 @@ const PatientProfile = props => (
 					<td>Preferred Language: English</td>
 			    </tr>
 			    <tr>
-			    	<td colspan="2">123 College Lane, Oakland, CA, 12345</td>
+			    	<td colSpan="2">123 College Lane, Oakland, CA, 12345</td>
 			    </tr>
 			    <tr>
-			    	<td colspan="2">Medical Conditions</td>
+			    	<td colSpan="2">Medical Conditions</td>
 			    </tr>
 			    <tr>
 			    	<td>Medication</td>
 			    	<td>Allergies</td>
 			    </tr>
 			    <tr>
-			    	<td colspan="2">Notes</td>
+			    	<td colSpan="2">Notes</td>
 			    </tr>
 			    <tr>
 			    	<td>Physican Name: {props.physican}</td>
@@ -36,6 +39,7 @@ const PatientProfile = props => (
 			    </tr>
 			</tbody>
 		</table>
+		<Route exact path="/dashboard" component={Dashboard} />
 	</div>
 );
 
