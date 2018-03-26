@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./PatientInputForm.css";
+import API from "../../utils/API";
 
 
 class PatientInputForm extends Component {
@@ -25,7 +26,7 @@ class PatientInputForm extends Component {
     contactNumb: ""
   };
 
-handleFormSubmitt = event => {
+handleFormSubmit = event => {
   event.preventDefault();
 
     API.savePatient({
@@ -95,7 +96,7 @@ handleInputChange = event => {
 
                   <div className="form-group col-md-4">
                     <label for="state">State</label>
-                    <select id="state" className="form-control">
+                    <select id="state" className="form-control" value={this.state.state}>
                       <option selected>Choose...</option>
                       <option value="AK">Alaska</option>
                       <option value="AZ">Arizona</option>
