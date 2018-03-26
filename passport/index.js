@@ -1,20 +1,20 @@
 const passport = require("passport");
 const LocalStrategy = require("./localStrategy");
-const Caretaker = require("../db/models/caretaker");
+const db = require("../models");
 
 passport.serializeUser((careTaker, done) => {
 	console.log('=== serialize ... called ===')
-	console.log(caretaker) // the whole raw user object!
+	console.log(db.caretaker) // the whole raw user object!
 	console.log('---------')
 	done(null, { _id: caretaker._id })
 })
 
 passport.deserializeUser((id, done) => {
 	console.log('DEserialize ... called')
-	User.findOne(
+	db.Caretaker.findOne(
 		{ _id: id },
 		'firstName lastName photos local.username',
-		(err, careTaker) => {
+		(err, caretaker) => {
 			console.log('======= DESERILAIZE CARETAKER CALLED ======')
 			console.log(caretaker)
 			console.log('--------------')

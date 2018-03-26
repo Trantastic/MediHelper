@@ -55,8 +55,7 @@ class App extends Component {
   }
 
   _login(username, password) {
-    axios
-      .post('/auth/login', {
+    axios.post('/auth/login', {
         username,
         password
       })

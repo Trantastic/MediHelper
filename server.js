@@ -5,6 +5,7 @@ const morgan = require("morgan");
 const session = require("express-session");
 const MongoStore = require("connect-select")(session);
 const passport = require("./passport");
+const mongoose = require("mongoose");
 // const dbConnection = require("./db");
 const PORT = process.env.PORT || 3001;
 const app = express();
@@ -13,6 +14,28 @@ const app = express();
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
+
+mongoose.Promise = global.Promise;
+let MONGO_URL;
+const MONGO_LOCAL_URL = "mongo://localhost/mern-password";
+
+if (process.env.MONGO_URI) {
+	mongoose.connect(process.env.MONGO_URI);
+} else {
+	mongoose.connect(MONGO_LOCAL_URL);
+	MONGO_URL = MONGO_LOCAL_URL;
+}
+
+const db = mongoose.connection;
+
+db.on("error", err => {
+	console.log(`There was an error connection to the database: ${err}`);
+});
+
+db.once("open", () => {
+	console.log(`You have successfully connected to your mongo database: ${MONGO_URL}`);
+});
+
 
 
 // ======== Middleware =========

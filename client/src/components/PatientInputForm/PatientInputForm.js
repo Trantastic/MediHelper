@@ -132,7 +132,7 @@ const PatientInputForm = () => (
               </div>
               
               <div className="form-group col-md-6"> 
-                <label for="primaryCareNumb">Physician Phone Number</label> 
+                <label for="primaryCareNumb">Physician Phone Number</label>
         		    <input type="text" className="form-control" id="primaryCareNumb" />
         	    </div>
             </div>  
