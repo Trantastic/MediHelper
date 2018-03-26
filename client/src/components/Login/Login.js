@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
 class Login extends Component {
+
 	constructor() {
 		super()
 		this.state = {
@@ -17,10 +18,11 @@ class Login extends Component {
 		this.setState({
 			[event.target.name]: event.target.value
 		});
-	};
+	};                                 
 
 	handleSubmit(event) {
 		event.preventDefault()
+		
 		console.log('handleSubmit')
 		this.props._login(this.state.username, this.state.password)
 		this.setState({

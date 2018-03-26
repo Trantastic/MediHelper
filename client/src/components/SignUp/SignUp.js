@@ -24,8 +24,7 @@ class SignUp extends Component {
 	handleSubmit(event) {
 		event.preventDefault()
 		// TODO - validate!
-		axios
-			.post('/auth/signup', {
+		axios.post('/auth/signup', {
 				username: this.state.username,
 				password: this.state.password
 			}).then(response => {
@@ -51,16 +50,18 @@ class SignUp extends Component {
 			<div>
 				<div className="row">
 					<div className="col-md-12">
-						<div className="card bg-light mb-3 container">
+						<div className="card bg-light container">
 			  			<div className="card-header">Register</div>
 			  				<div className="card-body">
 									<form className="SignupForm">
 										<label htmlFor="username">Username</label><br />
 											<input type="text" name="username" value={this.state.username} onChange={this.handleChange} /><br />
+										<label htmlFor="phoneNum">Phone Number</label><br />
+											<input type="text" name="phoneNum" value={this.state.phoneNum	} onChange={this.handleChange} /><br />
 										<label htmlFor="password">Password</label><br />
 											<input type="password" name="password" value={this.state.password} onChange={this.handleChange}	/><br />
 										<label htmlFor="confirmPassword">Confirm Password</label><br />
-											<input type="password" name="confirmPassword" value={this.state.confirmPassword} onChange={this.handleChange}/><br />
+											<input type="password" name="confirmPassword" value={this.state.confirmPassword} onChange={this.handleChange}/><br /><br />
 											<button type="submit" onClick={this.handleSubmit} className="btn btn-primary signupBtn">Submit</button>	
 									</form>
 			  				</div>
