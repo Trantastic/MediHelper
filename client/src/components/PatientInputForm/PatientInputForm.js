@@ -10,33 +10,33 @@ const PatientInputForm = () => (
   		    <form>
             <div className="row">
               <div className="col-md-6">
-              <label for="firstName">First Name</label>
+              <label forhtml="firstName">First Name</label>
                 <input type="text" className="form-control" id="firstName" />
               </div>
               <div className="col-md-6">
-                <label for="lastName">Last Name</label>
+                <label forhtml="lastName">Last Name</label>
                 <input type="text" className="form-control" id="lastName" />
               </div>
             </div>
 
             <div className="form-group">
-              <label for="address">Address</label>
+              <label forhtml="address">Address</label>
               <input type="text" className="form-control" id="address" placeholder="1234 Main St" />
             </div>
 
             <div className="form-group">
-              <label for="address2">Address 2</label>
+              <label forhtml="address2">Address 2</label>
               <input type="text" className="form-control" id="address2" placeholder="Apartment, studio, or floor" />
             </div>
 
             <div className="form-row">
               <div className="form-group col-md-6">
-                <label for="city">City</label>
+                <label forhtml="city">City</label>
                 <input type="text" className="form-control" id="city" />
               </div>
 
               <div className="form-group col-md-4">
-                <label for="state">State</label>
+                <label forhtml="state">State</label>
                 <select id="state" className="form-control">
                   <option selected>Choose...</option>
                   <option value="AK">Alaska</option>
@@ -93,33 +93,33 @@ const PatientInputForm = () => (
               </div>
 
               <div className="form-group col-md-2">
-                <label for="zip">Zip</label>
+                <label forhtml="zip">Zip</label>
                 <input type="text" className="form-control" id="zip" />
               </div>
             </div>
 
             <div className="form-group">
-              <label for="language">Preferred Language</label>
+              <label forhtml="language">Preferred Language</label>
               <input type="text" className="form-control" id="preferredLanguage" />
             </div>
 
             <div className="form-group">
-              <label for="medicalCond">Medical Condition(s)</label>
+              <label forhtml="medicalCond">Medical Condition(s)</label>
               <input type="text" className="form-control" id="medicalCond" />
             </div>
 
             <div className="form-group">
-              <label for="medication">Medication(s)</label>
+              <label forhtml="medication">Medication(s)</label>
               <input type="text" className="form-control" id="medication" />
             </div>
 
             <div className="form-group">
-              <label for="allergies">Allergies</label>
+              <label forhtml="allergies">Allergies</label>
               <input type="text" className="form-control" id="allergies" placeholder="Foods, Medications, Other" />
             </div>
 
             <div className="form-group">
-              <label for="notes">Notes</label>
+              <label forhtml="notes">Notes</label>
               <input type="text" className="form-control" id="notes" />
             </div>
 
@@ -127,12 +127,12 @@ const PatientInputForm = () => (
             <div className="form-row mt-4">
               <div className="form-group col-md-6">
 
-       		      <label for="primaryCareName">Physician Name</label>
+       		      <label forhtml="primaryCareName">Physician Name</label>
         	   	  <input type="text" className="form-control" id="primaryCareName" />
               </div>
               
               <div className="form-group col-md-6"> 
-                <label for="primaryCareNumb">Physician Phone Number</label>
+                <label forhtml="primaryCareNumb">Physician Phone Number</label>
         		    <input type="text" className="form-control" id="primaryCareNumb" />
         	    </div>
             </div>  
@@ -140,24 +140,24 @@ const PatientInputForm = () => (
             <h3>Emergency Contact</h3>
             <div className="form-row mt-4"> 
         	    <div className="form-group col-md-6">
-       			    <label for="contactFirstName">First Name</label>
+       			    <label forhtml="contactFirstName">First Name</label>
         		    <input type="text" className="form-control" id="contactFirstName" />
               </div>
                 
               <div className="form-group col-md-6">
-                <label for="contactLastName">Last Name</label>  
+                <label forhtml="contactLastName">Last Name</label>  
         		    <input type="text" className="form-control" id="contactLastName" />
               </div>
             </div>
 
             <div className="form-row">
               <div className="form-group col-md-6"> 
-                <label for="contactRelationship">Relationship</label>    
+                <label forhtml="contactRelationship">Relationship</label>    
                 <input type="text" className="form-control" id="contactRelationship" />
               </div>
               
               <div className="form-group col-md-6">  
-                <label for="contactNumb">Phone Number</label>    
+                <label forhtml="contactNumb">Phone Number</label>    
         		    <input type="text" className="form-control" id="contactNumb" />
         	    </div>
             </div>  

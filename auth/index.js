@@ -4,6 +4,16 @@ const db = require("../models");
 const passport = require("../passport");
 
 
+router.get('/user', (req, res, next) => {
+	console.log('===== user!!======')
+	console.log(req.user)
+	if (req.user) {
+		return res.json({ user: req.user });
+	} else {
+		return res.json({ user: null });
+	}
+});
+
 router.post(
 	"/login",
 	function(req, res, next) {
@@ -14,7 +24,7 @@ router.post(
 	passport.authenticate("local"),
 	(req, res) => {
 		console.log("POST to /login")
-		const db.Caretaker = JSON.parse(JSON.stringify(req.db.Caretaker)); // hack
+		const Caretaker = JSON.parse(JSON.stringify(req.db.Caretaker)); // hack
 		const cleanCaretaker = Object.assign({}, db.Caretaker)
 		if (cleanCaretaker.local) {
 			console.log(`Deleting ${cleanCaretaker.local.password}`);

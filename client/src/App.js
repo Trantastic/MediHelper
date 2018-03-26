@@ -58,8 +58,7 @@ class App extends Component {
     axios.post('/auth/login', {
         username,
         password
-      })
-      .then(response => {
+      }).then(response => {
         console.log(response)
         if (response.status === 200) {
           // update the state

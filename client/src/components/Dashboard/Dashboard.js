@@ -41,13 +41,14 @@ class Dashboard extends Component {
 					{this.state.patient.map(patients => {
 						return (
 							<DropDownList
+								key={patients.id}
 								name={patients}
 								/*patientId: {patients.id}*/
 							/>
 						);
 					})}		
 				</PatientDropDown>
-				<button class="assessmentbtn"><Link to="/dashboard/assessment">Assessment Form</Link></button>
+				<button className="assessmentbtn"><Link to="/dashboard/assessment">Assessment Form</Link></button>
 			</div>
 		);
 	}

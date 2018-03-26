@@ -17,7 +17,7 @@ if (process.env.NODE_ENV === "production") {
 
 mongoose.Promise = global.Promise;
 let MONGO_URL;
-const MONGO_LOCAL_URL = "mongo://localhost/mern-password";
+const MONGO_LOCAL_URL = "mongo://localhost/MediHelperDB";
 
 if (process.env.MONGO_URI) {
 	mongoose.connect(process.env.MONGO_URI);

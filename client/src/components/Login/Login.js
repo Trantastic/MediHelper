@@ -23,10 +23,10 @@ class Login extends Component {
 	handleSubmit(event) {
 		event.preventDefault()
 		
-		console.log('handleSubmit')
+		console.log("handleSubmit")
 		this.props._login(this.state.username, this.state.password)
 		this.setState({
-			redirectTo: '/'
+			redirectTo: "/dashboard"
 		});
 	};
 
