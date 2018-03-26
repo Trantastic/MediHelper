@@ -9,6 +9,7 @@ import AssessmentButton from "./components/AssessmentButton";
 import "./App.css";
 import Home from "./components/Home";
 import Navbar from "./components/Navbar";
+import PatientProfile from './components/PatientProfile';
 import SignUp from "./components/SignUp";
 import Login from "./components/Login";
 
@@ -82,6 +83,7 @@ class App extends Component {
         <Route exact path="/signup" component={SignUp} />
         <Route exact path="/help" component={Help} />
         <Route exact path="/dashboard" render={() => <Dashboard user={this.state.user} />} />
+        <Route exact path="/dashboard/patientprofile" component={PatientProfile} />
         <Route exact path="/dashboard/assessment" component={AssessmentButton} />
         <Route exact path="/patientform" component={PatientInputForm} />
         <Route exact path="/medicalservices" component={MedicalServices} />
@@ -90,29 +92,5 @@ class App extends Component {
     )
   }
 }
- 
 
-// <Router>
-//     <div>
-//       <Navbar />
-//       <Switch>
-//         <Route exact path="/" component={Home} />
-//         <Route exact path="/help" component={Help} />
-//         <Route exact path="/dashboard" component={Dashboard} />
-//         <Route exact path="/dashboard/assessment" component={AssessmentButton} />
-//         <Route exact path="/patientform" component={PatientInputForm} />
-//         <Route exact path="/medicalservices" component={MedicalServices} />
-//       </Switch>
-//     </div>
-//   </Router>
-  
 export default App;
-
-// import React from "react";
-// import AssessmentForm from "./components/AssessmentForm";
-
-// const App = () => <AssessmentForm />;
-
-// export default App;
-
-
