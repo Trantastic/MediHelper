@@ -8,21 +8,18 @@ router.get('/user', (req, res, next) => {
 	console.log('===== user!!======')
 	console.log(req.user)
 	if (req.user) {
-		return res.json({ user: req.user });
+		return res.json({ caretaker: req.user });
 	} else {
-		return res.json({ user: null });
+		return res.json({ caretaker: null });
 	}
 });
 
-router.post(
-	"/login",
-	function(req, res, next) {
+router.post("/login", function(req, res, next) {
 		console.log(req.body)
 		console.log('================')
 		next()
 	},
-	passport.authenticate("local"),
-	(req, res) => {
+	passport.authenticate("local"), (req, res) => {
 		console.log("POST to /login")
 		const Caretaker = JSON.parse(JSON.stringify(req.db.Caretaker)); // hack
 		const cleanCaretaker = Object.assign({}, db.Caretaker)
@@ -30,7 +27,7 @@ router.post(
 			console.log(`Deleting ${cleanCaretaker.local.password}`);
 			delete cleanCaretaker.local.password
 		}
-		res.json({ Caretaker: cleanCaretaker });
+		res.json({ caretaker: cleanCaretaker });
 	}
 );
 
@@ -45,9 +42,11 @@ router.post("/logout", (req, res) => {
 });
 
 router.post("/signup", (req, res) => {
+	
+	console.log(req.body)
 	const { username, password } = req.body
 	// ADD VALIDATION
-	User.findOne({ "local.username": username }, (err, userMatch) => {
+	db.Caretake.findOne({ "local.username": username }, (err, userMatch) => {
 		if (userMatch) {
 			return res.json({error: `Sorry, already a caretaker with the username: ${username}`});
 		}

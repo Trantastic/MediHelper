@@ -15,32 +15,13 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
 
-mongoose.Promise = global.Promise;
-let MONGO_URL;
-const MONGO_LOCAL_URL = "mongo://localhost/MediHelperDB";
-
-if (process.env.MONGO_URI) {
-	mongoose.connect(process.env.MONGO_URI);
-} else {
-	mongoose.connect(MONGO_LOCAL_URL);
-	MONGO_URL = MONGO_LOCAL_URL;
-}
-
-const db = mongoose.connection;
-
-db.on("error", err => {
-	console.log(`There was an error connection to the database: ${err}`);
-});
-
-db.once("open", () => {
-	console.log(`You have successfully connected to your mongo database: ${MONGO_URL}`);
-});
-
-
+mongoose.Promise = Promise;
+mongoose.connect("mongodb://localhost/MediHelperDB");
 
 // ======== Middleware =========
 app.use(morgan("dev"));
-app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.json());
 app.use(session({
 	secret: process.env.APP_SECRET || "this is the default passphrase",
 	// store: new MongoStore({mongooseConnection: dbConnection}),

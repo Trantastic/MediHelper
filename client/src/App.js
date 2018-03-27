@@ -1,6 +1,6 @@
 import React, { Component }from "react";
 import axios from "axios";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import Help from "./components/Help";
 import Dashboard from "./components/Dashboard";
 import PatientInputForm from "./components/PatientInputForm";
@@ -17,11 +17,12 @@ class App extends Component {
     super()
     this.state = {
       loggedIn: false,
-      user: null
-    }
+      caretaker: null
+    };
     this._logout = this._logout.bind(this)
     this._login = this._login.bind(this)
-  }
+  };
+
   componentDidMount() {
     axios.get('/auth/user').then(response => {
       console.log(response.data)
@@ -29,16 +30,16 @@ class App extends Component {
         console.log('THERE IS A USER')
         this.setState({
           loggedIn: true,
-          user: response.data.user
-        })
+          caretaker: response.data.user
+        });
       } else {
         this.setState({
           loggedIn: false,
-          user: null
-        })
+          caretaker: null
+        });
       }
-    })
-  }
+    });
+  };
 
   _logout(event) {
     event.preventDefault()
@@ -48,13 +49,14 @@ class App extends Component {
       if (response.status === 200) {
         this.setState({
           loggedIn: false,
-          user: null
-        })
+          caretaker: null
+        });
       }
-    })
-  }
+    });
+  };
 
-  _login(username, password) {
+ _login(username, password) {
+    console.log(username, password)
     axios.post('/auth/login', {
         username,
         password
@@ -64,11 +66,13 @@ class App extends Component {
           // update the state
           this.setState({
             loggedIn: true,
-            user: response.data.user
-          })
+            caretaker: response.data.user
+          });
         }
-      })
-  }
+      }).catch(err => {
+        console.log(err.response)
+      });
+  };
 
   render() {
     return (

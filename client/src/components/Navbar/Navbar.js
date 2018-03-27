@@ -1,8 +1,6 @@
 // NEED TO ADD CORRECT ROUTES TO NAVBAR BUTTONS
 import React from 'react';
 import {Link} from 'react-router-dom';
-import SignUp from "../SignUp"
-import Login from "../Login"
 import './Navbar.css';
 
 const Navbar = props => {

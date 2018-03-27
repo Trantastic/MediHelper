@@ -7,8 +7,8 @@ const caretakerSchema = new Schema({
 	password: {type: String, required: true},
 	phoneNumb: {type: String, required: true},
 	local: {
-		username: {type: String, unique: true, required: true},
-		password: {type: String, unique: true, required: true}
+		username: {type: String, unique: true},
+		password: {type: String, unique: true}
 	},
 
 	patient: {
