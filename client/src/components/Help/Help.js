@@ -2,7 +2,7 @@ import React from "react";
 const mongoose = require("mongoose");
 const express = require("express");
 
-const app = espress();
+const app = express();
 
 //Variable to hold the phone number texted for assistence
 let caretakerPhone = "";
@@ -31,6 +31,7 @@ class Help extends React.Component {
 		console.log(caretakerPhone);
 		this.setState({ helpNumber: caretakerPhone });
 		});
+		//The above ) mat be an uneccessary token
 	};
 
 	getHelp = () => {
