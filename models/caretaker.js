@@ -39,4 +39,4 @@ caretakerSchema.pre("save", function(next) {
 
 const Caretaker = mongoose.model("Caretaker", caretakerSchema);
 
-module.export = Caretaker;
+module.exports = Caretaker;

@@ -26,11 +26,11 @@ class App extends Component {
   componentDidMount() {
     axios.get('/auth/user').then(response => {
       console.log(response.data)
-      if (!!response.data.user) {
+      if (!!response.data.caretaker) {
         console.log('THERE IS A USER')
         this.setState({
           loggedIn: true,
-          caretaker: response.data.user
+          caretaker: response.data.caretaker
         });
       } else {
         this.setState({
@@ -42,7 +42,7 @@ class App extends Component {
   };
 
   _logout(event) {
-    event.preventDefault()
+    event.preventDefault();
     console.log('logging out')
     axios.post('/auth/logout').then(response => {
       console.log(response.data)
@@ -62,11 +62,12 @@ class App extends Component {
         password
       }).then(response => {
         console.log(response)
+        // debugger;
         if (response.status === 200) {
           // update the state
           this.setState({
             loggedIn: true,
-            caretaker: response.data.user
+            caretaker: response.data.caretaker
           });
         }
       }).catch(err => {
@@ -83,7 +84,7 @@ class App extends Component {
         <Route exact path="/login" render={() => <Login _login={this._login} />} />
         <Route exact path="/signup" component={SignUp} />
         <Route exact path="/help" component={Help} />
-        <Route exact path="/dashboard" render={() => <Dashboard user={this.state.user} />} />
+        <Route exact path="/dashboard" render={() => <Dashboard caretaker={this.state.caretaker} />} />
         <Route exact path="/dashboard/assessment" component={AssessmentButton} />
         <Route exact path="/patientform" component={PatientInputForm} />
         <Route exact path="/medicalservices" component={MedicalServices} />
@@ -92,21 +93,6 @@ class App extends Component {
     )
   }
 }
- 
-
-// <Router>
-//     <div>
-//       <Navbar />
-//       <Switch>
-//         <Route exact path="/" component={Home} />
-//         <Route exact path="/help" component={Help} />
-//         <Route exact path="/dashboard" component={Dashboard} />
-//         <Route exact path="/dashboard/assessment" component={AssessmentButton} />
-//         <Route exact path="/patientform" component={PatientInputForm} />
-//         <Route exact path="/medicalservices" component={MedicalServices} />
-//       </Switch>
-//     </div>
-//   </Router>
   
 export default App;
 

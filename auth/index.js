@@ -21,8 +21,8 @@ router.post("/login", function(req, res, next) {
 	},
 	passport.authenticate("local"), (req, res) => {
 		console.log("POST to /login")
-		const Caretaker = JSON.parse(JSON.stringify(req.db.Caretaker)); // hack
-		const cleanCaretaker = Object.assign({}, db.Caretaker)
+		const Caretaker = JSON.parse(JSON.stringify(req.user)); // hack
+		const cleanCaretaker = Object.assign({}, Caretaker)
 		if (cleanCaretaker.local) {
 			console.log(`Deleting ${cleanCaretaker.local.password}`);
 			delete cleanCaretaker.local.password
@@ -32,7 +32,8 @@ router.post("/login", function(req, res, next) {
 );
 
 router.post("/logout", (req, res) => {
-	if (req.db.Caretaker) {
+	console.log(req.user, "HHHHEHEHEHERRRERERER")
+	if (req.user) {
 		req.session.destroy();
 		res.clearCookie('connect.sid'); // clean up!
 		return res.json({ msg: 'logging you out' });
@@ -43,23 +44,18 @@ router.post("/logout", (req, res) => {
 
 router.post("/signup", (req, res) => {
 	
-	console.log(req.body)
-	const { username, password } = req.body
-	// ADD VALIDATION
-	db.Caretake.findOne({ "local.username": username }, (err, userMatch) => {
-		if (userMatch) {
-			return res.json({error: `Sorry, already a caretaker with the username: ${username}`});
-		}
-		const newCaretake = new db.Caretaker({
-			
-			"local.username": username,
-			"local.password": password
-		});
-		newCaretake.save((err, savedUser) => {
-			if (err) return res.json(err)
-			return res.json(savedUser);
-		});
-	});
+	console.log(req.body);
+
+	db.Caretaker.create({
+		"local.username": req.body.username,
+		 username : req.body.username,
+     phoneNumb: req.body.phoneNumb,
+     "local.password": req.body.password,
+		 password: req.body.password
+
+   }).then(function(caretakerDB) {
+   	console.log(caretakerDB);
+   }); 
 });
 
 module.exports = router

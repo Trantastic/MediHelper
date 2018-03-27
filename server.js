@@ -3,7 +3,6 @@ const path = require("path");
 const bodyParser = require("body-parser");
 const morgan = require("morgan");
 const session = require("express-session");
-const MongoStore = require("connect-select")(session);
 const passport = require("./passport");
 const mongoose = require("mongoose");
 // const dbConnection = require("./db");

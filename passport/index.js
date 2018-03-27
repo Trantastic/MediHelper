@@ -4,21 +4,22 @@ const db = require("../models");
 
 passport.serializeUser((careTaker, done) => {
 	console.log('=== serialize ... called ===')
-	console.log(db.caretaker) // the whole raw user object!
+	console.log(db.Caretaker) // the whole raw user object!
 	console.log('---------')
-	done(null, { _id: caretaker._id })
+	done(null, { _id: db.Caretaker._id })
 })
 
 passport.deserializeUser((id, done) => {
-	console.log('DEserialize ... called')
+	console.log('Deserialize ... called')
+	console.log();
 	db.Caretaker.findOne(
 		{ _id: id },
-		'firstName lastName photos local.username',
+		'username phoneNumb local.username',
 		(err, caretaker) => {
 			console.log('======= DESERILAIZE CARETAKER CALLED ======')
 			console.log(caretaker)
 			console.log('--------------')
-			done(null, caretaker)
+			done(null, false);
 		}
 	)
 })

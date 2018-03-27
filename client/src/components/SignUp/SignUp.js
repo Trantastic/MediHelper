@@ -7,7 +7,7 @@ class SignUp extends Component {
 		super()
 		this.state = {
 			username: "",
-			phoneNum: "",
+			phoneNumb: "",
 			password: "",
 			confirmPassword: "",
 			redirectTo: null
@@ -29,7 +29,7 @@ class SignUp extends Component {
 		// TODO - validate!
 		axios.post("/auth/signup", {
 				username: this.state.username,
-				phoneNum: this.state.phoneNum,
+				phoneNumb: this.state.phoneNumb,
 				password: this.state.password
 			}).then(response => {
 				console.log(response)
@@ -63,8 +63,8 @@ class SignUp extends Component {
 									<form className="SignupForm">
 										<label htmlFor="username">Username</label><br />
 											<input type="text" name="username" value={this.state.username} onChange={this.handleChange} /><br />
-										<label htmlFor="phoneNum">Phone Number</label><br />
-											<input type="text" name="phoneNum" value={this.state.phoneNum} onChange={this.handleChange} /><br />
+										<label htmlFor="phoneNumb">Phone Number</label><br />
+											<input type="text" name="phoneNumb" value={this.state.phoneNumb} onChange={this.handleChange} /><br />
 										<label htmlFor="password">Password</label><br />
 											<input type="password" name="password" value={this.state.password} onChange={this.handleChange}	/><br />
 										<label htmlFor="confirmPassword">Confirm Password</label><br />
