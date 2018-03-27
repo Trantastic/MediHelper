@@ -1,1 +1,7 @@
-// METHODS TO ACCESS MONGO
+const db = require("../models");
+
+module.exports = {
+	create: function(req, res) {
+		db.Patient.create(req.body).catch(err => res.status(422).json(err));
+	}
+};

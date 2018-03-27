@@ -1,8 +1,7 @@
 const router = require("express").Router();
-// require controller file
+const caretakerController = require("../../controllers/caretakerController");
 
 router.route("/api/patient").post(caretakerController.create);
 
 
 module.exports = router;
-
