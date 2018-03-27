@@ -6,9 +6,8 @@ const caretakerSchema = new Schema({
 	password: {type: String, required: true},
 	phoneNum: {type: String, required: true},
 	patient: {type: Schema.Types.ObjectId, ref: "Patient"}
-})
-
+});
 
 const Caretaker = mongoose.model("Caretaker", caretakerSchema);
 
-module.export = Caretaker;
+module.exports = Caretaker;
