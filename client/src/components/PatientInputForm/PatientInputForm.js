@@ -57,7 +57,6 @@ handleInputChange = event => {
   this.setState({
     [id]: value
   });
-  console.log(this.state.state);
 };
 
   render() {
@@ -92,7 +91,7 @@ handleInputChange = event => {
                 <div className="form-row">
                   <div className="form-group col-md-6">
                     <label for="city">City</label>
-                    <input type="text" className="form-control" id="city" value={this.state.city} onChange={this.handleInputChange}/>
+                    <input type="text" className="form-control" id="city" defaultValue={this.state.city} onChange={this.handleInputChange}/>
                   </div>
 
                   <div className="form-group col-md-4">
