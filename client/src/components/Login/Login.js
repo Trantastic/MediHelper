@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
+import "./Login.css";
+
 class Login extends Component {
 // setting the state
 	constructor() {
@@ -34,17 +36,19 @@ class Login extends Component {
 			return <Redirect to={{ pathname: this.state.redirectTo }} />
 		} else {
 			return (
-				<div className="card bg-light mt-5 container">
-	  			<div className="card-header">Login</div>
-	  				<div className="card-body">
-							<form className="LoginForm">
-								<label htmlFor="username">Username</label><br />
-									<input type="text" name="username" value={this.state.username} onChange={this.handleChange} /><br />
-								<label htmlFor="password">Password</label><br />
-									<input type="password" name="password" value={this.state.password} onChange={this.handleChange}/><br />
-									<button type="submit" onClick={this.handleSubmit} className="btn btn-primary">Login</button>
-							</form>
-						</div>
+				<div className="container">
+					<div className="card bg-light mt-5 loginCard">
+		  			<div className="card-header">Login</div>
+		  				<div className="card-body">
+								<form className="LoginForm">
+									<label htmlFor="username">Username</label><br />
+										<input id="loginInput" type="text" name="username" value={this.state.username} onChange={this.handleChange} /><br />
+									<label htmlFor="password">Password</label><br />
+										<input id="loginInput" type="password" name="password" value={this.state.password} onChange={this.handleChange}/><br /><br />
+										<button type="submit" onClick={this.handleSubmit} className="btn btn-primary">Login</button>
+								</form>
+							</div>
+					</div>
 				</div>
 			);
 		};

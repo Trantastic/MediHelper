@@ -1,9 +1,9 @@
-#signupInput {
+#loginInput {
 	width: 100%;
 	border-radius: 25px;
 }
 
-.signupCard {
+.loginCard {
 	width: 60%;
 	margin: auto;
 }

@@ -7,7 +7,6 @@ import PatientInputForm from "./components/PatientInputForm";
 import MedicalServices from "./components/MedicalServices";
 import AssessmentButton from "./components/AssessmentButton";
 import "./App.css";
-import Home from "./components/Home";
 import Navbar from "./components/Navbar";
 import SignUp from "./components/SignUp";
 import Login from "./components/Login";
@@ -46,7 +45,6 @@ class App extends Component {
       console.log(response.data)
       if (response.status === 200) {
         this.setState({
-          redirectTo: "/login",
           loggedIn: false,
           caretaker: null
         });
@@ -77,8 +75,7 @@ class App extends Component {
       <Router>
       <div>
         <Navbar _logout={this._logout} loggedIn={this.state.loggedIn} />
-        <Route exact path="/" component={Home} />
-        <Route exact path="/login" render={() => <Login _login={this._login} />} />
+        <Route exact path="/" render={() => <Login _login={this._login} />} />
         <Route exact path="/signup" component={SignUp} />
         <Route exact path="/help" component={Help} />
         <Route exact path="/dashboard" render={() => <Dashboard caretaker={this.state.caretaker} />} />

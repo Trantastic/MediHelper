@@ -7,7 +7,7 @@ const Navbar = props => {
   if (props.loggedIn) {
     return (
     <div>
-      <nav className="navbar navbar-expand-lg navbar-light bg-light">
+      <nav className="navbar navbar-expand-sm navbar-light bg-light">
         <a className="navbar-brand" href="#">MediHelp</a>
         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
@@ -27,7 +27,7 @@ const Navbar = props => {
               <Link className="nav-link" to="#">Pharmacy</Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/" onClick={props._logout}>Log Out</Link>
+              <Link className="nav-link" to="/login" onClick={props._logout}>Log Out</Link>
             </li>
           </div>
         </div>
@@ -38,7 +38,7 @@ const Navbar = props => {
   } else {
     return (
      <div>
-      <nav className="navbar navbar-expand-lg navbar-light bg-light">
+      <nav className="navbar navbar-expand-sm navbar-light bg-light">
         <a className="navbar-brand" href="#">MediHelp</a>
         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
@@ -49,7 +49,7 @@ const Navbar = props => {
               <Link className="nav-link" to="/signup">Register</Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/login">Login</Link>
+              <Link className="nav-link" to="/">Login</Link>
             </li>
           </div>
         </div>
