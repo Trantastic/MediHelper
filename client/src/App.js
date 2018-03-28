@@ -25,9 +25,7 @@ class App extends Component {
 
   componentDidMount() {
     axios.get('/auth/user').then(response => {
-      console.log(response.data)
       if (!!response.data.caretaker) {
-        console.log('THERE IS A USER')
         this.setState({
           loggedIn: true,
           caretaker: response.data.caretaker
@@ -43,11 +41,12 @@ class App extends Component {
 
   _logout(event) {
     event.preventDefault();
-    console.log('logging out')
+
     axios.post('/auth/logout').then(response => {
       console.log(response.data)
       if (response.status === 200) {
         this.setState({
+          redirectTo: "/login",
           loggedIn: false,
           caretaker: null
         });
@@ -61,8 +60,6 @@ class App extends Component {
         username,
         password
       }).then(response => {
-        console.log(response)
-        // debugger;
         if (response.status === 200) {
           // update the state
           this.setState({
@@ -95,12 +92,3 @@ class App extends Component {
 }
   
 export default App;
-
-// import React from "react";
-// import AssessmentForm from "./components/AssessmentForm";
-
-// const App = () => <AssessmentForm />;
-
-// export default App;
-
-

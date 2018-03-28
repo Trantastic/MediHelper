@@ -24,8 +24,7 @@ class SignUp extends Component {
 
 	handleSubmit(event) {
 		event.preventDefault();
-		// debugger;
-		console.log(event);
+
 		// TODO - validate!
 		axios.post("/auth/signup", {
 				username: this.state.username,
@@ -35,7 +34,6 @@ class SignUp extends Component {
 				console.log(response)
 
 				if (!response.data.errmsg) {
-					console.log("youre good")
 					this.setState({
 						redirectTo: "/login"
 					});
@@ -57,7 +55,7 @@ class SignUp extends Component {
 			<div>
 				<div className="row">
 					<div className="col-md-12">
-						<div className="card bg-light container">
+						<div className="card bg-light mt-5 container">
 			  			<div className="card-header">Register</div>
 			  				<div className="card-body">
 									<form className="SignupForm">

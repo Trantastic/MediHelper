@@ -5,8 +5,6 @@ const passport = require("../passport");
 
 
 router.get('/user', (req, res, next) => {
-	console.log('===== user!!======')
-	console.log(req.user)
 	if (req.user) {
 		return res.json({ caretaker: req.user });
 	} else {
@@ -15,8 +13,6 @@ router.get('/user', (req, res, next) => {
 });
 
 router.post("/login", function(req, res, next) {
-		console.log(req.body)
-		console.log('================')
 		next()
 	},
 	passport.authenticate("local"), (req, res) => {
@@ -24,7 +20,6 @@ router.post("/login", function(req, res, next) {
 		const Caretaker = JSON.parse(JSON.stringify(req.user)); // hack
 		const cleanCaretaker = Object.assign({}, Caretaker)
 		if (cleanCaretaker.local) {
-			console.log(`Deleting ${cleanCaretaker.local.password}`);
 			delete cleanCaretaker.local.password
 		}
 		res.json({ caretaker: cleanCaretaker });
@@ -32,7 +27,6 @@ router.post("/login", function(req, res, next) {
 );
 
 router.post("/logout", (req, res) => {
-	console.log(req.user, "HHHHEHEHEHERRRERERER")
 	if (req.user) {
 		req.session.destroy();
 		res.clearCookie('connect.sid'); // clean up!
@@ -43,16 +37,12 @@ router.post("/logout", (req, res) => {
 });
 
 router.post("/signup", (req, res) => {
-	
-	console.log(req.body);
-
 	db.Caretaker.create({
 		"local.username": req.body.username,
 		 username : req.body.username,
      phoneNumb: req.body.phoneNumb,
      "local.password": req.body.password,
 		 password: req.body.password
-
    }).then(function(caretakerDB) {
    	console.log(caretakerDB);
    }); 

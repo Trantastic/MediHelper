@@ -23,7 +23,6 @@ class Login extends Component {
 	handleSubmit(event) {
 		event.preventDefault()
 		
-		console.log("handleSubmit")
 		this.props._login(this.state.username, this.state.password)
 		this.setState({
 			redirectTo: "/dashboard"
@@ -35,7 +34,7 @@ class Login extends Component {
 			return <Redirect to={{ pathname: this.state.redirectTo }} />
 		} else {
 			return (
-				<div className="card bg-light mb-3 container">
+				<div className="card bg-light mt-5 container">
 	  			<div className="card-header">Login</div>
 	  				<div className="card-body">
 							<form className="LoginForm">

@@ -2,11 +2,9 @@ const passport = require("passport");
 const LocalStrategy = require("./localStrategy");
 const db = require("../models");
 
-passport.serializeUser((careTaker, done) => {
+passport.serializeUser((caretaker, done) => {
 	console.log('=== serialize ... called ===')
-	console.log(db.Caretaker) // the whole raw user object!
-	console.log('---------')
-	done(null, { _id: db.Caretaker._id })
+	done(null, { _id: caretaker._id })
 })
 
 passport.deserializeUser((id, done) => {
