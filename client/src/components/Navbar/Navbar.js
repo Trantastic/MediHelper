@@ -46,9 +46,6 @@ const Navbar = props => {
         <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div className="navbar-nav">
             <li className="nav-item">
-              <Link className="nav-link" to="/signup">Register</Link>
-            </li>
-            <li className="nav-item">
               <Link className="nav-link" to="/">Login</Link>
             </li>
           </div>

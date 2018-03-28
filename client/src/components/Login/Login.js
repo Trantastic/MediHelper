@@ -38,14 +38,13 @@ class Login extends Component {
 			return (
 				<div className="container">
 					<div className="card bg-light mt-5 loginCard">
-		  			<div className="card-header">Login</div>
-		  				<div className="card-body">
+		  			<div className="card-header loginHeader text-white text-center">Login</div>
+		  				<div className="card-body loginBody">
 								<form className="LoginForm">
-									<label htmlFor="username">Username</label><br />
-										<input id="loginInput" type="text" name="username" value={this.state.username} onChange={this.handleChange} /><br />
-									<label htmlFor="password">Password</label><br />
-										<input id="loginInput" type="password" name="password" value={this.state.password} onChange={this.handleChange}/><br /><br />
-										<button type="submit" onClick={this.handleSubmit} className="btn btn-primary">Login</button>
+									<input id="loginInput" type="text" name="username" value={this.state.username} onChange={this.handleChange} placeholder="username"/><br />
+									<input id="loginInput" type="password" name="password" value={this.state.password} onChange={this.handleChange} placeholder="password" /><br /><br />
+									<button type="submit" onClick={this.handleSubmit} className="btn text-white loginBtn">Submit</button>
+									<p className="text-center mt-4">Don't have an account? <a href="/signup">Register here!</a> </p>
 								</form>
 							</div>
 					</div>
