@@ -2,6 +2,10 @@ const db = require("../models");
 
 module.exports = {
 	create: function(req, res) {
-		db.Patient.create(req.body).catch(err => res.status(422).json(err));
+		console.log("Controller ", req.body);
+		db.Patient
+		.create(req.body)
+		.then(dbModel => console.log("controller dbmodel: ", dbModel))
+		.catch(err => res.status(422).json(err));
 	}
 };

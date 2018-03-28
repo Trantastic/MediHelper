@@ -26,6 +26,7 @@ class PatientInputForm extends Component {
     contactNumb: ""
   };
 
+// When user submits form, sends values to backend
 handleFormSubmit = event => {
   event.preventDefault();
 
@@ -37,19 +38,19 @@ handleFormSubmit = event => {
     city: this.state.city,
     state: this.state.state,
     zip: this.state.zip,
-    preferredLanguage: this.state.language,
+    preferredLanguage: this.state.preferredLanguage,
     medicalCond: this.state.medicalCond,
     medication: this.state.medication,
     allergies: this.state.allergies,
     notes: this.state.notes,
     primaryCareName: this.state.primaryCareName,
-    primaryCareNumber: this.state.primaryCareNumber,
+    primaryCareNumber: this.state.primaryCareNumb,
     contactFirstName: this.state.contactFirstName,
     contactLastName: this.state.contactLastName,
     contactRelationship: this.state.contactRelationship,
     contactNumb: this.state.contactNumb
   })
-    .catch(err => console.log(err));
+    .catch(err => console.log("inputform: ", err.response));
 };
 
 handleInputChange = event => {
