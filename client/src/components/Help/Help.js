@@ -2,7 +2,7 @@ import React from "react";
 const mongoose = require("mongoose");
 const express = require("express");
 
-const app = espress();
+const app = express();
 
 //Variable to hold the phone number texted for assistence
 let caretakerPhone = "";
@@ -16,22 +16,23 @@ class Help extends React.Component {
 		helpNumber: ""
 	};
 
-	componentDidMount = () => {
-		//HOW DO I ACCESS THE USER HERRRRREEEEE???
-		db.Caretaker.find({ req.user.username })
-		.then(function(dbCaretaker)	{
-			res.json(dbCaretaker.phoneNum);
-			caretakerPhone = dbCaretaker.phoneNum;
-		})
-		.catch(function(err)	{
-			res.json(err);
-		});
-		//Add "+1" to the beginning of the res.Caretaker.phoneNum
-		caretakerPhone = "+1" + caretakerPhone;
-		console.log(caretakerPhone);
-		this.setState({ helpNumber: caretakerPhone });
-		});
-	};
+	// componentDidMount = () => {
+	// 	//HOW DO I ACCESS THE USER HERRRRREEEEE???
+	// 	db.Caretaker.find({ req.user.username })
+	// 	.then(function(dbCaretaker)	{
+	// 		res.json(dbCaretaker.phoneNum);
+	// 		caretakerPhone = dbCaretaker.phoneNum;
+	// 	})
+	// 	.catch(function(err)	{
+	// 		res.json(err);
+	// 	});
+	// 	//Add "+1" to the beginning of the res.Caretaker.phoneNum
+	// 	caretakerPhone = "+1" + caretakerPhone;
+	// 	console.log(caretakerPhone);
+	// 	this.setState({ helpNumber: caretakerPhone });
+	// 	});
+	// 	//The above ) mat be an uneccessary token
+	// };
 
 	getHelp = () => {
 		
