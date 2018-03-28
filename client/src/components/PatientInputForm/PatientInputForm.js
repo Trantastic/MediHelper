@@ -3,15 +3,15 @@ import "./PatientInputForm.css";
 
 const PatientInputForm = () => (
   <div className="container mt-5 mb-5">
-  	<div className="card border-secondary mb-3">
-      <div className="card-header"><h2>Patient Infomation Form</h2></div>
+  	<div className="card mb-3">
+      <div className="card-header text-white text-center p-4 patientHeader"><h2>Patient Infomation Form</h2></div>
         <div className="card-body text-secondary">
 
   		    <form>
             <div className="row">
               <div className="col-md-6">
               <label forhtml="firstName">First Name</label>
-                <input type="text" className="form-control" id="firstName" />
+                <input type="text" className="form-control mb-3" id="firstName" />
               </div>
               <div className="col-md-6">
                 <label forhtml="lastName">Last Name</label>
@@ -123,7 +123,7 @@ const PatientInputForm = () => (
               <input type="text" className="form-control" id="notes" />
             </div>
 
-            <h3>Primary Care Physician</h3>
+            <h3 className="text-dark pt-3 pb-3">Primary Care Physician</h3>
             <div className="form-row mt-4">
               <div className="form-group col-md-6">
 
@@ -137,7 +137,7 @@ const PatientInputForm = () => (
         	    </div>
             </div>  
 
-            <h3>Emergency Contact</h3>
+            <h3 className="text-dark pt-3 pb-3">Emergency Contact</h3>
             <div className="form-row mt-4"> 
         	    <div className="form-group col-md-6">
        			    <label forhtml="contactFirstName">First Name</label>
@@ -162,7 +162,7 @@ const PatientInputForm = () => (
         	    </div>
             </div>  
         
-    		    <button type="submit" className="btn btn-primary">Submit</button>
+    		    <button type="submit" className="btn text-white patientBtn">Submit</button>
   		    </form>
       </div>
     </div>
