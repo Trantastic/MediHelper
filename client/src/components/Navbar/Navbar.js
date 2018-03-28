@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom';
 import './Navbar.css';
 
 const Navbar = props => {
-
+// shows the navbar if a user is logged in
   if (props.loggedIn) {
     return (
     <div>
@@ -34,6 +34,7 @@ const Navbar = props => {
       </nav>
     </div> 
     )
+  // if not logged in it shows the register and login navbar  
   } else {
     return (
      <div>
@@ -45,7 +46,7 @@ const Navbar = props => {
         <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div className="navbar-nav">
             <li className="nav-item">
-              <Link className="nav-link" to="/signup">Resgister</Link>
+              <Link className="nav-link" to="/signup">Register</Link>
             </li>
             <li className="nav-item">
               <Link className="nav-link" to="/login">Login</Link>

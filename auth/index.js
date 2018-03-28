@@ -12,12 +12,13 @@ router.get('/user', (req, res, next) => {
 	}
 });
 
+// grabs user data and authenticate the login in  
 router.post("/login", function(req, res, next) {
 		next()
 	},
 	passport.authenticate("local"), (req, res) => {
-		console.log("POST to /login")
-		const Caretaker = JSON.parse(JSON.stringify(req.user)); // hack
+
+		const Caretaker = JSON.parse(JSON.stringify(req.user));
 		const cleanCaretaker = Object.assign({}, Caretaker)
 		if (cleanCaretaker.local) {
 			delete cleanCaretaker.local.password
@@ -26,16 +27,18 @@ router.post("/login", function(req, res, next) {
 	}
 );
 
+// destroys the user session and logs them out
 router.post("/logout", (req, res) => {
 	if (req.user) {
 		req.session.destroy();
-		res.clearCookie('connect.sid'); // clean up!
+		res.clearCookie('connect.sid'); // clears the cookie
 		return res.json({ msg: 'logging you out' });
 	} else {
 		return res.json({ msg: 'no caretaker to log out!' });
 	}
 });
 
+// creates the user and saves the users input to the database
 router.post("/signup", (req, res) => {
 	db.Caretaker.create({
 		"local.username": req.body.username,

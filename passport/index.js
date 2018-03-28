@@ -2,11 +2,13 @@ const passport = require("passport");
 const LocalStrategy = require("./localStrategy");
 const db = require("../models");
 
+// Determines which data of the user object should be stored in the session.
 passport.serializeUser((caretaker, done) => {
 	console.log('=== serialize ... called ===')
 	done(null, { _id: caretaker._id })
 })
 
+// Grabs the id from the user key stored 
 passport.deserializeUser((id, done) => {
 	console.log('Deserialize ... called')
 	console.log();

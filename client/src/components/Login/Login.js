@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
 class Login extends Component {
-
+// setting the state
 	constructor() {
 		super()
 		this.state = {
@@ -13,13 +13,13 @@ class Login extends Component {
 		this.handleSubmit = this.handleSubmit.bind(this)
 		this.handleChange = this.handleChange.bind(this)
 	};
-
+	// changes the value as it's being type in
 	handleChange(event) {
 		this.setState({
 			[event.target.name]: event.target.value
 		});
 	};                                 
-
+	// this happens when user logs in -- it redirects them to dashboard if there credentials are true
 	handleSubmit(event) {
 		event.preventDefault()
 		

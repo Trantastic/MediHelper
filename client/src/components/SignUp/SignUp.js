@@ -3,6 +3,7 @@ import axios from "axios";
 import { Redirect } from "react-router-dom";
 
 class SignUp extends Component {
+	// setting the state
 	constructor() {
 		super()
 		this.state = {
@@ -15,13 +16,13 @@ class SignUp extends Component {
 		this.handleSubmit = this.handleSubmit.bind(this)
 		this.handleChange = this.handleChange.bind(this)
 	};
-
+	// changes the value as it's being type in
 	handleChange(event) {
 		this.setState({
 			[event.target.name]: event.target.value
 		});
 	};
-
+	// this happens when user signs up grabs input, stores is and redirects to login for authentication 
 	handleSubmit(event) {
 		event.preventDefault();
 
