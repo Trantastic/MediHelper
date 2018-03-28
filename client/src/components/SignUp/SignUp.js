@@ -57,18 +57,14 @@ class SignUp extends Component {
 				<div className="row">
 					<div className="col-md-12">
 						<div className="card bg-light mt-5 signupCard">
-			  			<div className="card-header">Register</div>
-			  				<div className="card-body">
+			  			<div className="card-header text-white text-center signupHeader">Register</div>
+			  				<div className="card-body signupBody">
 									<form className="SignupForm">
-										<label htmlFor="username">Username</label><br />
-											<input id="signupInput" type="text" name="username" value={this.state.username} onChange={this.handleChange} /><br />
-										<label htmlFor="phoneNumb">Phone Number</label><br />
-											<input id="signupInput" type="text" name="phoneNumb" value={this.state.phoneNumb} onChange={this.handleChange} /><br />
-										<label htmlFor="password">Password</label><br />
-											<input id="signupInput" type="password" name="password" value={this.state.password} onChange={this.handleChange}	/><br />
-										<label htmlFor="confirmPassword">Confirm Password</label><br />
-											<input id="signupInput" type="password" name="confirmPassword" value={this.state.confirmPassword} onChange={this.handleChange}/><br /><br />
-											<button type="submit" onClick={this.handleSubmit} className="btn btn-primary signupBtn">Submit</button>	
+										<input className="mb-2 signupInput" type="text" name="username" value={this.state.username} onChange={this.handleChange} placeholder="username" /><br />
+										<input className="mb-2 signupInput" type="text" name="phoneNumb" value={this.state.phoneNumb} onChange={this.handleChange} placeholder="phoneNumb" /><br />
+										<input className="mb-2 signupInput" type="password" name="password" value={this.state.password} onChange={this.handleChange} placeholder="password" /><br />
+										<input className="signupInput" type="password" name="confirmPassword" value={this.state.confirmPassword} onChange={this.handleChange} placeholder="confirmPassword" /><br /><br />
+										<button type="submit" onClick={this.handleSubmit} className="btn text-white signupBtn">Submit</button>	
 									</form>
 			  				</div>
 						</div>
