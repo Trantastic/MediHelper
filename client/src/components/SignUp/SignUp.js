@@ -1,45 +1,50 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { Redirect } from "react-router-dom";
+import "./SignUp.css";
 
 class SignUp extends Component {
+	// setting the state
 	constructor() {
 		super()
 		this.state = {
-			username: '',
-			password: '',
-			confirmPassword: '',
+			username: "",
+			phoneNumb: "",
+			password: "",
+			confirmPassword: "",
 			redirectTo: null
 		}
 		this.handleSubmit = this.handleSubmit.bind(this)
 		this.handleChange = this.handleChange.bind(this)
 	};
-
+	// changes the value as it's being type in
 	handleChange(event) {
 		this.setState({
 			[event.target.name]: event.target.value
 		});
 	};
-
+	// this happens when user signs up grabs input, stores is and redirects to login for authentication 
 	handleSubmit(event) {
-		event.preventDefault()
-		// TODO - validate!
-		axios
-			.post('/auth/signup', {
+		event.preventDefault();
+
+		axios.post("/auth/signup", {
 				username: this.state.username,
+				phoneNumb: this.state.phoneNumb,
 				password: this.state.password
 			}).then(response => {
 				console.log(response)
 
 				if (!response.data.errmsg) {
-					console.log('youre good')
 					this.setState({
-						redirectTo: '/login'
+						redirectTo: "/login"
 					});
 				} else {
-					console.log('duplicate')
+					console.log("duplicate")
 				}
-			});
+			}).catch(err => {
+        console.log(err.response)
+      });
+      
 	};
 
 	render() {
@@ -48,20 +53,18 @@ class SignUp extends Component {
 		}
 
 		return (
-			<div>
+			<div className="container">
 				<div className="row">
 					<div className="col-md-12">
-						<div className="card bg-light mb-3 container">
-			  			<div className="card-header">Register</div>
-			  				<div className="card-body">
+						<div className="card bg-light mt-5 signupCard">
+			  			<div className="card-header text-white text-center signupHeader">Register</div>
+			  				<div className="card-body signupBody">
 									<form className="SignupForm">
-										<label htmlFor="username">Username</label><br />
-											<input type="text" name="username" value={this.state.username} onChange={this.handleChange} /><br />
-										<label htmlFor="password">Password</label><br />
-											<input type="password" name="password" value={this.state.password} onChange={this.handleChange}	/><br />
-										<label htmlFor="confirmPassword">Confirm Password</label><br />
-											<input type="password" name="confirmPassword" value={this.state.confirmPassword} onChange={this.handleChange}/><br />
-											<button type="submit" onClick={this.handleSubmit} className="btn btn-primary signupBtn">Submit</button>	
+										<input className="mb-2 signupInput" type="text" name="username" value={this.state.username} onChange={this.handleChange} placeholder="username" /><br />
+										<input className="mb-2 signupInput" type="text" name="phoneNumb" value={this.state.phoneNumb} onChange={this.handleChange} placeholder="phoneNumb" /><br />
+										<input className="mb-2 signupInput" type="password" name="password" value={this.state.password} onChange={this.handleChange} placeholder="password" /><br />
+										<input className="signupInput" type="password" name="confirmPassword" value={this.state.confirmPassword} onChange={this.handleChange} placeholder="confirmPassword" /><br /><br />
+										<button type="submit" onClick={this.handleSubmit} className="btn text-white signupBtn">Submit</button>	
 									</form>
 			  				</div>
 						</div>

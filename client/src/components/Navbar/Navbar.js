@@ -1,17 +1,14 @@
-// NEED TO ADD CORRECT ROUTES TO NAVBAR BUTTONS
 import React from 'react';
 import {Link} from 'react-router-dom';
-import SignUp from "../SignUp"
-import Login from "../Login"
 import './Navbar.css';
 
 const Navbar = props => {
-
+// shows the navbar if a user is logged in
   if (props.loggedIn) {
     return (
-    <div className="container-fluid">
-      <nav className="navbar navbar-expand-lg navbar-light bg-light">
-        <a className="navbar-brand" href="#">MediHelp</a>
+    <div>
+      <nav className="navbar navbar-expand-sm navbar-light loginNav p-3">
+        <a className="navbar-brand" href="/dashboard">MediHelp</a>
         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
         </button>
@@ -30,17 +27,30 @@ const Navbar = props => {
               <Link className="nav-link" to="#">Pharmacy</Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/">Log Out</Link>
+              <Link className="nav-link" to="/login" onClick={props._logout}>Log Out</Link>
             </li>
           </div>
         </div>
       </nav>
     </div> 
     )
+  // if not logged in it shows the register and login navbar  
   } else {
     return (
-    <div>
-      
+     <div>
+      <nav className="navbar navbar-expand-sm navbar-light loggedOutNav p-3">
+        <a className="navbar-brand" href="#">MediHelp</a>
+        <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span className="navbar-toggler-icon"></span>
+        </button>
+        <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div className="navbar-nav loginLink">
+            <li className="nav-item mr-auto">
+              <Link className="nav-link" to="/">Login</Link>
+            </li>
+          </div>
+        </div>
+      </nav>
     </div>
     )
   } 

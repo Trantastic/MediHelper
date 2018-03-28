@@ -1,0 +1,8 @@
+.patientHeader, .patientBtn {
+	background-color: #778899;
+	font-family: 'Asar', serif;
+}
+
+.patientBtn {
+	width: 100%;
+}
