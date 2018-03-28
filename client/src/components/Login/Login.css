@@ -1,0 +1,28 @@
+.loginInput {
+	width: 100%;
+	border-radius: 25px;
+	padding: 10px;
+}
+
+.loginCard {
+	width: 60%;
+	margin: auto;
+}
+
+.loginHeader, .loginBtn {
+	background-color: #778899;
+	font-family: 'Asar', serif;
+}
+
+.loginHeader {
+	padding-top: 100px;
+	font-size: 35px;
+}
+
+.loginBody {
+	background-color: #F5F5F5;
+}
+
+.loginBtn {
+	width: 100%;
+}
