@@ -1,4 +1,4 @@
-import React, { Component }from "react";
+import React, { Component } from "react";
 import axios from "axios";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Help from "./components/Help";
@@ -8,6 +8,7 @@ import MedicalServices from "./components/MedicalServices";
 import AssessmentButton from "./components/AssessmentButton";
 import "./App.css";
 import Navbar from "./components/Navbar";
+import PatientProfile from './components/PatientProfile';
 import SignUp from "./components/SignUp";
 import Login from "./components/Login";
 
@@ -87,5 +88,5 @@ class App extends Component {
     )
   }
 }
-  
+
 export default App;

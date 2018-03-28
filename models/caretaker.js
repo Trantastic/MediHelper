@@ -17,7 +17,6 @@ const caretakerSchema = new Schema({
 	}
 });
 
-
 caretakerSchema.methods = {
 	checkPassword: function(inputPassword) {
 		return bcrypt.compareSync(inputPassword, this.local.password);

@@ -1,11 +1,6 @@
-import React, {Component} from 'react';
-import {PatientDropDown, DropDownList} from '../PatientDropDown';
-import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
-
-// import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-
-// import React from "react";
-import AssessmentButton from '../AssessmentButton';
+import React, { Component } from 'react';
+import { PatientDropDown, DropDownList } from '../PatientDropDown';
+import PatientProfile from '../PatientProfile';
 // import calendar component
 
 class Dashboard extends Component {
@@ -32,17 +27,17 @@ class Dashboard extends Component {
 	// 		.catch(error => console.log(error));
 	// };
 
-	render(){
-		return(
+	render() {
+		return (
 			<div>
-
-				 {/*<Calendar />*/}
+				{/*<Calendar />*/}
 				<PatientDropDown>
 					{this.state.patient.map(patients => {
 						return (
 							<DropDownList
 								key={patients.id}
 								name={patients}
+								key={patients}
 								/*patientId: {patients.id}*/
 							/>
 						);
