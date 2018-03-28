@@ -3,40 +3,40 @@ import "./PatientInputForm.css";
 
 const PatientInputForm = () => (
   <div className="container mt-5 mb-5">
-  	<div className="card mb-3">
-      <div className="card-header text-white text-center p-4 patientHeader"><h2>Patient Infomation Form</h2></div>
+  	<div className="card border-secondary mb-3">
+      <div className="card-header"><h2>Patient Infomation Form</h2></div>
         <div className="card-body text-secondary">
 
   		    <form>
             <div className="row">
               <div className="col-md-6">
-              <label forhtml="firstName">First Name</label>
-                <input type="text" className="form-control mb-3" id="firstName" />
+              <label for="firstName">First Name</label>
+                <input type="text" className="form-control" id="firstName" />
               </div>
               <div className="col-md-6">
-                <label forhtml="lastName">Last Name</label>
+                <label for="lastName">Last Name</label>
                 <input type="text" className="form-control" id="lastName" />
               </div>
             </div>
 
             <div className="form-group">
-              <label forhtml="address">Address</label>
+              <label for="address">Address</label>
               <input type="text" className="form-control" id="address" placeholder="1234 Main St" />
             </div>
 
             <div className="form-group">
-              <label forhtml="address2">Address 2</label>
+              <label for="address2">Address 2</label>
               <input type="text" className="form-control" id="address2" placeholder="Apartment, studio, or floor" />
             </div>
 
             <div className="form-row">
               <div className="form-group col-md-6">
-                <label forhtml="city">City</label>
+                <label for="city">City</label>
                 <input type="text" className="form-control" id="city" />
               </div>
 
               <div className="form-group col-md-4">
-                <label forhtml="state">State</label>
+                <label for="state">State</label>
                 <select id="state" className="form-control">
                   <option selected>Choose...</option>
                   <option value="AK">Alaska</option>
@@ -93,76 +93,76 @@ const PatientInputForm = () => (
               </div>
 
               <div className="form-group col-md-2">
-                <label forhtml="zip">Zip</label>
+                <label for="zip">Zip</label>
                 <input type="text" className="form-control" id="zip" />
               </div>
             </div>
 
             <div className="form-group">
-              <label forhtml="language">Preferred Language</label>
+              <label for="language">Preferred Language</label>
               <input type="text" className="form-control" id="preferredLanguage" />
             </div>
 
             <div className="form-group">
-              <label forhtml="medicalCond">Medical Condition(s)</label>
+              <label for="medicalCond">Medical Condition(s)</label>
               <input type="text" className="form-control" id="medicalCond" />
             </div>
 
             <div className="form-group">
-              <label forhtml="medication">Medication(s)</label>
+              <label for="medication">Medication(s)</label>
               <input type="text" className="form-control" id="medication" />
             </div>
 
             <div className="form-group">
-              <label forhtml="allergies">Allergies</label>
+              <label for="allergies">Allergies</label>
               <input type="text" className="form-control" id="allergies" placeholder="Foods, Medications, Other" />
             </div>
 
             <div className="form-group">
-              <label forhtml="notes">Notes</label>
+              <label for="notes">Notes</label>
               <input type="text" className="form-control" id="notes" />
             </div>
 
-            <h3 className="text-dark pt-3 pb-3">Primary Care Physician</h3>
+            <h3>Primary Care Physician</h3>
             <div className="form-row mt-4">
               <div className="form-group col-md-6">
 
-       		      <label forhtml="primaryCareName">Physician Name</label>
+       		      <label for="primaryCareName">Physician Name</label>
         	   	  <input type="text" className="form-control" id="primaryCareName" />
               </div>
               
               <div className="form-group col-md-6"> 
-                <label forhtml="primaryCareNumb">Physician Phone Number</label>
+                <label for="primaryCareNumber">Physician Phone Number</label> 
         		    <input type="text" className="form-control" id="primaryCareNumb" />
         	    </div>
             </div>  
 
-            <h3 className="text-dark pt-3 pb-3">Emergency Contact</h3>
+            <h3>Emergency Contact</h3>
             <div className="form-row mt-4"> 
         	    <div className="form-group col-md-6">
-       			    <label forhtml="contactFirstName">First Name</label>
+       			    <label for="contactFirstName">First Name</label>
         		    <input type="text" className="form-control" id="contactFirstName" />
               </div>
                 
               <div className="form-group col-md-6">
-                <label forhtml="contactLastName">Last Name</label>  
+                <label for="contactLastName">Last Name</label>  
         		    <input type="text" className="form-control" id="contactLastName" />
               </div>
             </div>
 
             <div className="form-row">
               <div className="form-group col-md-6"> 
-                <label forhtml="contactRelationship">Relationship</label>    
+                <label for="contactRelationship">Relationship</label>    
                 <input type="text" className="form-control" id="contactRelationship" />
               </div>
               
               <div className="form-group col-md-6">  
-                <label forhtml="contactNumb">Phone Number</label>    
+                <label for="contactNumb">Phone Number</label>    
         		    <input type="text" className="form-control" id="contactNumb" />
         	    </div>
             </div>  
         
-    		    <button type="submit" className="btn text-white patientBtn">Submit</button>
+    		    <button type="submit" className="btn btn-primary">Submit</button>
   		    </form>
       </div>
     </div>

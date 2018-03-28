@@ -33,7 +33,7 @@ class AssessmentForm extends Component {
   render() {
     return (
      <div id="header">
-          <img src={image} className="pain-scale" alt="pain chart" />
+          <img src={image} className="pain-scale" alt="image" />
 
         <form>
 
