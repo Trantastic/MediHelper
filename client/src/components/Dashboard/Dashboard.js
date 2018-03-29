@@ -43,7 +43,6 @@ class Dashboard extends Component {
 						);
 					})}		
 				</PatientDropDown>
-				<button className="assessmentbtn"><Link to="/dashboard/assessment">Assessment Form</Link></button>
 			</div>
 		);
 	}
