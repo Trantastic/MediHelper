@@ -4,8 +4,8 @@ import "./Login.css";
 
 class Login extends Component {
 // setting the state
-	constructor() {
-		super()
+	constructor(props) {
+		super(props)
 		this.state = {
 			username: '',
 			password: '',
@@ -15,20 +15,24 @@ class Login extends Component {
 		this.handleSubmit = this.handleSubmit.bind(this)
 		this.handleChange = this.handleChange.bind(this)
 	};
+
 	// changes the value as it's being type in
 	handleChange(event) {
-		this.setState({
-			[event.target.name]: event.target.value
-		});
-	};                                 
+    const name = event.target.name;
+    const value = event.target.value;
+    this.setState({[name]: value});
+  };   
+
 	// this happens when user logs in -- it redirects them to dashboard if there credentials are true
 	handleSubmit(event) {
 		event.preventDefault()
-		
+
 		this.props._login(this.state.username, this.state.password)
-		this.setState({
-			redirectTo: "/dashboard"
-		});
+		if (this.state.username && this.state.password) {
+			this.setState({
+				redirectTo: "/dashboard"
+			});
+		}
 	};
 
 	render() {

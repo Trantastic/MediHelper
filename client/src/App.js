@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { BrowserRouter as Router, Route } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import Help from "./components/Help";
 import Dashboard from "./components/Dashboard";
 import PatientInputForm from "./components/PatientInputForm";
@@ -17,10 +18,12 @@ class App extends Component {
     super()
     this.state = {
       loggedIn: false,
-      caretaker: null
+      caretaker: null,
+      errorMsg: "",
+      redirectTo: null
     };
-    this._logout = this._logout.bind(this)
-    this._login = this._login.bind(this)
+    this._logout = this._logout.bind(this);
+    this._login = this._login.bind(this);
   };
 
   componentDidMount() {
@@ -39,22 +42,20 @@ class App extends Component {
     });
   };
 
-  _logout(event) {
-    event.preventDefault();
-
+  _logout() {
     axios.post('/auth/logout').then(response => {
       console.log(response.data)
       if (response.status === 200) {
         this.setState({
           loggedIn: false,
-          caretaker: null
+          caretaker: null,
+          redirectTo: "/"
         });
       }
     });
   };
 
  _login(username, password) {
-    console.log(username, password)
     axios.post('/auth/login', {
         username,
         password
@@ -65,24 +66,26 @@ class App extends Component {
             loggedIn: true,
             caretaker: response.data.caretaker
           });
-        }
+        } 
       }).catch(err => {
-        console.log(err.response)
+        this.setState({
+            errorMsg: "username and/or password is invalid"
+          });
+        console.log(this.state.errorMsg);
       });
   };
 
   render() {
+
     return (
       <Router>
         <div>
           <Navbar _logout={this._logout} loggedIn={this.state.loggedIn} />
           <Route exact path="/" render={() => <Login _login={this._login} />} />
           <Route exact path="/signup" component={SignUp} />
-          <Route exact path="/help" component={Help} />
           <Route exact path="/dashboard" render={() => <Dashboard caretaker={this.state.caretaker} />} />
           <Route exact path="/dashboard/assessment" component={AssessmentButton} />
           <Route exact path="/patientform" component={PatientInputForm} />
-          <Route exact path="/medicalservices" component={MedicalServices} />
         </div>
       </Router>  
     )
