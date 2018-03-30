@@ -37,12 +37,12 @@ class Help extends React.Component {
     			'Content-Type': 'application/JSON'
       		},
       		//how to get message and caretaker's phone number in there???
-      		body: JSON.stringify({ data: "+18314356776" })
+      		body: JSON.stringify({ data: +18314356776 })
     	})
-    	// .then(resp => resp.json())
-    	// .then(resp => {
-     //  		console.log(resp)
-    	// })
+    	.then(resp => resp.json())
+    	.then(resp => {
+      		console.log(resp)
+    	})
 	}
 
 	render() {
