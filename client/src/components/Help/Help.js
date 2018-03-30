@@ -3,30 +3,24 @@ import 'whatwg-fetch';
 
 
 let caretaker = "";
-// console.log(caretaker);
-console.log(this.state);
+console.log("1" + caretaker);
+
+let helpNumber = "";
 
 class Help extends React.Component {
   	constructor(props) {
     	super(props);
     	this.state = {
-    		caretaker: this.props.caretaker
+    		caretaker: null
     	};
-    	console.log(caretaker);
+    	console.log("2" + this.props.caretaker);
+    	console.log("3" + this.props);
   	}
 
 	componentDidMount = () => {
-		this.setState({caretaker: this.props.caretaker});
-		console.log("This is happening");
-		caretaker = this.props.caretaker;
-		console.log(caretaker);
-		// caretakerPhone = this.props.caretaker.phoneNum
-		// console.log(this.props.caretaker.phoneNum);
-
-		// caretakerPhone = "+1" + caretakerPhone;
-		// console.log(caretakerPhone);
-
-		this.setState({ helpNumber: this.props.caretakerPhone });
+		console.log("4 This is happening");
+		// helpNumber = "+1" + this.props.caretaker.phoneNumb;
+		console.log("5" + helpNumber);
 	};
 
 	getHelp = () =>	{
@@ -41,13 +35,20 @@ class Help extends React.Component {
     	})
     	.then(resp => resp.json())
     	.then(resp => {
-      		console.log(resp)
+      		console.log("6" + resp)
     	})
+	}
+
+	asyncSolver = () => {
+		if (this.props.caretaker != null && this.state.caretaker === null){
+			this.setState({caretaker: this.props.caretaker});
+		}
 	}
 
 	render() {
 		return (
 			<div className="help-button-div">
+			{this.asyncSolver()}
 				<h1>Home Page</h1>
 				<button type="button" className="help-button btn-danger btn-block" onClick={ this.getHelp.bind(this) }>Help</button>
 			</div>
