@@ -18,9 +18,9 @@ class Login extends Component {
 
 	// changes the value as it's being type in
 	handleChange(event) {
-    const name = event.target.name;
-    const value = event.target.value;
-    this.setState({[name]: value});
+    this.setState({
+    	[event.target.name]: event.target.value
+    });
   };   
 
 	// this happens when user logs in -- it redirects them to dashboard if there credentials are true
@@ -33,6 +33,9 @@ class Login extends Component {
 				redirectTo: "/dashboard"
 			});
 		}
+		debugger;
+		console.log(this.props.errorMsg)
+		console.log(this.props.loggedIn)
 	};
 
 	render() {

@@ -66,7 +66,12 @@ class App extends Component {
             loggedIn: true,
             caretaker: response.data.caretaker
           });
-        } 
+        } else {
+          this.setState({
+            loggedIn: false,
+            caretaker: null
+          });
+        }
       }).catch(err => {
         this.setState({
             errorMsg: "username and/or password is invalid"
