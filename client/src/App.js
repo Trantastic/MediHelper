@@ -11,7 +11,7 @@ import Navbar from "./components/Navbar";
 import PatientProfile from './components/PatientProfile';
 import SignUp from "./components/SignUp";
 import Login from "./components/Login";
-import Calendar from "./components/Calendar";
+
 
 class App extends Component {
   constructor() {
