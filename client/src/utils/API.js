@@ -7,6 +7,11 @@ export default {
 	},
 	getPatients: function(patients) {
 		return axios.get("/api/patient", patients);
+	},
+	deletePatient: function(id) {
+		return axios.delete("/api/patient/" + id);
+		console.log("API", id);
 	}
+
 
 };

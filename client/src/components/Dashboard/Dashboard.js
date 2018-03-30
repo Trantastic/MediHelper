@@ -5,7 +5,7 @@ import API from "../../utils/API";
 import { caretaker } from "../../App";
 // import calendar component
 
-console.log(this.props.caretaker);
+// console.log(this.props.caretaker);
 
 class Dashboard extends Component {
 
@@ -30,6 +30,7 @@ class Dashboard extends Component {
 			)
 			.catch(error => console.log(error));
 	};
+
 
 	render() {
 		return (

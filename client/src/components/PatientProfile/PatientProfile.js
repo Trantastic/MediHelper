@@ -1,8 +1,15 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Link, Route } from 'react-router-dom';
 import AssessmentButton from "../AssessmentButton";
 import Dashboard from "../Dashboard";
 import './PatientProfile.css';
+import API from "../../utils/API";
+
+// function delete() {
+// 		API.deletePatient("5abbf6863c2494375f13caff")
+// 			.then(res => console.log("deletePatient ", res.data))
+// 			.catch(err => console.log(err)); 
+// 	};
 
 const PatientProfile = props => (
 	<div>
@@ -38,6 +45,7 @@ const PatientProfile = props => (
 			    	<td>Phone: </td>
 			    </tr>
 			</tbody>
+			<button type="submit" className="btn btn-primary" onClick={this.delete}>Delete</button>	
 		</table>
 		<Route exact path="/dashboard" component={Dashboard} />
 	</div>

@@ -6,4 +6,7 @@ router.route("/api/patient")
 	.post(caretakerController.create)
 	.get(caretakerController.findAll);
 
+router.route("api/patient/:id")
+	.delete(caretakerController.remove);	
+
 module.exports = router;
