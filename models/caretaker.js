@@ -3,6 +3,7 @@ const Schema = mongoose.Schema;
 const bcrypt = require("bcryptjs");
 
 const caretakerSchema = new Schema({
+	_id: Schema.Types.ObjectId,
 	username: {type: String, unique: true, required: true},
 	password: {type: String, required: true},
 	phoneNumb: {type: String, required: true},
@@ -37,5 +38,11 @@ caretakerSchema.pre("save", function(next) {
 });
 
 const Caretaker = mongoose.model("Caretaker", caretakerSchema);
+
+Caretaker.findOne({_id: 123})
+.populate('patient')
+.exec(function(err, caretaker) {
+    console.log(JSON.stringify(caretakers, null, "\t"))
+});
 
 module.exports = Caretaker;
