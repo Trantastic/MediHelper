@@ -14,8 +14,8 @@ import SignUp from "./components/SignUp";
 import Login from "./components/Login";
 
 class App extends Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
     this.state = {
       loggedIn: false,
       caretaker: null,
@@ -64,18 +64,11 @@ class App extends Component {
           // update the state
           this.setState({
             loggedIn: true,
-            caretaker: response.data.caretaker
-          });
-        } else {
-          this.setState({
-            loggedIn: false,
-            caretaker: null
+            caretaker: response.data.caretaker,
+            redirectTo: "/dashboard"
           });
         }
       }).catch(err => {
-        this.setState({
-            errorMsg: "username and/or password is invalid"
-          });
         console.log(this.state.errorMsg);
       });
   };
@@ -86,7 +79,7 @@ class App extends Component {
       <Router>
         <div>
           <Navbar _logout={this._logout} loggedIn={this.state.loggedIn} />
-          <Route exact path="/" render={() => <Login _login={this._login} />} />
+          <Route exact path="/" render={() => <Login _login={this._login} loggedIn={this.state.loggedIn}/>} />
           <Route exact path="/signup" component={SignUp} />
           <Route exact path="/dashboard" render={() => <Dashboard caretaker={this.state.caretaker} />} />
           <Route exact path="/dashboard/assessment" component={AssessmentButton} />
