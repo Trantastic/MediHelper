@@ -11,6 +11,7 @@ class SignUp extends Component {
 			username: "",
 			phoneNumb: "",
 			password: "",
+			usernameErr: "",
 			confirmPassword: "",
 			redirectTo: null
 		}
@@ -34,6 +35,13 @@ class SignUp extends Component {
 			}).then(response => {
 				console.log(response)
 
+				if (this.state.username === "") {
+
+      		this.setState({
+						usernameErr: "username is required"
+					});
+      	}
+
 				if (!response.data.errmsg) {
 					this.setState({
 						redirectTo: "/"
@@ -44,7 +52,6 @@ class SignUp extends Component {
 			}).catch(err => {
         console.log(err.response)
       });
-      
 	};
 
 	render() {
@@ -60,6 +67,7 @@ class SignUp extends Component {
 			  			<div className="card-header text-white text-center signupHeader">Register</div>
 			  				<div className="card-body signupBody">
 									<form className="SignupForm">
+									<div className="usernameErr">{this.state.username}</div>
 										<input className="mb-2 signupInput" type="text" name="username" value={this.state.username} onChange={this.handleChange} placeholder="username" /><br />
 										<input className="mb-2 signupInput" type="text" name="phoneNumb" value={this.state.phoneNumb} onChange={this.handleChange} placeholder="phone number" /><br />
 										<input className="mb-2 signupInput" type="password" name="password" value={this.state.password} onChange={this.handleChange} placeholder="password" /><br />

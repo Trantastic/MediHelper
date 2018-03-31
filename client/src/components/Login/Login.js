@@ -7,8 +7,8 @@ class Login extends Component {
 	constructor(props) {
 		super(props)
 		this.state = {
-			username: '',
-			password: '',
+			username: "",
+			password: "",
 			errorMsg: "",
 			redirectTo: null
 		};
@@ -29,16 +29,16 @@ class Login extends Component {
 		event.preventDefault()
 
 		this.props._login(this.state.username, this.state.password);
+		
 		if (this.props.loggedIn === true) {
 			this.setState({
 				redirectTo: "/dashboard"
-			});
+			}); 	
 		} else {
 			this.setState({
 				errorMsg: "username and/or password is invalid"
 			});
 		}
-		console.log(this.props);
 	};
 
 	render() {

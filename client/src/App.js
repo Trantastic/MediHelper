@@ -14,12 +14,11 @@ import SignUp from "./components/SignUp";
 import Login from "./components/Login";
 
 class App extends Component {
-  constructor(props) {
-    super(props)
+  constructor() {
+    super()
     this.state = {
       loggedIn: false,
       caretaker: null,
-      errorMsg: "",
       redirectTo: null
     };
     this._logout = this._logout.bind(this);
@@ -56,6 +55,7 @@ class App extends Component {
   };
 
  _login(username, password) {
+    console.log(username, password)
     axios.post('/auth/login', {
         username,
         password
@@ -64,12 +64,11 @@ class App extends Component {
           // update the state
           this.setState({
             loggedIn: true,
-            caretaker: response.data.caretaker,
-            redirectTo: "/dashboard"
+            caretaker: response.data.caretaker
           });
         }
       }).catch(err => {
-        console.log(this.state.errorMsg);
+        console.log(err.response)
       });
   };
 
@@ -79,7 +78,7 @@ class App extends Component {
       <Router>
         <div>
           <Navbar _logout={this._logout} loggedIn={this.state.loggedIn} />
-          <Route exact path="/" render={() => <Login _login={this._login} loggedIn={this.state.loggedIn}/>} />
+          <Route exact path="/" render={() => <Login _login={this._login} />} />
           <Route exact path="/signup" component={SignUp} />
           <Route exact path="/dashboard" render={() => <Dashboard caretaker={this.state.caretaker} />} />
           <Route exact path="/dashboard/assessment" component={AssessmentButton} />
