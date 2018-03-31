@@ -1,16 +1,10 @@
 import React, { Component } from 'react';
 import { PatientDropDown, DropDownList } from '../PatientDropDown';
 import PatientProfile from '../PatientProfile';
-<<<<<<< HEAD
 import Calendar from '../Calendar';
 import './Dashboard.css';
-
-=======
 import API from "../../utils/API";
 
-
-// import calendar component
->>>>>>> 75d65748277ad451563ec2c838f284d85d12df27
 
 class Dashboard extends Component {
 
@@ -51,10 +45,7 @@ class Dashboard extends Component {
 		console.log("state ", this.state);
 		return (
 			<div>
-<<<<<<< HEAD
-=======
 				{this.asynSolver()}
->>>>>>> 75d65748277ad451563ec2c838f284d85d12df27
 				<PatientDropDown>
 					{this.state.patients.map(patients => {
 						return (
