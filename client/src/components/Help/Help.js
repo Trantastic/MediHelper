@@ -33,7 +33,6 @@ class Help extends React.Component {
       		//how to get message and caretaker's phone number in there???
       		body: JSON.stringify({ data: +18314356776 })
     	})
-    	.then(resp => resp.json())
     	.then(resp => {
       		console.log("6" + resp)
     	})
@@ -50,7 +49,7 @@ class Help extends React.Component {
 			<div className="help-button-div">
 			{this.asyncSolver()}
 				<h1>Home Page</h1>
-				<button type="button" className="help-button btn-danger btn-block" onClick={ this.getHelp.bind(this) }>Help</button>
+				<button type="button" className="help-button btn-danger btn-block" onClick={ this.getHelp }>Help</button>
 			</div>
 		);
 	}

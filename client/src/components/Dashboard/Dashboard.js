@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { PatientDropDown, DropDownList } from '../PatientDropDown';
 import PatientProfile from '../PatientProfile';
-// import Calendar from '../Calendar';
+import Calendar from '../Calendar';
 // import calendar component
 
 class Dashboard extends Component {
@@ -31,7 +31,7 @@ class Dashboard extends Component {
 	render() {
 		return (
 			<div>
-
+				<Calendar />
 				<PatientDropDown>
 					{this.state.patient.map(patients => {
 						return (
