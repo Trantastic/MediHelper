@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { PatientDropDown, DropDownList } from '../PatientDropDown';
 import PatientProfile from '../PatientProfile';
 import Calendar from '../Calendar';
-// import calendar component
+import './Dashboard.css';
+
 
 class Dashboard extends Component {
 
@@ -31,7 +32,6 @@ class Dashboard extends Component {
 	render() {
 		return (
 			<div>
-				<Calendar />
 				<PatientDropDown>
 					{this.state.patient.map(patients => {
 						return (
@@ -44,6 +44,11 @@ class Dashboard extends Component {
 						);
 					})}		
 				</PatientDropDown>
+				<div className="calendar-card">
+  					<div className="calendar-card-body">
+						<Calendar />
+					</div>
+				</div>
 			</div>
 		);
 	}
