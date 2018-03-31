@@ -10,9 +10,9 @@ module.exports = {
 	},
 	// Finds all patients for the caretaker that logs in
 	findById: function(req, res) {
-		db.Patient
+		db.Caretaker
 			.findById({_id: req.params.id})
-			// .populate("patient", "username")
+			.populate("patient")
 			.then(dbModel => res.json(dbModel))
 			.catch(err => res.status(422).json(err));
 	},

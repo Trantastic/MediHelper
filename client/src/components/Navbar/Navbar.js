@@ -30,7 +30,7 @@ const Navbar = props => {
               <Link className="nav-link" to="/login" onClick={props._logout}>Log Out</Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/help">Helper Alert</Link>
+              <Link className="nav-link" to="/dashboard/help">Helper Alert</Link>
             </li>
           </div>
         </div>

@@ -48,7 +48,7 @@ class Help extends React.Component {
 		return (
 			<div className="help-button-div">
 			{this.asyncSolver()}
-				<h1>Home Page</h1>
+				<h3>If you need assistance, press help to notify your caretaker</h3>
 				<button type="button" className="help-button btn-danger btn-block" onClick={ this.getHelp }>Help</button>
 			</div>
 		);
