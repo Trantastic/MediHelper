@@ -12,4 +12,7 @@ router.route("/api/patient/:id")
 router.route("/api/patient")
 	.get(caretakerController.findById);
 
+router.route("api/patient/:id")
+	.delete(caretakerController.remove);	
+
 module.exports = router;

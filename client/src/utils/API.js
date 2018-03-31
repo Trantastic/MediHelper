@@ -14,8 +14,8 @@ export default {
 		return axios.get("/api/patient", patients);
 	},
 	deletePatient: function(id) {
-		console.log("/api/patient/" + id);
 		return axios.delete("/api/patient/" + id);
 	}
+
 
 };
