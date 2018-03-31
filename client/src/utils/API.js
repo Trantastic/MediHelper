@@ -9,9 +9,9 @@ export default {
 	// 	console.log("API.js ", id);
 	// 	return axios.get("/api/patient/" + id);
 	// }
-	getPatients: function(patients) {
-		console.log("api.js", patients);
-		return axios.get("/api/patient", patients);
+	getPatients: function(id) {
+		console.log("api.js", id);
+		return axios.get("/api/patient/" + id);
 	},
 	deletePatient: function(id) {
 		return axios.delete("/api/patient/" + id);
