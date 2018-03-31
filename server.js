@@ -6,6 +6,13 @@ const morgan = require("morgan");
 const session = require("express-session");
 const passport = require("./passport");
 const mongoose = require("mongoose");
+
+//Import Twilio and import keys module to have access to Twilio
+const keys = require("./twilioKeys");
+var twilio = require('twilio');
+var client = new twilio(keys.sid, keys.token);
+
+
 // const dbConnection = require("./db");
 
 const PORT = process.env.PORT || 3001;
@@ -45,6 +52,18 @@ app.use(passport.session());
 
 // Express app ROUTING 
 app.use("/auth", require("./auth"));
+
+//======== Twilio ========
+app.post('/sendsms', (req, res) => {
+  console.log(req.body);
+  client.messages.create({
+    to: req.body.data,
+    from: keys.twilioNumber,
+    body: "Your patient needs help! Please assist!"
+  }, function (err, responseData) {
+    console.log(err + "here");
+  });
+});
 
 
 // ======== Error handler =========
