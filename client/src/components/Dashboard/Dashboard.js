@@ -2,47 +2,57 @@ import React, { Component } from 'react';
 import { PatientDropDown, DropDownList } from '../PatientDropDown';
 import PatientProfile from '../PatientProfile';
 import API from "../../utils/API";
-import { caretaker } from "../../App";
 // import calendar component
-
-console.log(this.props.caretaker);
 
 class Dashboard extends Component {
 
 	state = {
 		patients: [],
+		caretaker: null
 		// calendar: []
-	};
-
-	componentDidMount(){
-		// API calls to DB to get all patients and calendar events
-		this.loadPatients();
-		// this.getCalendar();
 	};
 
 	// Retrieves all patients associated with caretaker and 
 	// creates a button for each of them in the drop drop menu
 	loadPatients = () => {
-		// Need to feed caretaker id into get.Patients
-		API.getPatients()
+		API.getPatients(this.props.caretaker._id)
 			.then(res =>
 				this.setState({patients: res.data})
+				// console.log("loadpatients", res.data)
 			)
 			.catch(error => console.log(error));
 	};
 
+	// loadPatients = () => {
+	// 	API.getPatients()
+	// 		.then(res =>
+	// 			this.setState({patients: res.data})
+	// 		)
+	// 		.catch(error => console.log(error));
+	// };
+
+	asynSolver = () => {
+		if(this.props.caretaker !== null && this.state.caretaker === null){
+			this.setState({caretaker: this.props.caretaker});
+			this.loadPatients();
+		}
+		return;
+	}
+
 	render() {
+		console.log("state ", this.state);
 		return (
 			<div>
+				{this.asynSolver()}
 				{/*<Calendar />*/}
 				<PatientDropDown>
 					{this.state.patients.map(patients => {
 						return (
 							<DropDownList
 								key={patients.id}
+								patientId={patients._id}
 								firstName={patients.firstName}
 								lastName={patients.lastName}
-								/*patientId: {patients.id}*/
 							/>
 						);
 					})}		

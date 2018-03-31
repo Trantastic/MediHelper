@@ -11,10 +11,10 @@ const caretakerSchema = new Schema({
 		password: {type: String, unique: true}
 	},
 
-	patient: {
-		type: Schema.Types.ObjectId,
+	patient: [{
+		type: mongoose.Schema.Types.ObjectId,
 		ref: "Patient"
-	}
+	}]
 });
 
 caretakerSchema.methods = {

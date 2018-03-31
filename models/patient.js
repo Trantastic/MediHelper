@@ -19,7 +19,7 @@ const patientSchema = new Schema({
 	contactFirstName: {type: String, required: true},
 	contactLastName: {type: String, required: true},
 	contactRelationship: {type: String, required: true},
-	contactNumb: {type: String, required: true}
+	contactNumb: {type: String, required: true},
 });
 
 const Patient = mongoose.model("Patient", patientSchema);
