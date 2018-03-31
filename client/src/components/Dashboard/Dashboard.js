@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { PatientDropDown, DropDownList } from '../PatientDropDown';
 import PatientProfile from '../PatientProfile';
 import API from "../../utils/API";
+
+
 // import calendar component
 
 class Dashboard extends Component {
@@ -44,7 +46,6 @@ class Dashboard extends Component {
 		return (
 			<div>
 				{this.asynSolver()}
-				{/*<Calendar />*/}
 				<PatientDropDown>
 					{this.state.patients.map(patients => {
 						return (
