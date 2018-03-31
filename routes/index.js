@@ -15,4 +15,7 @@ router.route("/api/patient")
 router.route("api/patient/:id")
 	.delete(caretakerController.remove);	
 
+router.route("api/patient/:id")
+	.put(caretakerController.update);
+
 module.exports = router;
