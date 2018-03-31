@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { PatientDropDown, DropDownList } from '../PatientDropDown';
 import PatientProfile from '../PatientProfile';
+import Calendar from '../Calendar';
+import './Dashboard.css';
 import API from "../../utils/API";
 
-
-// import calendar component
 
 class Dashboard extends Component {
 
@@ -58,6 +58,11 @@ class Dashboard extends Component {
 						);
 					})}		
 				</PatientDropDown>
+				<div className="calendar-card">
+  					<div className="calendar-card-body">
+						<Calendar />
+					</div>
+				</div>
 			</div>
 		);
 	}
