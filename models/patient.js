@@ -9,7 +9,7 @@ const patientSchema = new Schema({
 	city: {type: String, required: true},
 	state: {type: String, required: true},
 	zip: {type: String, required: true},
-	language: {type: String, required: true},
+	preferredLanguage: {type: String, required: true},
 	medicalCond: {type: String, required: true},
 	medication: {type: String},
 	allergies: {type: String},
@@ -19,8 +19,8 @@ const patientSchema = new Schema({
 	contactFirstName: {type: String, required: true},
 	contactLastName: {type: String, required: true},
 	contactRelationship: {type: String, required: true},
-	contactNumb: {type: String, required: true}
-})
+	contactNumb: {type: String, required: true},
+});
 
 const Patient = mongoose.model("Patient", patientSchema);
 

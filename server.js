@@ -1,6 +1,7 @@
 const express = require("express");
 const path = require("path");
 const bodyParser = require("body-parser");
+const routes = require("./routes");
 const morgan = require("morgan");
 const session = require("express-session");
 const passport = require("./passport");
@@ -13,8 +14,17 @@ var client = new twilio(keys.sid, keys.token);
 
 
 // const dbConnection = require("./db");
+
 const PORT = process.env.PORT || 3001;
 const app = express();
+
+// Configure body parser for AJAX requests
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+// Serve up static assets
+app.use(express.static("client/build"));
+// Add routes, both API and view
+app.use(routes);
 
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
