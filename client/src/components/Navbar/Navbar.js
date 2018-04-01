@@ -18,22 +18,13 @@ const Navbar = props => {
               <Link className="nav-link" to="/dashboard">Home</Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="#">Hospital</Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="#">Urgent</Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="#">Pharmacy</Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/help">Helper Alert</Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/login" onClick={props._logout}>Log Out</Link>
+              <Link className="nav-link" to="/patientform">Patient Info Form</Link>
             </li>
             <li className="nav-item">
               <Link className="nav-link" to="/dashboard/help">Helper Alert</Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/login" onClick={props._logout}>Log Out</Link>
             </li>
           </div>
         </div>
@@ -45,13 +36,13 @@ const Navbar = props => {
     return (
      <div>
       <nav className="navbar navbar-expand-sm navbar-light loggedOutNav p-3">
-        <a className="navbar-brand" href="#">MediHelp</a>
+        <a className="navbar-brand" href="/dashboard">MediHelp</a>
         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
         </button>
         <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div className="navbar-nav loginLink">
-            <li className="nav-item mr-auto">
+            <li className="nav-item">
               <Link className="nav-link" to="/">Login</Link>
             </li>
           </div>

@@ -12,16 +12,16 @@ class Calendar extends Component {
 		this.state = {
 			event: [
 				{
-                    title: 'Long Event',
-                    start: '2018-03-07',
-                    end: '2018-03-10'
-                },
+          title: 'Long Event',
+          start: '2018-03-07',
+          end: '2018-03-10'
+        },
 			],
 		}
 	}
 	render ()	{
 		return (
-			<div id="calendar">
+			<div className="container" id="calendar">
 				<FullCalendar id = "calendar-display"
 					header = {{
 						left: "prev,next",

@@ -10,13 +10,17 @@
 }
 
 .loginHeader, .loginBtn {
-	background-color: #778899;
+	background-color: #8FBC8F;
 	font-family: 'Asar', serif;
 }
 
 .loginHeader {
 	padding-top: 100px;
 	font-size: 35px;
+}
+
+.errorMsg {
+	color: red;
 }
 
 .loginBody {
