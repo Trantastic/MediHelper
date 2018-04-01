@@ -18,19 +18,13 @@ const Navbar = props => {
               <Link className="nav-link" to="/dashboard">Home</Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="#">Hospital</Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="#">Urgent</Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="#">Pharmacy</Link>
-            </li>
-            <li className="nav-item">
               <Link className="nav-link" to="/patientform">Patient Info Form</Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/" onClick={props._logout}>Log Out</Link>
+              <Link className="nav-link" to="/dashboard/help">Helper Alert</Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/login" onClick={props._logout}>Log Out</Link>
             </li>
           </div>
         </div>

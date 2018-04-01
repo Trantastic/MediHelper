@@ -36,6 +36,8 @@ class Login extends Component {
 			}); 	
 		} else {
 			this.setState({
+				username: "",
+				password: "",
 				errorMsg: "username and/or password is invalid"
 			});
 		}
