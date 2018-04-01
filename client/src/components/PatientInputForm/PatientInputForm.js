@@ -51,6 +51,27 @@ handleFormSubmit = event => {
     contactNumb: this.state.contactNumb
   })
     .catch(err => console.log("inputform: ", err.response));
+    
+    this.setState({
+      firstName: "",
+      lastName: "",
+      address: "",
+      address2: "",
+      city: "",
+      state: "",
+      zip: "",
+      preferredLanguage: "",
+      medicalCond: "",
+      medication: "",
+      allergies: "",
+      notes: "",
+      primaryCareName: "",
+      primaryCareNumber: "",
+      contactFirstName: "",
+      contactLastName: "",
+      contactRelationship: "",
+      contactNumb: ""  
+    });
 };
 
 handleInputChange = event => {
@@ -59,12 +80,6 @@ handleInputChange = event => {
     [id]: value
   });
 };
-
-handleSubmit = event => {
-  event.preventDefault();
-
-  event.target.reset();
-}
 
   render() {
     return (
@@ -228,7 +243,7 @@ handleSubmit = event => {
             	    </div>
                 </div>  
             
-        		    <button type="submit" className="btn text-white patientBtn" onClick={this.handleFormSubmit} onSubmit={this.handleSubmit.bind(this)}>Submit</button>
+        		    <button type="submit" className="btn text-white patientBtn" onClick={this.handleFormSubmit}>Submit</button>
       		    </form>
           </div>
         </div>
