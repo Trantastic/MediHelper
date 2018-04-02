@@ -66,18 +66,11 @@ class App extends Component {
             loggedIn: true,
             caretaker: response.data.caretaker
           });
-          caretaker = this.state.caretaker._id;
-          // caretakerId();
         }
       }).catch(err => {
         console.log(err.response)
       });
   };
-
-    // caretakerId() {
-    //   return console.log("caretaker id is ", caretaker);
-    // };
-  // <Route exact path="/dashboard" render={() => <Dashboard caretaker={this.state.caretaker} />} />
 
   render() {
     return (
@@ -99,4 +92,3 @@ class App extends Component {
 }
 
 export default App;
-export let caretaker;
