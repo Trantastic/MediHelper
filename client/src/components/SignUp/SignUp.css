@@ -10,13 +10,17 @@
 }
 
 .signupHeader, .signupBtn {
-	background-color: #778899;
+	background-color: #8FBC8F;
 	font-family: 'Asar', serif;
 }
 
 .signupHeader {
 	padding-top: 100px;
 	font-size: 35px;
+}
+
+.signupErrorMsg {
+	color: red;
 }
 
 .signupBody {

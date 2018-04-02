@@ -39,10 +39,10 @@ app.use(morgan("dev"));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 app.use(session({
-	secret: process.env.APP_SECRET || "this is the default passphrase",
-	// store: new MongoStore({mongooseConnection: dbConnection}),
-	resave: false,
-	saveUninitialized: false
+  secret: process.env.APP_SECRET || "this is the default passphrase",
+  // store: new MongoStore({mongooseConnection: dbConnection}),
+  resave: false,
+  saveUninitialized: false
 }));
 
 
@@ -68,9 +68,9 @@ app.post('/sendsms', (req, res) => {
 
 // ======== Error handler =========
 app.use(function(err, req, res, next) {
-	console.log("====== ERROR ======");
-	console.error(err.stack);
-	res.status(500);
+  console.log("====== ERROR ======");
+  console.error(err.stack);
+  res.status(500);
 });
 
 // Send every request to the React app

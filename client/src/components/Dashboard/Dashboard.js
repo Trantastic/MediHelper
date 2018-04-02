@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { PatientDropDown, DropDownList } from '../PatientDropDown';
+import Calendar from '../Calendar';
+import './Dashboard.css';
 import API from "../../utils/API";
 
 class Dashboard extends Component {
