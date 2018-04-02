@@ -52,7 +52,7 @@ class EventInput extends Component {
 	          					<div className='col-sm-6'>
 	          						<div className="form-group">
 					                	<label for="startDate">Start Date</label>
-					                	<input type="text" className="form-control" id="startDate" inputClass="datepicker" data-date-format="mm/dd/yyyy" placeholder="MM/DD/YYYY" value={this.state.startDate} onChange={this.handleInputChange} />
+					                	<input type="text" className="form-control" id="startDate" placeholder="MM/DD/YYYY" value={this.state.startDate} onChange={this.handleInputChange} />
 			                		</div>
 			                	</div>
 			                	<div className='col-sm-6'>

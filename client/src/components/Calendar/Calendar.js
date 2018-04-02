@@ -12,8 +12,8 @@ class Calendar extends Component {
 			event: [
 				{
                     title: 'Long Event',
-                    start: moment(),
-                    end: moment(+3)
+                    start: "04/05/2018",
+                    end: "04/08/2018"
                 },
 			],
 		}
