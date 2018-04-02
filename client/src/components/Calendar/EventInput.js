@@ -44,7 +44,7 @@ class EventInput extends Component {
 	              				<label for="eventTitle">Event Name</label>
 	                			<input type="text" className="form-control" id="eventTitle" value={this.state.eventTitle} onChange={this.handleInputChange} />
 	          				</div>
-	          				<div className="row">
+	          				<div className="form-row">
 	          					<div className='col-sm-6'>
 	          						<div className="form-group">
 					                	<label for="startDateAndTime">Start Date and Time</label>
@@ -59,6 +59,16 @@ class EventInput extends Component {
 				                		</div>
 			                		</div>
 								</div>
+							</div>
+							<div className="form-row">
+								<div className="form-group col-md-6">
+									<label for="rePatient">Patient Name (Optional)</label>
+    								<input type="text" className="form-control" id="rePatient" placeholder="Enter name of patient related to event" value={this.state.rePatient} onChange={this.handleInputChange} />
+  								</div>
+  							</div>
+  							<div className="form-group">
+							    <label for="description">Event Details (Optional)</label>
+							    <textarea className="form-control" id="description" rows="3" value={this.state.description} onChange={this.handleInputChange}></textarea>
 							</div>
 						</form>
 	    			</div>

@@ -66,10 +66,12 @@ class Dashboard extends Component {
 						);
 					})}		
 				</PatientDropDown>
-				<div className="calendar-event-card">
+				<div className="calendar-card">
   					<div className="calendar-card-body">
 						<Calendar handleSubmit={this.handleSubmit} />
 					</div>
+				</div>
+				<div className="event-input-card">
 					<div className="event-input-body">
 						<EventInput />
 					</div>

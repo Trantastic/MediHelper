@@ -24,10 +24,8 @@ class Calendar extends Component {
             	}
             	
 			],
-			redirectTo: null
 		}
 	}
-	
 
 	render ()	{
 		return (
@@ -46,8 +44,8 @@ class Calendar extends Component {
 							text: "Create An Event",
 							click: function(event) {
 								event.preventDefault();
-							}
-							
+								window.location = "/events";
+							}	
 						}			
 					}}
 // 					//Where do I add the fields for each event????
