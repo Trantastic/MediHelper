@@ -19,6 +19,10 @@
 	font-size: 35px;
 }
 
+.signupErrorMsg {
+	color: red;
+}
+
 .signupBody {
 	background-color: #F5F5F5;
 }

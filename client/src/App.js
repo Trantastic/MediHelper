@@ -5,7 +5,6 @@ import { Redirect } from "react-router-dom";
 import Help from "./components/Help";
 import Dashboard from "./components/Dashboard";
 import PatientInputForm from "./components/PatientInputForm";
-import MedicalServices from "./components/MedicalServices";
 import AssessmentButton from "./components/AssessmentButton";
 import "./App.css";
 import Navbar from "./components/Navbar";
@@ -67,18 +66,11 @@ class App extends Component {
             loggedIn: true,
             caretaker: response.data.caretaker
           });
-          caretaker = this.state.caretaker._id;
-          // caretakerId();
         }
       }).catch(err => {
         console.log(err.response)
       });
   };
-
-    // caretakerId() {
-    //   return console.log("caretaker id is ", caretaker);
-    // };
-  // <Route exact path="/dashboard" render={() => <Dashboard caretaker={this.state.caretaker} />} />
 
   render() {
 
@@ -93,7 +85,6 @@ class App extends Component {
           <Route exact path="/dashboard/PatientProfile/:id" component={PatientProfile} />
           <Route exact path="/dashboard/help" component={Help} />
           <Route exact path="/patientform" component={PatientInputForm} />
-          <Route exact path="/medicalservices" component={MedicalServices} />
           <Route exact path="/calendar" component={Calendar} />
         </div>
       </Router>  
@@ -102,4 +93,3 @@ class App extends Component {
 }
 
 export default App;
-export let caretaker;
