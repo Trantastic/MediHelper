@@ -4,15 +4,15 @@ const bcrypt = require("bcryptjs");
 
 const caretakerSchema = new Schema({
 	username: {type: String, unique: true, required: true},
-	password: {type: String, required: true},
 	phoneNumb: {type: String, required: true},
+	password: {type: String, required: true},
 	local: {
 		username: {type: String, unique: true},
 		password: {type: String, unique: true}
 	},
 
 	patient: [{
-		type: mongoose.Schema.Types.ObjectId,
+		type: Schema.Types.ObjectId,
 		ref: "Patient"
 	}]
 });
