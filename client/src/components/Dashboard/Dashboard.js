@@ -40,7 +40,14 @@ class Dashboard extends Component {
 			this.loadPatients();
 		}
 		return;
-	}
+	};
+
+	handleSubmit = () => {
+		this.setState({
+			redirectTo: "/event"
+		}); 
+	};
+
 
 	render() {
 		console.log("state ", this.state);
@@ -61,7 +68,7 @@ class Dashboard extends Component {
 				</PatientDropDown>
 				<div className="calendar-event-card">
   					<div className="calendar-card-body">
-						<Calendar />
+						<Calendar handleSubmit={this.handleSubmit} />
 					</div>
 					<div className="event-input-body">
 						<EventInput />
