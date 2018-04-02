@@ -47,7 +47,7 @@ router.post("/signup", (req, res) => {
      "local.password": req.body.password,
 		 password: req.body.password
    }).then(function(caretakerDB) {
-   	console.log(caretakerDB);
+   	res.json(caretakerDB);
    }); 
 });
 

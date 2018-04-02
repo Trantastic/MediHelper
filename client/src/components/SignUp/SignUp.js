@@ -27,6 +27,7 @@ class SignUp extends Component {
 	// this happens when user signs up grabs input, stores is and redirects to login for authentication 
 	handleSubmit(event) {
 		event.preventDefault();
+
 		axios.post("/auth/signup", {
 				username: this.state.username,
 				phoneNumb: this.state.phoneNumb,
@@ -37,18 +38,16 @@ class SignUp extends Component {
 					this.setState({
 						redirectTo: "/"
 					});
-				} else {
-					this.setState({
+				} 
+			}).catch(err => {
+        console.log(err.response)
+      });
+      this.setState({
 						username: "",
 						phoneNumb: "",
 						password: "",
 						confirmPassword: ""
-					});
-					console.log("duplicate")
-				}
-			}).catch(err => {
-        console.log(err.response)
-      });
+				});
 	};
 
 	render() {
