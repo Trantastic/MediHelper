@@ -12,6 +12,7 @@ import PatientProfile from './components/PatientProfile';
 import SignUp from "./components/SignUp";
 import Login from "./components/Login";
 import Calendar from "./components/Calendar";
+import EventInput from "./components/Calendar";
 
 class App extends Component {
   constructor() {
@@ -93,6 +94,8 @@ class App extends Component {
           <Route exact path="/patientform" component={PatientInputForm} />
           <Route exact path="/medicalservices" component={MedicalServices} />
           <Route exact path="/calendar" component={Calendar} />
+          <Route exact path="/event" component={EventInput} />
+
         </div>
       </Router>  
     )

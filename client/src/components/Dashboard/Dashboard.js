@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { PatientDropDown, DropDownList } from '../PatientDropDown';
 import PatientProfile from '../PatientProfile';
 import Calendar from '../Calendar';
+import EventInput from '../Calendar';
 import './Dashboard.css';
 import API from "../../utils/API";
 
@@ -58,9 +59,12 @@ class Dashboard extends Component {
 						);
 					})}		
 				</PatientDropDown>
-				<div className="calendar-card">
+				<div className="calendar-event-card">
   					<div className="calendar-card-body">
 						<Calendar />
+					</div>
+					<div className="event-input-body">
+						<EventInput />
 					</div>
 				</div>
 			</div>
