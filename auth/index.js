@@ -47,8 +47,11 @@ router.post("/signup", (req, res) => {
      "local.password": req.body.password,
 		 password: req.body.password
    }).then(function(caretakerDB) {
+   	res.json(caretakerDB);
    	console.log(caretakerDB);
-   }); 
+
+
+   }).catch(err => {res.json(err)}); 
 });
 
 module.exports = router

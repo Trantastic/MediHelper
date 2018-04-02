@@ -59,6 +59,7 @@
 // export default Help;
 import React from 'react';
 import 'whatwg-fetch';
+import "./Help.css";
 
 
 let caretaker = "";
@@ -105,9 +106,9 @@ class Help extends React.Component {
 
 	render() {
 		return (
-			<div className="help-button-div">
+			<div className="help-button-div container">
 			{this.asyncSolver()}
-				<h3>If you need assistance, press help to notify your caretaker</h3>
+				<h3 className="helpHeader text-center mt-5">If you need assistance, press help to notify your caretaker by clicking the button</h3>
 				<button type="button" className="help-button btn-danger btn-block" onClick={ this.getHelp }>Help</button>
 			</div>
 		);

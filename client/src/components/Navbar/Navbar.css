@@ -1,23 +1,23 @@
 .loggedOutNav, .loginNav {
-	background-color: #8FBC8F;
+	background-color: #739A49;
 }
 
 .navbar-brand {
-	/*color: white;*/
+	color: white;
 	font-size: 27px;
 }
 
-/*.navbar-brand:hover {
+.navbar-brand:hover {
 	color: white;
 }
 
 .nav-link {
-	color: #696969;
+	color: white;
 }
 
 .nav-link:hover {
 	color: #696969;
-}*/
+}
 
 
 

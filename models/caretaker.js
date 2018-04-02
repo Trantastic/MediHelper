@@ -4,8 +4,8 @@ const bcrypt = require("bcryptjs");
 
 const caretakerSchema = new Schema({
 	username: {type: String, unique: true, required: true},
-	password: {type: String, required: true},
 	phoneNumb: {type: String, required: true},
+	password: {type: String, required: true},
 	local: {
 		username: {type: String, unique: true},
 		password: {type: String, unique: true}
