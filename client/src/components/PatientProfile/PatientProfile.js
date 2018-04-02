@@ -1,66 +1,228 @@
 import React, { Component } from 'react';
-import { Link, Route } from 'react-router-dom';
-import AssessmentButton from "../AssessmentButton";
+import { Link } from 'react-router-dom';
 import Dashboard from "../Dashboard";
+import UpdatePatientProfile from "./UpdatePatientProfile";
+import PatientProfileTable from "./PatientProfileTable";
 import './PatientProfile.css';
 import API from "../../utils/API";
 
 class PatientProfile extends Component {
+	constructor(props) {
+		super(props)
 
-	state = {
-		patientInfo: []
+		this.handleInputChange = this.handleInputChange.bind(this);
+		this.updateProfile=this.updateProfile.bind(this);
+
+		this.state = {
+			patientInfo: [],
+			firstName: "",
+		    lastName: "",
+		    address: "",
+		    address2: "",
+		    city: "",
+		    state: "",
+		    zip: "",
+		    preferredLanguage: "",
+		    medicalCond: "",
+		    medication: "",
+		    allergies: "",
+		    notes: "",
+		    primaryCareName: "",
+		    primaryCareNumber: "",
+		    contactFirstName: "",
+		    contactLastName: "",
+		    contactRelationship: "",
+		    contactNumb: ""
+		};
 	}
 
-	// componentDidMount() {
+	state = {
+		patientInfo: [],
+		firstName: "",
+	    lastName: "",
+	    address: "",
+	    address2: "",
+	    city: "",
+	    state: "",
+	    zip: "",
+	    preferredLanguage: "",
+	    medicalCond: "",
+	    medication: "",
+	    allergies: "",
+	    notes: "",
+	    primaryCareName: "",
+	    primaryCareNumber: "",
+	    contactFirstName: "",
+	    contactLastName: "",
+	    contactRelationship: "",
+	    contactNumb: "",
+		pageLoaded: false,
+		redirectToUpdate: false
+	}
 
+	componentDidMount() {
+		this.loadPatientInfo();
+	}
+
+	loadPatientInfo = () => {
+		API.getOnePatient(this.props.match.url.substr(this.props.match.url.lastIndexOf("/")+1))
+			.then(res =>
+				this.setState({
+					patientInfo: res.data,
+					firstName: res.data[0].firstName,
+				    lastName: res.data[0].lastName,
+				    address: res.data[0].address,
+				    address2: res.data[0].address2,
+				    city: res.data[0].city,
+				    state: res.data[0].state,
+				    zip: res.data[0].zip,
+				    preferredLanguage: res.data[0].preferredLanguage,
+				    medicalCond: res.data[0].medicalCond,
+				    medication: res.data[0].medication,
+				    allergies: res.data[0].allergies,
+				    notes: res.data[0].notes,
+				    primaryCareName: res.data[0].primaryCareName,
+				    primaryCareNumber: res.data[0].primaryCareNumber,
+				    contactFirstName: res.data[0].contactFirstName,
+				    contactLastName: res.data[0].contactLastName,
+				    contactRelationship: res.data[0].contactRelationship,
+				    contactNumb: res.data[0].contactNumb
+				})
+			)
+			.catch(error => console.log(error));
+	};
+
+	// Triggers display of the pre-filled out patient input form when Update Profile is clicked
+	handleUpdateSubmit = (event) => {
+		event.preventDefault();
+		this.setState({redirectTo: true})
+	};
+
+	handleInputChange = (event) => {
+		const {id, value} = event.target;
+		this.setState({[id]: value});
+	};
+
+	updateProfile = (event) => {
+		event.preventDefault();
+
+		API.updatePatient(this.props.match.url.substr(this.props.match.url.lastIndexOf("/")+1), {
+			    firstName: this.state.firstName,
+			    lastName: this.state.lastName,
+			    address: this.state.address,
+			    address2: this.state.address2,
+			    city: this.state.city,
+			    state: this.state.state,
+			    zip: this.state.zip,
+			    preferredLanguage: this.state.preferredLanguage,
+			    medicalCond: this.state.medicalCond,
+			    medication: this.state.medication,
+			    allergies: this.state.allergies,
+			    notes: this.state.notes,
+			    primaryCareName: this.state.primaryCareName,
+			    primaryCareNumber: this.state.primaryCareNumber,
+			    contactFirstName: this.state.contactFirstName,
+			    contactLastName: this.state.contactLastName,
+			    contactRelationship: this.state.contactRelationship,
+			    contactNumb: this.state.contactNumb
+		})
+		// .then(res => console.log("res", res));
+	}
+
+	// Solves asynchronous issue of loadPatientInfo firing off before page loads
+	// asynSolver = () => {
+	// 	if(this.state.patientInfo.length === 0 && this.state.pageLoaded === false){
+	// 		this.setState({pageLoaded: true});
+	// 		this.loadPatientInfo();
+	// 		console.log("patient profile ", this.state.patientInfo);
+	// 	}
+	// 	return;
 	// }
 
 	// Grabbing patient ID from url and uses it to delete patient once "Delete Patient" btn is clicked and reloads patients for drop down menu
 	deletePatient = () => {
 		API.deletePatient(this.props.match.url.substr(this.props.match.url.lastIndexOf("/")+1))
+			// .then(res => console.log("res", res))
 			.catch(err => console.log(err)); 
 	};
 
+	reloadPatientProfileTable = () => {
+		if(this.props.match.url.substr(this.props.match.url.lastIndexOf("/")+1) !== this.state.patientInfo[0]._id) {
+			this.loadPatientInfo();
+		}
+	}
+
 	render() {
+		if(this.state.redirectTo) {
+			return <UpdatePatientProfile 
+				key={this.state.patientInfo[0]._id}
+				firstName={this.state.patientInfo[0].firstName}
+				lastName={this.state.patientInfo[0].lastName}
+				address={this.state.patientInfo[0].address}
+				address2={this.state.patientInfo[0].address2}
+				city={this.state.patientInfo[0].city}
+				state={this.state.patientInfo[0].state}
+				zip={this.state.patientInfo[0].zip}
+				preferredLanguage={this.state.patientInfo[0].preferredLanguage}
+				medicalCond={this.state.patientInfo[0].medicalCond}
+				medication={this.state.patientInfo[0].medication}
+				allergies={this.state.patientInfo[0].allergies}
+				notes={this.state.patientInfo[0].notes}
+				primaryCareName={this.state.patientInfo[0].primaryCareName}
+				primaryCareNumber={this.state.patientInfo[0].primaryCareNumber}
+				contactFirstName={this.state.patientInfo[0].contactFirstName}
+				contactLastName={this.state.patientInfo[0].contactLastName}
+				contactRelationship={this.state.patientInfo[0].contactRelationship}
+				contactNumb={this.state.patientInfo[0].contactNumb}
+
+				handleInputChange={this.handleInputChange}
+				updateProfile={this.updateProfile}
+			/>
+		} else if(this.state.patientInfo.length !== 0){
 		return (
 			<div>
+				{this.reloadPatientProfileTable()}
+				
 				<Dashboard />
+
 				<button className="assessmentbtn">
 					<Link to="/dashboard/assessment">Assessment Form</Link>
 				</button>
-				<table className="table table-bordered table-striped w-50 float-right">
-					  <tbody>
-					    <tr>
-							<td>First Name Last Name</td>
-							<td>Preferred Language: English</td>
-					    </tr>
-					    <tr>
-					    	<td colSpan="2">123 College Lane, Oakland, CA, 12345</td>
-					    </tr>
-					    <tr>
-					    	<td colSpan="2">Medical Conditions</td>
-					    </tr>
-					    <tr>
-					    	<td>Medication</td>
-					    	<td>Allergies</td>
-					    </tr>
-					    <tr>
-					    	<td colSpan="2">Notes</td>
-					    </tr>
-					    <tr>
-					    	<td>Physican Name: {}</td>
-					    	<td>Phone: </td>
-					    </tr>
-					    <tr>
-					    	<td>Emergency Contact:{} ({})</td>
-					    	<td>Phone: </td>
-					    </tr>
-					</tbody>
-				</table>
-				<Link to={"/dashboard"}><button type="submit" className="btn btn-danger" onClick={this.deletePatient}>Delete Patient</button></Link>
+		
+				<PatientProfileTable 
+					key={this.state.patientInfo[0]._id}
+					firstName={this.state.patientInfo[0].firstName}
+					lastName={this.state.patientInfo[0].lastName}
+					address={this.state.patientInfo[0].address}
+					address2={this.state.patientInfo[0].address2}
+					city={this.state.patientInfo[0].city}
+					state={this.state.patientInfo[0].state}
+					zip={this.state.patientInfo[0].zip}
+					preferredLanguage={this.state.patientInfo[0].preferredLanguage}
+					medicalCond={this.state.patientInfo[0].medicalCond}
+					medication={this.state.patientInfo[0].medication}
+					allergies={this.state.patientInfo[0].allergies}
+					notes={this.state.patientInfo[0].notes}
+					primaryCareName={this.state.patientInfo[0].primaryCareName}
+					primaryCareNumber={this.state.patientInfo[0].primaryCareNumber}
+					contactFirstName={this.state.patientInfo[0].contactFirstName}
+					contactLastName={this.state.patientInfo[0].contactLastName}
+					contactRelationship={this.state.patientInfo[0].contactRelationship}
+					contactNumb={this.state.patientInfo[0].contactNumb}
+				/>
+
+				<Link to={"/dashboard"}>
+					<button type="submit" className="btn btn-danger" onClick={this.deletePatient}>Delete Patient</button>
+				</Link>
+
+				<button type="submit" className="btn btn-info" onClick={this.handleUpdateSubmit}>Update Profile</button>
 			</div>
-		);
-	}
-}
+		);};
+
+		return (
+			<p>Please refresh page.</p>
+		)
+	};
+};
 
 export default PatientProfile;

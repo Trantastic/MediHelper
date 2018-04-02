@@ -12,7 +12,7 @@ const caretakerSchema = new Schema({
 	},
 
 	patient: [{
-		type: mongoose.Schema.Types.ObjectId,
+		type: Schema.Types.ObjectId,
 		ref: "Patient"
 	}]
 });
