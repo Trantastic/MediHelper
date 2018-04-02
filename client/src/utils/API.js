@@ -2,19 +2,25 @@ import axios from "axios";
 
 export default {
 	savePatient: function(patientData) {
-		console.log("API.js ", patientData);
 		return axios.post("/api/patient", patientData);
 	},
 	// getPatients: function(id) {
 	// 	console.log("API.js ", id);
 	// 	return axios.get("/api/patient/" + id);
 	// }
-	getPatients: function(id) {
-		console.log("api.js", id);
+	// Get ONE patient
+	getOnePatient: function(id) {
 		return axios.get("/api/patient/" + id);
+	},
+	// Gets ALL patients
+	getPatients: function() {
+		return axios.get("/api/patient");
 	},
 	deletePatient: function(id) {
 		return axios.delete("/api/patient/" + id);
+	},
+	updatePatient: function(id, input) {
+		return axios.put("/api/patient/" + id);
 	}
 
 

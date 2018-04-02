@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { PatientDropDown, DropDownList } from '../PatientDropDown';
-import PatientProfile from '../PatientProfile';
 import API from "../../utils/API";
 
 class Dashboard extends Component {
@@ -30,6 +29,7 @@ class Dashboard extends Component {
 			.catch(error => console.log(error));
 	};
 
+	// Solves asynchronous issue of page loading before caretaker id can be grabbed
 	asynSolver = () => {
 		if(this.props.caretaker !== null && this.state.caretaker === null){
 			this.setState({caretaker: this.props.caretaker});
@@ -43,7 +43,6 @@ class Dashboard extends Component {
 	}
 
 	render() {
-		console.log("state ", this.state);
 		return (
 			<div>
 				{this.asynSolver()}
