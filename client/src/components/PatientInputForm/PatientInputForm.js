@@ -51,6 +51,27 @@ handleFormSubmit = event => {
     contactNumb: this.state.contactNumb
   })
     .catch(err => console.log("inputform: ", err.response));
+    
+    this.setState({
+      firstName: "",
+      lastName: "",
+      address: "",
+      address2: "",
+      city: "",
+      state: "",
+      zip: "",
+      preferredLanguage: "",
+      medicalCond: "",
+      medication: "",
+      allergies: "",
+      notes: "",
+      primaryCareName: "",
+      primaryCareNumber: "",
+      contactFirstName: "",
+      contactLastName: "",
+      contactRelationship: "",
+      contactNumb: ""  
+    });
 };
 
 handleInputChange = event => {
@@ -70,33 +91,33 @@ handleInputChange = event => {
       		    <form>
                 <div className="row">
                   <div className="col-md-6">
-                  <label for="firstName">First Name</label>
+                  <label htmlFor="firstName">First Name</label>
                     <input type="text" className="form-control" id="firstName" value={this.state.firstName} onChange={this.handleInputChange}/>
                   </div>
                   <div className="col-md-6">
-                    <label for="lastName">Last Name</label>
+                    <label htmlFor="lastName">Last Name</label>
                     <input type="text" className="form-control" id="lastName" value={this.state.lastName} onChange={this.handleInputChange}/>
                   </div>
                 </div>
 
                 <div className="form-group">
-                  <label for="address">Address</label>
+                  <label htmlFor="address">Address</label>
                   <input type="text" className="form-control" id="address" placeholder="1234 Main St" value={this.state.address} onChange={this.handleInputChange}/>
                 </div>
 
                 <div className="form-group">
-                  <label for="address2">Address 2</label>
+                  <label htmlFor="address2">Address 2</label>
                   <input type="text" className="form-control" id="address2" placeholder="Apartment, studio, or floor" value={this.state.address2} onChange={this.handleInputChange}/>
                 </div>
 
                 <div className="form-row">
                   <div className="form-group col-md-6">
-                    <label for="city">City</label>
+                    <label htmlFor="city">City</label>
                     <input type="text" className="form-control" id="city" defaultValue={this.state.city} onChange={this.handleInputChange}/>
                   </div>
 
                   <div className="form-group col-md-4">
-                    <label for="state">State</label>
+                    <label htmlFor="state">State</label>
                     <select id="state" className="form-control" value={this.state.state} onChange={this.handleInputChange}>
                       <option selected>Choose...</option>
                       <option value="AK">Alaska</option>
@@ -153,76 +174,76 @@ handleInputChange = event => {
                   </div>
 
                   <div className="form-group col-md-2">
-                    <label for="zip">Zip</label>
+                    <label htmlFor="zip">Zip</label>
                     <input type="text" className="form-control" id="zip" value={this.state.zip} onChange={this.handleInputChange}/>
                   </div>
                 </div>
 
                 <div className="form-group">
-                  <label for="language">Preferred Language</label>
+                  <label htmlFor="language">Preferred Language</label>
                   <input type="text" className="form-control" id="preferredLanguage" value={this.state.preferredLanguage} onChange={this.handleInputChange}/>
                 </div>
 
                 <div className="form-group">
-                  <label for="medicalCond">Medical Condition(s)</label>
+                  <label htmlFor="medicalCond">Medical Condition(s)</label>
                   <input type="text" className="form-control" id="medicalCond" value={this.state.medicalCond} onChange={this.handleInputChange}/>
                 </div>
 
                 <div className="form-group">
-                  <label for="medication">Medication(s)</label>
+                  <label htmlFor="medication">Medication(s)</label>
                   <input type="text" className="form-control" id="medication" value={this.state.medication} onChange={this.handleInputChange}/>
                 </div>
 
                 <div className="form-group">
-                  <label for="allergies">Allergies</label>
+                  <label htmlFor="allergies">Allergies</label>
                   <input type="text" className="form-control" id="allergies" placeholder="Foods, Medications, Other" value={this.state.allergies} onChange={this.handleInputChange}/>
                 </div>
 
                 <div className="form-group">
-                  <label for="notes">Notes</label>
+                  <label htmlFor="notes">Notes</label>
                   <input type="text" className="form-control" id="notes" value={this.state.notes} onChange={this.handleInputChange}/>
                 </div>
 
-                <h3>Primary Care Physician</h3>
+                <h3 className="text-dark pt-3 pb-3">Primary Care Physician</h3>
                 <div className="form-row mt-4">
                   <div className="form-group col-md-6">
 
-           		      <label for="primaryCareName">Physician Name</label>
+           		      <label htmlFor="primaryCareName">Physician Name</label>
             	   	  <input type="text" className="form-control" id="primaryCareName" value={this.state.primaryCareName} onChange={this.handleInputChange}/>
                   </div>
                   
                   <div className="form-group col-md-6"> 
-                    <label for="primaryCareNumber">Physician Phone Number</label> 
+                    <label htmlFor="primaryCareNumber">Physician Phone Number</label> 
             		    <input type="text" className="form-control" id="primaryCareNumb" value={this.state.primaryCareNumb} onChange={this.handleInputChange}/>
             	    </div>
                 </div>  
 
-                <h3>Emergency Contact</h3>
+                <h3 className="text-dark pt-3 pb-3">Emergency Contact</h3>
                 <div className="form-row mt-4"> 
             	    <div className="form-group col-md-6">
-           			    <label for="contactFirstName">First Name</label>
+           			    <label htmlFor="contactFirstName">First Name</label>
             		    <input type="text" className="form-control" id="contactFirstName" value={this.state.contactFirstName} onChange={this.handleInputChange}/>
                   </div>
                     
                   <div className="form-group col-md-6">
-                    <label for="contactLastName">Last Name</label>  
+                    <label htmlFor="contactLastName">Last Name</label>  
             		    <input type="text" className="form-control" id="contactLastName" value={this.state.contactLastName} onChange={this.handleInputChange}/>
                   </div>
                 </div>
 
                 <div className="form-row">
                   <div className="form-group col-md-6"> 
-                    <label for="contactRelationship">Relationship</label>    
+                    <label htmlFor="contactRelationship">Relationship</label>    
                     <input type="text" className="form-control" id="contactRelationship" value={this.state.contactRelationship} onChange={this.handleInputChange}/>
                   </div>
                   
                   <div className="form-group col-md-6">  
-                    <label for="contactNumb">Phone Number</label>    
+                    <label htmlFor="contactNumb">Phone Number</label>    
             		    <input type="text" className="form-control" id="contactNumb" value={this.state.contactNumb} onChange={this.handleInputChange}/>
             	    </div>
                 </div>  
             
-        		    <button type="submit" className="btn btn-primary" onClick={this.handleFormSubmit}>Submit</button>
+        		    <button type="submit" className="btn text-white patientBtn" onClick={this.handleFormSubmit}>Submit</button>
       		    </form>
           </div>
         </div>

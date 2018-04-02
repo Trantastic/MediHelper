@@ -11,6 +11,7 @@ class SignUp extends Component {
 			username: "",
 			phoneNumb: "",
 			password: "",
+			usernameErr: "",
 			confirmPassword: "",
 			redirectTo: null
 		}
@@ -36,21 +37,26 @@ class SignUp extends Component {
 
 				if (!response.data.errmsg) {
 					this.setState({
-						redirectTo: "/login"
+						redirectTo: "/"
 					});
 				} else {
+					this.setState({
+						username: "",
+						phoneNumb: "",
+						password: "",
+						confirmPassword: ""
+					});
 					console.log("duplicate")
 				}
 			}).catch(err => {
         console.log(err.response)
       });
-      
 	};
 
 	render() {
 		if (this.state.redirectTo) {
 			return <Redirect to={{ pathname: this.state.redirectTo }} />
-		}
+		} else {
 
 		return (
 			<div className="container">
@@ -61,9 +67,9 @@ class SignUp extends Component {
 			  				<div className="card-body signupBody">
 									<form className="SignupForm">
 										<input className="mb-2 signupInput" type="text" name="username" value={this.state.username} onChange={this.handleChange} placeholder="username" /><br />
-										<input className="mb-2 signupInput" type="text" name="phoneNumb" value={this.state.phoneNumb} onChange={this.handleChange} placeholder="phoneNumb" /><br />
+										<input className="mb-2 signupInput" type="text" name="phoneNumb" value={this.state.phoneNumb} onChange={this.handleChange} placeholder="phone number" /><br />
 										<input className="mb-2 signupInput" type="password" name="password" value={this.state.password} onChange={this.handleChange} placeholder="password" /><br />
-										<input className="signupInput" type="password" name="confirmPassword" value={this.state.confirmPassword} onChange={this.handleChange} placeholder="confirmPassword" /><br /><br />
+										<input className="signupInput" type="password" name="confirmPassword" value={this.state.confirmPassword} onChange={this.handleChange} placeholder="confirm password" /><br /><br />
 										<button type="submit" onClick={this.handleSubmit} className="btn text-white signupBtn">Submit</button>	
 									</form>
 			  				</div>
@@ -73,6 +79,7 @@ class SignUp extends Component {
 			</div>
 		);
 	};
+	}
 };
 
 

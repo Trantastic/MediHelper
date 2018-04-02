@@ -12,8 +12,8 @@ class Calendar extends Component {
 			event: [
 				{
                     title: 'Long Event',
-                    start: "04/05/2018",
-                    end: "04/08/2018"
+                    start: "2018-04-05",
+                    end: "2018-04-08"
                 },
 			],
 		}
@@ -21,7 +21,7 @@ class Calendar extends Component {
 	
 	render ()	{
 		return (
-			<div id="calendar">
+			<div className="container" id="calendar">
 				<FullCalendar id = "calendar-display"
 					header = {{
 						left: "prev,next",
