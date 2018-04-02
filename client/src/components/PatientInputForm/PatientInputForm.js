@@ -23,7 +23,8 @@ class PatientInputForm extends Component {
     contactFirstName: "",
     contactLastName: "",
     contactRelationship: "",
-    contactNumb: ""
+    contactNumb: "",
+    redirectTo: null
   };
 
 // When user submits form, sends values to backend
@@ -70,7 +71,8 @@ handleFormSubmit = event => {
       contactFirstName: "",
       contactLastName: "",
       contactRelationship: "",
-      contactNumb: ""  
+      contactNumb: "",
+      redirectTo: "/dashboard" 
     });
 };
 

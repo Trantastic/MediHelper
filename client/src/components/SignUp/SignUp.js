@@ -27,14 +27,12 @@ class SignUp extends Component {
 	// this happens when user signs up grabs input, stores is and redirects to login for authentication 
 	handleSubmit(event) {
 		event.preventDefault();
-
 		axios.post("/auth/signup", {
 				username: this.state.username,
 				phoneNumb: this.state.phoneNumb,
 				password: this.state.password
 			}).then(response => {
-				console.log(response)
-
+			
 				if (!response.data.errmsg) {
 					this.setState({
 						redirectTo: "/"
