@@ -44,7 +44,8 @@ class Calendar extends Component {
 							text: "Create An Event",
 							click: function(event) {
 								event.preventDefault();
-								window.location = "/events";
+								// window.location = "/event";
+								
 							}	
 						}			
 					}}
