@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import Dashboard from "../Dashboard";
 import UpdatePatientProfile from "./UpdatePatientProfile";
+import PatientProfileTable from "./PatientProfileTable";
 import './PatientProfile.css';
 import API from "../../utils/API";
 
@@ -50,7 +51,7 @@ class PatientProfile extends Component {
 			    allergies: this.props.allergies,
 			    notes: this.props.notes,
 			    primaryCareName: this.props.primaryCareName,
-			    primaryCareNumber: this.props.primaryCareNumb,
+			    primaryCareNumber: this.props.primaryCareNumber,
 			    contactFirstName: this.props.contactFirstName,
 			    contactLastName: this.props.contactLastName,
 			    contactRelationship: this.props.contactRelationship,
@@ -102,50 +103,48 @@ class PatientProfile extends Component {
 
 				updateProfile={this.updateProfile}
 			/>
-		} else {
+		} else if(this.state.patientInfo.length !== 0){
 		return (
 			<div>
 				<Dashboard />
+
 				<button className="assessmentbtn">
 					<Link to="/dashboard/assessment">Assessment Form</Link>
 				</button>
-				<table className="table table-bordered table-striped w-50 float-right">
-					  <tbody>
-					    <tr>
-							<td>First Name Last Name</td>
-							<td>Preferred Language: English</td>
-					    </tr>
-					    <tr>
-					    	<td colSpan="2">123 College Lane, Oakland, CA, 12345</td>
-					    </tr>
-					    <tr>
-					    	<td colSpan="2">Medical Conditions</td>
-					    </tr>
-					    <tr>
-					    	<td>Medication</td>
-					    	<td>Allergies</td>
-					    </tr>
-					    <tr>
-					    	<td colSpan="2">Notes</td>
-					    </tr>
-					    <tr>
-					    	<td>Physican Name: {}</td>
-					    	<td>Phone: </td>
-					    </tr>
-					    <tr>
-					    	<td>Emergency Contact:{} ({})</td>
-					    	<td>Phone: </td>
-					    </tr>
-					</tbody>
-				</table>
+		
+				<PatientProfileTable 
+					key={this.state.patientInfo[0]._id}
+					firstName={this.state.patientInfo[0].firstName}
+					lastName={this.state.patientInfo[0].lastName}
+					address={this.state.patientInfo[0].address}
+					address2={this.state.patientInfo[0].address2}
+					city={this.state.patientInfo[0].city}
+					state={this.state.patientInfo[0].state}
+					zip={this.state.patientInfo[0].zip}
+					preferredLanguage={this.state.patientInfo[0].preferredLanguage}
+					medicalCond={this.state.patientInfo[0].medicalCond}
+					medication={this.state.patientInfo[0].medication}
+					allergies={this.state.patientInfo[0].allergies}
+					notes={this.state.patientInfo[0].notes}
+					primaryCareName={this.state.patientInfo[0].primaryCareName}
+					primaryCareNumber={this.state.patientInfo[0].primaryCareNumber}
+					contactFirstName={this.state.patientInfo[0].contactFirstName}
+					contactLastName={this.state.patientInfo[0].contactLastName}
+					contactRelationship={this.state.patientInfo[0].contactRelationship}
+					contactNumb={this.state.patientInfo[0].contactNumb}
+				/>
+
 				<Link to={"/dashboard"}>
 					<button type="submit" className="btn btn-danger" onClick={this.deletePatient}>Delete Patient</button>
 				</Link>
-				<Link to={"/dashboard"}>
-					<button type="submit" className="btn btn-info" onClick={this.handleUpdateSubmit}>Update Profile</button>
-				</Link>
+
+				<button type="submit" className="btn btn-info" onClick={this.handleUpdateSubmit}>Update Profile</button>
 			</div>
 		);};
+
+		return (
+			<p>Page is still loading</p>
+		)
 	};
 };
 
