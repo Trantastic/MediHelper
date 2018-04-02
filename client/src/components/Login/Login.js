@@ -17,6 +17,14 @@ class Login extends Component {
 		this.handleChange = this.handleChange.bind(this)
 	};
 
+	componentDidMount() {
+		if (this.props.loggedIn === true) {
+			this.setState({
+				redirectTo: "/dashboard"
+			}); 	
+		}
+	}
+
 	// changes the value as it's being type in
 	handleChange(event) {
     this.setState({
@@ -29,7 +37,7 @@ class Login extends Component {
 		event.preventDefault()
 
 		this.props._login(this.state.username, this.state.password);
-		
+		console.log(this.props.loggedIn)
 		if (this.props.loggedIn === true) {
 			this.setState({
 				redirectTo: "/dashboard"
@@ -41,7 +49,7 @@ class Login extends Component {
 				errorMsg: "username and/or password is invalid"
 			});
 		}
-		console.log(this.props.loggedIn);
+		console.log(this.props);
 	};
 
 	render() {
