@@ -12,7 +12,7 @@ class SignUp extends Component {
 			phoneNumb: "",
 			password: "",
 			usernameErr: "",
-			confirmPassword: "",
+			phoneNumErr: "",
 			redirectTo: null
 		}
 		this.handleSubmit = this.handleSubmit.bind(this)
@@ -33,20 +33,40 @@ class SignUp extends Component {
 				phoneNumb: this.state.phoneNumb,
 				password: this.state.password
 			}).then(response => {
-			
-				if (!response.data.errmsg) {
+				console.log(response.data.message);
+
+				if (!response.data.errmsg && response.data._message !== "Caretaker validation failed" && this.state.password === this.state.confirmPassword) {
 					this.setState({
 						redirectTo: "/"
 					});
-				} 
+				}
+				if (response.data.errmsg && response.data.errmsg.includes("E11000 duplicate key error collection")) {
+					this.setState({
+						usernameErr: "this username already exists"
+					});
+				}
+				if (response.data.message && response.data.message.includes("`username` is required")) {
+					this.setState({
+						usernameErr: "username is required"
+					});
+				}
+				if (response.data.message && response.data.message.includes("`phoneNumb` is required")) {
+					this.setState({
+						phoneNumErr: "phone number is required"
+					});
+				}
+				if (response.data.message && response.data.message.includes("`password` is required")) {
+					this.setState({
+						passwordErr: "password is required"
+					});
+				}
 			}).catch(err => {
-        console.log(err.response)
+        console.log(err)
       });
       this.setState({
 						username: "",
 						phoneNumb: "",
-						password: "",
-						confirmPassword: ""
+						password: ""
 				});
 	};
 
@@ -62,11 +82,13 @@ class SignUp extends Component {
 						<div className="card bg-light mt-5 signupCard">
 			  			<div className="card-header text-white text-center signupHeader">Register</div>
 			  				<div className="card-body signupBody">
+									<div className="signupErrorMsg text-center">{this.state.usernameErr}</div>
+									<div className="signupErrorMsg text-center">{this.state.phoneNumErr}</div>
+									<div className="signupErrorMsg text-center mb-3">{this.state.passwordErr}</div>
 									<form className="SignupForm">
 										<input className="mb-2 signupInput" type="text" name="username" value={this.state.username} onChange={this.handleChange} placeholder="username" /><br />
 										<input className="mb-2 signupInput" type="text" name="phoneNumb" value={this.state.phoneNumb} onChange={this.handleChange} placeholder="phone number" /><br />
 										<input className="mb-2 signupInput" type="password" name="password" value={this.state.password} onChange={this.handleChange} placeholder="password" /><br />
-										<input className="signupInput" type="password" name="confirmPassword" value={this.state.confirmPassword} onChange={this.handleChange} placeholder="confirm password" /><br /><br />
 										<button type="submit" onClick={this.handleSubmit} className="btn text-white signupBtn">Submit</button>	
 									</form>
 			  				</div>
