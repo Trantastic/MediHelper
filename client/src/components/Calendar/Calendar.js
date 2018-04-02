@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import FullCalendar from "fullcalendar-reactwrapper";
+import { Redirect } from "react-router-dom";
 import "fullcalendar-reactwrapper/dist/css/fullcalendar.min.css";
+import "./Calendar.css";
 import "./EventInput.js";
 import "./EventInput.css";
 import Moment from 'moment';
@@ -15,10 +17,18 @@ class Calendar extends Component {
                     start: "2018-04-05",
                     end: "2018-04-08"
                 },
+            	{
+            		title: "Check-Up",
+            		start: "2018-04-21T06:30",
+            		end: "2018-04-21T08:00"
+            	}
+            	
 			],
+			redirectTo: null
 		}
 	}
 	
+
 	render ()	{
 		return (
 			<div className="container" id="calendar">
@@ -34,8 +44,11 @@ class Calendar extends Component {
 					customButtons= {{
 						addEventButton: {
 							text: "Create An Event",
-							// click: this.openModal
-						}
+							click: function(event) {
+								event.preventDefault();
+							}
+							
+						}			
 					}}
 // 					//Where do I add the fields for each event????
 					navLinks= { true }

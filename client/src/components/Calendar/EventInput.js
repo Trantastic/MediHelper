@@ -5,10 +5,8 @@ import API from "../../utils/API";
 class EventInput extends Component {
 	state = {
 	  	eventTitle: "",
-		startDate: "",
-		startTime: "",
-		endDate: "",
-		endTime: "",
+		startDateAndTime: "",
+		endDateAndTime: "",
 		rePatient: "",
 		description: ""
 	};
@@ -18,10 +16,8 @@ class EventInput extends Component {
 
 		API.savePatient({
 		  	eventTitle: this.state.eventTitle,
-			startDate: this.state.startDate,
-			startTime: this.state.startTime,
-			endDate: this.state.endDate,
-			endTime: this.state.endTime,
+			startDateAndTime: this.state.startDateAndTime,
+			endDateAndTime: this.state.endDateAndTime,
 			rePatient: this.state.rePatient,
 			description: this.state.description
 		})
@@ -51,20 +47,17 @@ class EventInput extends Component {
 	          				<div className="row">
 	          					<div className='col-sm-6'>
 	          						<div className="form-group">
-					                	<label for="startDate">Start Date</label>
-					                	<input type="text" className="form-control" id="startDate" placeholder="MM/DD/YYYY" value={this.state.startDate} onChange={this.handleInputChange} />
+					                	<label for="startDateAndTime">Start Date and Time</label>
+					                	<input type="datetime-local" className="form-control" id="startDateAndTime" value={this.state.startDateAndTime} onChange={this.handleInputChange} />
 			                		</div>
 			                	</div>
 			                	<div className='col-sm-6'>
-			                		<div className="form-group">
-	        							<div className='input-group time' id='datetimepicker3'>
-	        								<label for="startTime">Start Time</label>
-	            							<input type='text' className="form-control" id="startTime" placeholder="" value={this.state.startTime} onChange={this.handleInputChange} />
-	            							<span className="input-group-addon">
-	                							<span className="glyphicon glyphicon-time"></span>
-	            							</span>
-	        							</div>
-	    							</div>
+			                		<div className='col-sm-6'>
+	          							<div className="form-group">
+						                	<label for="endDateAndTime">End Date and Time</label>
+						                	<input type="datetime-local" className="form-control" id="endDateAndTime" value={this.state.endDateAndTime} onChange={this.handleInputChange} />
+				                		</div>
+			                		</div>
 								</div>
 							</div>
 						</form>
