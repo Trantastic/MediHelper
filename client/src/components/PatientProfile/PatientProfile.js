@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link, Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Dashboard from "../Dashboard";
 import UpdatePatientProfile from "./UpdatePatientProfile";
 import './PatientProfile.css';
@@ -10,7 +10,7 @@ class PatientProfile extends Component {
 	state = {
 		patientInfo: [],
 		pageLoaded: false,
-		redirectTo: null
+		redirectToUpdate: false
 	}
 
 	componentDidMount() {
@@ -30,7 +30,7 @@ class PatientProfile extends Component {
 	// Redirects to pre-filled out patient input form when Update Profile is clicked
 	handleUpdateSubmit = (event) => {
 		event.preventDefault();
-		this.setState({redirectTo: "/dashboard/help"})
+		this.setState({redirectTo: true})
 	};
 
 	updateProfile = (event) => {
