@@ -19,8 +19,9 @@ export default {
 	deletePatient: function(id) {
 		return axios.delete("/api/patient/" + id);
 	},
-	updatePatient: function(id, input) {
-		return axios.put("/api/patient/" + id);
+	updatePatient: function(id, patientData) {
+		console.log("api.js", patientData);
+		return axios.put("/api/patient/" + id, patientData);
 	}
 
 

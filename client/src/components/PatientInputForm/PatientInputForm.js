@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import "./PatientInputForm.css";
 import API from "../../utils/API";
 
-
 class PatientInputForm extends Component {
   state = {
     patient: [],
@@ -44,7 +43,7 @@ handleFormSubmit = event => {
     allergies: this.state.allergies,
     notes: this.state.notes,
     primaryCareName: this.state.primaryCareName,
-    primaryCareNumber: this.state.primaryCareNumb,
+    primaryCareNumber: this.state.primaryCareNumber,
     contactFirstName: this.state.contactFirstName,
     contactLastName: this.state.contactLastName,
     contactRelationship: this.state.contactRelationship,
@@ -61,6 +60,7 @@ handleInputChange = event => {
 };
 
   render() {
+    console.log(this.state.patientInfo);
     return (
       <div className="container mt-5 mb-5">
       	<div className="card border-secondary mb-3">

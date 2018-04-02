@@ -7,9 +7,55 @@ import './PatientProfile.css';
 import API from "../../utils/API";
 
 class PatientProfile extends Component {
+	constructor(props) {
+		super(props)
+
+		this.handleInputChange = this.handleInputChange.bind(this);
+		this.updateProfile=this.updateProfile.bind(this);
+
+		this.state = {
+			patientInfo: [],
+			firstName: "",
+		    lastName: "",
+		    address: "",
+		    address2: "",
+		    city: "",
+		    state: "",
+		    zip: "",
+		    preferredLanguage: "",
+		    medicalCond: "",
+		    medication: "",
+		    allergies: "",
+		    notes: "",
+		    primaryCareName: "",
+		    primaryCareNumber: "",
+		    contactFirstName: "",
+		    contactLastName: "",
+		    contactRelationship: "",
+		    contactNumb: ""
+		};
+	}
 
 	state = {
 		patientInfo: [],
+		firstName: "",
+	    lastName: "",
+	    address: "",
+	    address2: "",
+	    city: "",
+	    state: "",
+	    zip: "",
+	    preferredLanguage: "",
+	    medicalCond: "",
+	    medication: "",
+	    allergies: "",
+	    notes: "",
+	    primaryCareName: "",
+	    primaryCareNumber: "",
+	    contactFirstName: "",
+	    contactLastName: "",
+	    contactRelationship: "",
+	    contactNumb: "",
 		pageLoaded: false,
 		redirectToUpdate: false
 	}
@@ -19,44 +65,68 @@ class PatientProfile extends Component {
 	}
 
 	loadPatientInfo = () => {
-		// debugger;
 		API.getOnePatient(this.props.match.url.substr(this.props.match.url.lastIndexOf("/")+1))
 			.then(res =>
-				this.setState({patientInfo: res.data})
-				// console.log("res.data", res.data)
+				this.setState({
+					patientInfo: res.data,
+					firstName: res.data[0].firstName,
+				    lastName: res.data[0].lastName,
+				    address: res.data[0].address,
+				    address2: res.data[0].address2,
+				    city: res.data[0].city,
+				    state: res.data[0].state,
+				    zip: res.data[0].zip,
+				    preferredLanguage: res.data[0].preferredLanguage,
+				    medicalCond: res.data[0].medicalCond,
+				    medication: res.data[0].medication,
+				    allergies: res.data[0].allergies,
+				    notes: res.data[0].notes,
+				    primaryCareName: res.data[0].primaryCareName,
+				    primaryCareNumber: res.data[0].primaryCareNumber,
+				    contactFirstName: res.data[0].contactFirstName,
+				    contactLastName: res.data[0].contactLastName,
+				    contactRelationship: res.data[0].contactRelationship,
+				    contactNumb: res.data[0].contactNumb
+				})
 			)
 			.catch(error => console.log(error));
 	};
 
-	// Redirects to pre-filled out patient input form when Update Profile is clicked
+	// Triggers display of the pre-filled out patient input form when Update Profile is clicked
 	handleUpdateSubmit = (event) => {
 		event.preventDefault();
 		this.setState({redirectTo: true})
 	};
 
+	handleInputChange = (event) => {
+		const {id, value} = event.target;
+		this.setState({[id]: value});
+	};
+
 	updateProfile = (event) => {
 		event.preventDefault();
 
-		API.updatePatient({
-			    firstName: this.props.firstName,
-			    lastName: this.props.lastName,
-			    address: this.props.address,
-			    address2: this.props.address2,
-			    city: this.props.city,
-			    state: this.props.state,
-			    zip: this.props.zip,
-			    preferredLanguage: this.props.preferredLanguage,
-			    medicalCond: this.props.medicalCond,
-			    medication: this.props.medication,
-			    allergies: this.props.allergies,
-			    notes: this.props.notes,
-			    primaryCareName: this.props.primaryCareName,
-			    primaryCareNumber: this.props.primaryCareNumber,
-			    contactFirstName: this.props.contactFirstName,
-			    contactLastName: this.props.contactLastName,
-			    contactRelationship: this.props.contactRelationship,
-			    contactNumb: this.props.contactNumb
-		}).then(alert("Success!"));
+		API.updatePatient(this.props.match.url.substr(this.props.match.url.lastIndexOf("/")+1), {
+			    firstName: this.state.firstName,
+			    lastName: this.state.lastName,
+			    address: this.state.address,
+			    address2: this.state.address2,
+			    city: this.state.city,
+			    state: this.state.state,
+			    zip: this.state.zip,
+			    preferredLanguage: this.state.preferredLanguage,
+			    medicalCond: this.state.medicalCond,
+			    medication: this.state.medication,
+			    allergies: this.state.allergies,
+			    notes: this.state.notes,
+			    primaryCareName: this.state.primaryCareName,
+			    primaryCareNumber: this.state.primaryCareNumber,
+			    contactFirstName: this.state.contactFirstName,
+			    contactLastName: this.state.contactLastName,
+			    contactRelationship: this.state.contactRelationship,
+			    contactNumb: this.state.contactNumb
+		})
+		// .then(res => console.log("res", res));
 	}
 
 	// Solves asynchronous issue of loadPatientInfo firing off before page loads
@@ -72,13 +142,17 @@ class PatientProfile extends Component {
 	// Grabbing patient ID from url and uses it to delete patient once "Delete Patient" btn is clicked and reloads patients for drop down menu
 	deletePatient = () => {
 		API.deletePatient(this.props.match.url.substr(this.props.match.url.lastIndexOf("/")+1))
-			.then(res => console.log("res", res))
+			// .then(res => console.log("res", res))
 			.catch(err => console.log(err)); 
 	};
 
-	render() {
-		// {this.asynSolver()}
+	reloadPatientProfileTable = () => {
+		if(this.props.match.url.substr(this.props.match.url.lastIndexOf("/")+1) !== this.state.patientInfo[0]._id) {
+			this.loadPatientInfo();
+		}
+	}
 
+	render() {
 		if(this.state.redirectTo) {
 			return <UpdatePatientProfile 
 				key={this.state.patientInfo[0]._id}
@@ -101,11 +175,14 @@ class PatientProfile extends Component {
 				contactRelationship={this.state.patientInfo[0].contactRelationship}
 				contactNumb={this.state.patientInfo[0].contactNumb}
 
+				handleInputChange={this.handleInputChange}
 				updateProfile={this.updateProfile}
 			/>
 		} else if(this.state.patientInfo.length !== 0){
 		return (
 			<div>
+				{this.reloadPatientProfileTable()}
+				
 				<Dashboard />
 
 				<button className="assessmentbtn">
@@ -143,7 +220,7 @@ class PatientProfile extends Component {
 		);};
 
 		return (
-			<p>Page is still loading</p>
+			<p>Please refresh page.</p>
 		)
 	};
 };
