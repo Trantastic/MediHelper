@@ -28,5 +28,16 @@ module.exports = {
 	      .then(dbModel => dbModel.remove())
 	      .then(dbModel => res.json(dbModel))
 	      .catch(err => res.status(422).json(err));
+	},
+	findOne: function(req, res) {
+		db.Caretaker
+		    .findById({_id: req.params.id})
+		    .populate('patient')
+		    .exec(function(err, caretaker) {
+		    	console.log(JSON.stringify(caretakers, null, "\t"))
+		    })
 	}
 };
+
+
+
