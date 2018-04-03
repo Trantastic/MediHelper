@@ -1,25 +1,12 @@
 .calendar-card-body {
-	width: 50%;
-    margin: 0 auto;
-    float: none;
+	  width: 45%;
+    float: left;
     margin-bottom: 10px;
-    margin-top: 10px;
+    margin-top: 137px;
     padding: 15px;
     background-color: #FFFFFF;
     border-radius: 10px;
 }
-/*.event-input-body {
-	width: 50%;
-    margin: 0 auto;
-    float: none;
-    margin-bottom: 10px;
-    margin-top: 10px;
-    padding: 15px;
-    background-color: #FFFFFF;
-    border-radius: 10px;
-}
-
-*/
 
 
 

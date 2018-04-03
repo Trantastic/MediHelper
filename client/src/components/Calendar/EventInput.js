@@ -4,7 +4,7 @@ import API from "../../utils/API";
 
 class EventInput extends Component {
 	state = {
-	  	eventTitle: "",
+	  eventTitle: "",
 		startDateAndTime: "",
 		endDateAndTime: "",
 		rePatient: "",
