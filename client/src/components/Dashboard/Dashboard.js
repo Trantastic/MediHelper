@@ -9,19 +9,7 @@ class Dashboard extends Component {
 	state = {
 		patients: [],
 		caretaker: null
-		// calendar: []
 	};
-
-	// Retrieves all patients associated with caretaker and 
-	// creates a button for each of them in the drop drop menu
-	// loadPatients = () => {
-	// 	API.getPatients(this.props.caretaker._id)
-	// 		.then(res =>
-	// 			this.setState({patients: res.data})
-	// 			// console.log("loadpatients", res.data)
-	// 		)
-	// 		.catch(error => console.log(error));
-	// };
 
 	loadPatients = () => {
 		API.getPatients()
@@ -40,16 +28,12 @@ class Dashboard extends Component {
 		return;
 	}
 
-	mapSolver = () => {
-		return;
-	}
-
 	render() {
 		return (
 			<div>
 				{this.asynSolver()}
 				<PatientDropDown>
-					{this.state.patients !== null ? this.state.patients.map(patients => {
+					{this.state.patients.map(patients => {
 						return (
 							<DropDownList
 								key={patients.id}
@@ -58,7 +42,7 @@ class Dashboard extends Component {
 								lastName={patients.lastName}
 							/>
 						);
-					}) : this.mapSolver()}		
+					})}		
 				</PatientDropDown>
 			</div>
 		);
