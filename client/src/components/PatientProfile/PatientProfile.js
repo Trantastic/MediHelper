@@ -151,7 +151,7 @@ class PatientProfile extends Component {
 				{this.reloadPatientProfileTable()}
 				
 				<div className="row">
-					<div className="col-md-12">
+					<div className="col-sm-12">
 						<Link to="/dashboard/assessment">
 							<button className="btn text-white patientEditBtn mr-3 mt-5">Assessment Form</button>
 						</Link>
@@ -167,7 +167,7 @@ class PatientProfile extends Component {
 				</div>
 
 				<div className="row">
-					<div className="col-md-12">
+					<div className="col-sm-12">
 						<PatientProfileTable 
 							key={this.state.patientInfo[0]._id}
 							firstName={this.state.patientInfo[0].firstName}
