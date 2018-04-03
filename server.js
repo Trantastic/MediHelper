@@ -32,7 +32,12 @@ if (process.env.NODE_ENV === "production") {
 }
 
 mongoose.Promise = Promise;
-mongoose.connect("mongodb://localhost/MediHelperDB");
+mongoose.connect(
+  process.env.MONGODB_URI || "mongodb://localhost/MediHelperDB",
+  {
+    useMongoClient: true
+  }
+);
 
 // ======== Middleware =========
 app.use(morgan("dev"));
