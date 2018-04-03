@@ -87,7 +87,7 @@ handleInputChange = event => {
     return (
       <div className="container mt-5 mb-5">
       	<div className="card border-secondary mb-3">
-          <div className="card-header"><h2>Patient Infomation Form</h2></div>
+          <div className="card-header"><h2>Patient Information Form</h2></div>
             <div className="card-body text-secondary">
 
       		    <form>

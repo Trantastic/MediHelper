@@ -4,7 +4,6 @@ import "./Help.css";
 
 
 let caretaker = "";
-console.log("1" + caretaker);
 
 let helpNumber = "";
 
@@ -14,8 +13,6 @@ class Help extends React.Component {
     	this.state = {
     		caretaker: null
     	};
-    	console.log("2" + this.props.caretaker);
-    	console.log("3" + this.props);
   	}
 
 	componentDidMount = () => {

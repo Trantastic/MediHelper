@@ -31,11 +31,8 @@ class Calendar extends Component {
 					customButtons= {{
 						addEventButton: {
 							text: "Create A Calendar Event Here...",
-// 					// 		// click: this.makeEvent
 						}
 					}}
-// 					//Where do I add the fields for each event????
-					// defaultDate= { moment() }
 					navLinks= { true }
 					editable= { true }
 					eventLimit= { true }
