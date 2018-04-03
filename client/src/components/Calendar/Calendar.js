@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import FullCalendar from "fullcalendar-reactwrapper";
-import { Redirect } from "react-router-dom";
+import { Redirect, Link } from "react-router-dom";
 import "fullcalendar-reactwrapper/dist/css/fullcalendar.min.css";
 import "./Calendar.css";
 import "./EventInput.js";
@@ -13,12 +13,12 @@ class Calendar extends Component {
 		this.state = {
 			event: [
 				{
-                    title: 'Long Event',
+                    title: "Out of town",
                     start: "2018-04-05",
                     end: "2018-04-08"
                 },
             	{
-            		title: "Check-Up",
+            		title: "Cardiologist Check-Up",
             		start: "2018-04-21T06:30",
             		end: "2018-04-21T08:00"
             	}
@@ -42,14 +42,16 @@ class Calendar extends Component {
 					customButtons= {{
 						addEventButton: {
 							text: "Create An Event",
-							click: function(event) {
-								event.preventDefault();
-								// window.location = "/event";
+							url: "http://localhost:3000/event"
+							// click: function(event) {
+							// 	event.preventDefault();
+							// 	window.location = "/event";
+
 								
-							}	
+							// }	
 						}			
 					}}
-// 					//Where do I add the fields for each event????
+					defaultDate={ Date.now() }
 					navLinks= { true }
 					editable= { true }
 					eventLimit= { true }

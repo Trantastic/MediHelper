@@ -64,6 +64,7 @@ class Dashboard extends Component {
 				<div className="calendar-card">
   					<div className="calendar-card-body">
 						<Calendar />
+						
 					</div>
 				</div>
 				<div className="event-input-card">
