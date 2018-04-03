@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import { Redirect } from "react-router-dom";
 import Help from "./components/Help";
 import Dashboard from "./components/Dashboard";
 import PatientInputForm from "./components/PatientInputForm";
@@ -26,6 +25,7 @@ class App extends Component {
     this._login = this._login.bind(this);
   };
 
+  // sets the state if the user if found
   componentDidMount() {
     axios.get('/auth/user').then(response => {
       if (!!response.data.caretaker) {
@@ -33,15 +33,11 @@ class App extends Component {
           loggedIn: true,
           caretaker: response.data.caretaker
         });
-      } else {
-        this.setState({
-          loggedIn: false,
-          caretaker: null
-        });
-      }
+      }    
     });
   };
 
+  // destorys the user session and reset set then redirects to login
   _logout() {
     axios.post('/auth/logout').then(response => {
       console.log(response.data)
@@ -55,6 +51,7 @@ class App extends Component {
     });
   };
 
+// checks if a user exsits and redirects if is found
  _login(username, password) {
     console.log(username, password)
     axios.post('/auth/login', {
@@ -84,7 +81,7 @@ class App extends Component {
           <Route exact path="/dashboard" render={() => <Dashboard caretaker={this.state.caretaker} />} />
           <Route exact path="/dashboard/assessment" component={AssessmentButton} />
           <Route exact path="/dashboard/PatientProfile/:id" component={PatientProfile} />
-          <Route exact path="/dashboard/help" component={Help} />
+          <Route exact path="/dashboard/help" render={() => <Help caretaker={this.state.caretaker} />} />
           <Route exact path="/patientform" component={PatientInputForm} />
           <Route exact path="/calendar" component={Calendar} />
           <Route exact path="/event" component={EventInput} />

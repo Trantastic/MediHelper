@@ -77,17 +77,17 @@ handleFormSubmit = event => {
 
 handleInputChange = event => {
   const { id, value } = event.target;
+
   this.setState({
     [id]: value
   });
 };
 
   render() {
-    console.log(this.state.patientInfo);
     return (
       <div className="container mt-5 mb-5">
       	<div className="card border-secondary mb-3">
-          <div className="card-header"><h2>Patient Infomation Form</h2></div>
+          <div className="card-header"><h2>Patient Information Form</h2></div>
             <div className="card-body text-secondary">
 
       		    <form>
@@ -102,7 +102,7 @@ handleInputChange = event => {
                   </div>
                 </div>
 
-                <div className="form-group">
+                <div className="form-group mt-3">
                   <label htmlFor="address">Address</label>
                   <input type="text" className="form-control" id="address" placeholder="1234 Main St" value={this.state.address} onChange={this.handleInputChange}/>
                 </div>

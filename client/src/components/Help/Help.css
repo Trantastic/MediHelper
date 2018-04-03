@@ -1,3 +1,36 @@
 .helpHeader {
 	font-family: 'Asar', serif;
+
+}
+
+.help-button {
+	display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 100px;
+}
+
+.text1 {
+    position: absolute;
+    top: 30%;
+    left: 39.5%;
+    transform: translate(-50%, -50%);
+}
+
+.text2 {
+    position: absolute;
+    top: 40%;
+    left: 39%;
+    transform: translate(-50%, -50%);
+}
+
+.text3 {
+    position: absolute;
+    top: 50%;
+    left: 38.5%;
+    transform: translate(-50%, -50%);
+}
+
+.help-button-div {
+	position: relative;
 }

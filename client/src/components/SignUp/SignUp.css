@@ -10,12 +10,16 @@
 }
 
 .signupHeader, .signupBtn {
-	background-color: #8FBC8F;
+	background-color: #739A49;
 	font-family: 'Asar', serif;
 }
 
 .signupHeader {
-	padding-top: 100px;
+	background-image: url("http://www.bmexpressions.com/shop/catalog/images/EMT.png");
+	background-repeat: no-repeat;
+	background-size: 150px 150px;
+	background-position: 170px 15px; 
+	padding-top: 125px;
 	font-size: 35px;
 }
 
