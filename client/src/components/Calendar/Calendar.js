@@ -1,10 +1,6 @@
 import React, { Component } from 'react';
 import FullCalendar from "fullcalendar-reactwrapper";
 import "fullcalendar-reactwrapper/dist/css/fullcalendar.min.css";
-import Moment from 'moment';
-// moment().format();
-// 	// import "./Calendar.css";
-// require Moment from "http://momentjs.com/downloads/moment.min.js";
 
 class Calendar extends Component {
 	constructor(props)	{
@@ -34,11 +30,8 @@ class Calendar extends Component {
 					customButtons= {{
 						addEventButton: {
 							text: "Create A Calendar Event Here...",
-// 					// 		// click: this.makeEvent
 						}
 					}}
-// 					//Where do I add the fields for each event????
-					// defaultDate= { moment() }
 					navLinks= { true }
 					editable= { true }
 					eventLimit= { true }

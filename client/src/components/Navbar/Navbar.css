@@ -3,22 +3,21 @@
 }
 
 .navbar-brand {
-	color: white;
-	font-size: 27px;
+	color: white !important;
+	font-size: 27px !important;
 }
 
 .navbar-brand:hover {
-	color: white;
+	color: white !important;
 }
 
 .nav-link {
-	color: white;
+	color: white !important;
 }
 
 .nav-link:hover {
-	color: #696969;
+	color: #696969 !important;
 }
-
 
 
 
