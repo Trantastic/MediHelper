@@ -1,50 +1,44 @@
-import React from 'react';
+import React, { Component } from 'react';
 import 'whatwg-fetch';
 import "./Help.css";
-
 
 let caretaker = "";
 
 let helpNumber = "";
 
 class Help extends React.Component {
+
   	constructor(props) {
     	super(props);
     	this.state = {
     		caretaker: null
     	};
   	}
-
-	componentDidMount = () => {
-		console.log("4 This is happening");
-		console.log("5" + helpNumber);
-	};
-
-	getHelp = () =>	{
-		fetch('/sendsms', {
+  
+getHelp = () =>	{
+	fetch('/sendsms', {
     		method: 'POST',
     		headers: {
     			Accept: 'application/JSON',
     			'Content-Type': 'application/JSON'
       		},
-      		
-      		body: JSON.stringify({ data: +18314356776 })
+      		body: JSON.stringify({ data: ("+1" + this.state.caretaker.phoneNumb) })
     	})
     	.then(resp => {
-      		console.log("6" + resp)
+      		console.log(resp);
     	})
-	}
+	};
 
 	asyncSolver = () => {
-		if (this.props.caretaker != null && this.state.caretaker === null){
+		if (this.props.caretaker !== null && this.state.caretaker === null){
 			this.setState({caretaker: this.props.caretaker});
 		}
-	}
+	};
 
 	render() {
+		{this.asyncSolver()}
 		return (
 			<div className="help-button-div container">
-			{this.asyncSolver()}
 				<input type="image" className="help-button img-fluid" src="https://cdn1.iconfinder.com/data/icons/medical-services-set-2/256/10-512.png" alt="help button to send text to caretaker" onClick={ this.getHelp } />
 				<h3 className="helpHeader text1 text-center">If you need</h3>
 				<h3 className="helpHeader text2 text-center">assistance</h3>

@@ -84,7 +84,7 @@ class App extends Component {
           <Route exact path="/dashboard" render={() => <Dashboard caretaker={this.state.caretaker} />} />
           <Route exact path="/dashboard/assessment" component={AssessmentButton} />
           <Route exact path="/dashboard/PatientProfile/:id" component={PatientProfile} />
-          <Route exact path="/dashboard/help" component={Help} />
+          <Route exact path="/dashboard/help" render={() => <Help caretaker={this.state.caretaker} />} />
           <Route exact path="/patientform" component={PatientInputForm} />
           <Route exact path="/calendar" component={Calendar} />
         </div>
