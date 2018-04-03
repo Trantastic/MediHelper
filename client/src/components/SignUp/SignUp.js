@@ -33,13 +33,13 @@ class SignUp extends Component {
 				phoneNumb: this.state.phoneNumb,
 				password: this.state.password
 			}).then(response => {
-				console.log(response.data.message);
 
 				if (!response.data.errmsg && response.data._message !== "Caretaker validation failed") {
 					this.setState({
 						redirectTo: "/"
 					});
 				}
+				// Checks to see if there are any error and will display a error message if found
 				if (response.data.errmsg && response.data.errmsg.includes("E11000 duplicate key error collection")) {
 					this.setState({
 						usernameErr: "this username already exists"
@@ -63,6 +63,7 @@ class SignUp extends Component {
 			}).catch(err => {
         console.log(err)
       });
+      // reset form
       this.setState({
 						username: "",
 						phoneNumb: "",

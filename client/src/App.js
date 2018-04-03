@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import { Redirect } from "react-router-dom";
 import Help from "./components/Help";
 import Dashboard from "./components/Dashboard";
 import PatientInputForm from "./components/PatientInputForm";
@@ -41,6 +40,7 @@ class App extends Component {
     });
   };
 
+  // destorys the user session and reset set then redirects to login
   _logout() {
     axios.post('/auth/logout').then(response => {
       console.log(response.data)
@@ -54,6 +54,7 @@ class App extends Component {
     });
   };
 
+// checks if a user exsits and redirects if is found
  _login(username, password) {
     console.log(username, password)
     axios.post('/auth/login', {
