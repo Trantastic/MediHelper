@@ -46,11 +46,14 @@ class Dashboard extends Component {
 						);
 					})}		
 				</PatientDropDown>
-				<div className="calendar-card">
-  					<div className="calendar-card-body">
-						<Calendar />
-						
-					</div>
+
+				
+						<div className="calendar-card container">
+		  				<div className="calendar-card-body">
+							<Calendar />
+						</div>
+							
+
 				</div>
 				<div className="event-input-card">
 					<div className="event-input-body">
