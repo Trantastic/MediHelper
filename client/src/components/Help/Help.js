@@ -3,6 +3,7 @@ import 'whatwg-fetch';
 import "./Help.css";
 
 class Help extends Component {
+
   	constructor(props) {
     	super(props);
     	this.state = {
@@ -18,9 +19,6 @@ getHelp = () =>	{
     			'Content-Type': 'application/JSON'
       		},
       		body: JSON.stringify({ data: ("+1" + this.state.caretaker.phoneNumb) })
-    	})
-    	.then(resp => {
-      		console.log(resp);
     	})
 	};
 

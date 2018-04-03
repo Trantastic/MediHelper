@@ -26,6 +26,7 @@ class AssessmentForm extends Component {
   
   handleAssessmentFormSubmit = event => {
     event.preventDefault();
+    
     alert(`Painlevel: ${this.state.painlevel}\nPainLocation: ${this.state.painlocation}\nOtherPainLocation: ${this.state.otherpainlocation}`);
     this.setState({ painlevel: "", painlocation: "" });
   };

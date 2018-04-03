@@ -24,6 +24,7 @@ class App extends Component {
     this._login = this._login.bind(this);
   };
 
+  // sets the state if the user if found
   componentDidMount() {
     axios.get('/auth/user').then(response => {
       if (!!response.data.caretaker) {
@@ -31,12 +32,7 @@ class App extends Component {
           loggedIn: true,
           caretaker: response.data.caretaker
         });
-      } else {
-        this.setState({
-          loggedIn: false,
-          caretaker: null
-        });
-      }
+      }    
     });
   };
 

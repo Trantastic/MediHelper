@@ -73,12 +73,14 @@ class PatientProfile extends Component {
 	// Triggers display of the pre-filled out patient input form when Update Profile is clicked
 	handleUpdateSubmit = (event) => {
 		event.preventDefault();
+
 		this.setState({redirectTo: true})
 	};
 
 	// Changes state to the input user is typing in the UpdatePatientProfile.js
 	handleInputChange = (event) => {
 		const {id, value} = event.target;
+
 		this.setState({[id]: value});
 	};
 
