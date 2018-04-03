@@ -162,7 +162,7 @@ class UpdatePatientProfile extends Component {
 			            	    </div>
 			                </div>  
 
-			        		<button type="submit" className="btn btn-info" onClick={this.props.updateProfile}>Update</button>
+			        		<button type="submit" className="btn updateBtn text-white" onClick={this.props.updateProfile}>Update</button>
 			  		    </form>
 			      	</div>
 			    </div>

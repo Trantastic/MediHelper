@@ -9,9 +9,9 @@ class Help extends Component {
     		caretaker: null
     	};
   	}
-
-	getHelp = () =>	{
-		fetch('/sendsms', {
+  
+getHelp = () =>	{
+	fetch('/sendsms', {
     		method: 'POST',
     		headers: {
     			Accept: 'application/JSON',
@@ -34,10 +34,11 @@ class Help extends Component {
 		{this.asyncSolver()}
 		return (
 			<div className="help-button-div container">
-				<h3 className="helpHeader text-center mt-5">If you need assistance, press help to notify your caretaker by clicking the button</h3>
-				<button type="button" className="help-button btn-danger btn-block" onClick={ this.getHelp }>Help</button>
+				<input type="image" className="help-button img-fluid" src="https://cdn1.iconfinder.com/data/icons/medical-services-set-2/256/10-512.png" alt="help button to send text to caretaker" onClick={ this.getHelp } />
+				<h3 className="helpHeader text1 text-center">If you need</h3>
+				<h3 className="helpHeader text2 text-center">assistance</h3>
+				<h3 className="helpHeader text3 text-center">click here</h3>
 			</div>
-
 		);
 	}
 }

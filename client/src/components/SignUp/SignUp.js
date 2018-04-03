@@ -33,13 +33,13 @@ class SignUp extends Component {
 				phoneNumb: this.state.phoneNumb,
 				password: this.state.password
 			}).then(response => {
-				console.log(response.data.message);
 
-				if (!response.data.errmsg && response.data._message !== "Caretaker validation failed" && this.state.password === this.state.confirmPassword) {
+				if (!response.data.errmsg && response.data._message !== "Caretaker validation failed") {
 					this.setState({
 						redirectTo: "/"
 					});
 				}
+				// Checks to see if there are any error and will display a error message if found
 				if (response.data.errmsg && response.data.errmsg.includes("E11000 duplicate key error collection")) {
 					this.setState({
 						usernameErr: "this username already exists"
@@ -63,6 +63,7 @@ class SignUp extends Component {
 			}).catch(err => {
         console.log(err)
       });
+      // reset form
       this.setState({
 						username: "",
 						phoneNumb: "",
@@ -88,7 +89,7 @@ class SignUp extends Component {
 									<form className="SignupForm">
 										<input className="mb-2 signupInput" type="text" name="username" value={this.state.username} onChange={this.handleChange} placeholder="username" /><br />
 										<input className="mb-2 signupInput" type="text" name="phoneNumb" value={this.state.phoneNumb} onChange={this.handleChange} placeholder="phone number" /><br />
-										<input className="mb-2 signupInput" type="password" name="password" value={this.state.password} onChange={this.handleChange} placeholder="password" /><br />
+										<input className="mb-2 signupInput" type="password" name="password" value={this.state.password} onChange={this.handleChange} placeholder="password" /><br /><br />
 										<button type="submit" onClick={this.handleSubmit} className="btn text-white signupBtn">Submit</button>	
 									</form>
 			  				</div>

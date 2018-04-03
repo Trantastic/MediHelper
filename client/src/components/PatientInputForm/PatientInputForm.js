@@ -102,7 +102,7 @@ handleInputChange = event => {
                   </div>
                 </div>
 
-                <div className="form-group">
+                <div className="form-group mt-3">
                   <label htmlFor="address">Address</label>
                   <input type="text" className="form-control" id="address" placeholder="1234 Main St" value={this.state.address} onChange={this.handleInputChange}/>
                 </div>

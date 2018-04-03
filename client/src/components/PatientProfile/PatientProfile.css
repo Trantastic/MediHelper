@@ -1,0 +1,24 @@
+.table {
+	border-radius: 20px;
+	overflow: hidden;
+	box-shadow: 5px 10px 18px #888888;
+	font-family: 'Asar', serif;
+	margin-top: 50px;
+}
+
+.title {
+	font-weight: bold;
+	font-size: 25px;
+}
+
+.patientEditBtn {
+	font-family: 'Asar', serif;
+	float: right;
+	background-color: #8FBC8F;
+}
+
+.updateBtn {
+	background-color: #8FBC8F;
+	font-family: 'Asar', serif;
+	width: 100%;
+}

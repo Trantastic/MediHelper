@@ -1,35 +1,73 @@
 import React from "react";
 
 const PatientProfileTable = props => (
-	<table className="table table-bordered table-striped w-50 float-right">
+	<div className="container">
+	<table className="table table-striped w-50 float-right mb-5 bg-white">
 		<tbody>
 		    <tr>
-				<td>Name: {props.firstName} {props.lastName}</td>
-				<td>Preferred Language: {props.preferredLanguage}</td>
+					<td>
+						<div className="title">Name</div> 
+						<p>{props.firstName} {props.lastName}</p></td>
+					<td>
+						<div className="title">Preferred Language</div> 
+						<p>{props.preferredLanguage}</p>
+					</td>
 		    </tr>
+
 		    <tr>
-		    	<td colSpan="2">Address: {props.address}</td>
+		    	<td colSpan="2">
+		    		<div className="title">Address</div> 
+		    		<p>{props.address}</p> 
+		    		<p>{props.city}, {props.state} {props.zip}</p>
+		    	</td>
 		    </tr>
+
 		    <tr>
-		    	<td colSpan="2">Medical Conditions: {props.medicalCond}</td>
+		    	<td colSpan="2">
+		    		<div className="title">Medical Conditions</div> 
+		    		<p>{props.medicalCond}</p>
+		    	</td>
 		    </tr>
+
 		    <tr>
-		    	<td>Medication: {props.medication}</td>
-		    	<td>Allergies: {props.allergies}</td>
+		    	<td>
+		    		<div className="title">Medication</div> 
+		    		<p>{props.medication}</p>
+		    	</td>
+		    	<td>
+		    		<div className="title">Allergies</div> 
+		    		<p>{props.allergies}</p>
+		    	</td>
 		    </tr>
+
 		    <tr>
 		    	<td colSpan="2">Notes: {props.notes}</td>
 		    </tr>
+
 		    <tr>
-		    	<td>Physican Name: {props.primaryCareName}</td>
-		    	<td>Phone: {props.primaryCareNumber}</td>
+		    	<td>
+		    		<div className="title">Physican Name</div> 
+		    		<p>{props.primaryCareName}</p>
+		    	</td>
+		    	<td>
+		    		<div className="title">Phone</div> 
+		    		<p>{props.primaryCareNumber}</p>
+		    	</td>
 		    </tr>
+
 		    <tr>
-		    	<td>Emergency Contact: {props.contactFirstName} {props.contactLastName} ({props.contactRelationship})</td>
-		    	<td>Phone: {props.contactNumb}</td>
+		    	<td>
+		    		<div className="title">Emergency Contact</div> 
+		    		<p>{props.contactFirstName} {props.contactLastName} ({props.contactRelationship})</p>
+		    	</td>
+		    	<td>
+		    		<div className="title">Phone</div> 
+		    		<p>{props.contactNumb}</p>
+		    	</td>
 		    </tr>
 		</tbody>
 	</table>
+	</div>
 
 
 
