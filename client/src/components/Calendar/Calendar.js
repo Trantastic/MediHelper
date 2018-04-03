@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import FullCalendar from "fullcalendar-reactwrapper";
 import "fullcalendar-reactwrapper/dist/css/fullcalendar.min.css";
-import Moment from 'moment';
 
 class Calendar extends Component {
 	constructor(props)	{

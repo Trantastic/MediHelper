@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { PatientDropDown, DropDownList } from '../PatientDropDown';
 import Calendar from '../Calendar';
+import Login from '../Login';
 import './Dashboard.css';
 import API from "../../utils/API";
 
@@ -52,7 +53,7 @@ class Dashboard extends Component {
 					{this.state.patients !== null ? this.state.patients.map(patients => {
 						return (
 							<DropDownList
-								key={patients.id}
+								key={patients._id}
 								patientId={patients._id}
 								firstName={patients.firstName}
 								lastName={patients.lastName}

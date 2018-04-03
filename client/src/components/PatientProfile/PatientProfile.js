@@ -36,30 +36,6 @@ class PatientProfile extends Component {
 		};
 	}
 
-	state = {
-		patientInfo: [],
-		firstName: "",
-	    lastName: "",
-	    address: "",
-	    address2: "",
-	    city: "",
-	    state: "",
-	    zip: "",
-	    preferredLanguage: "",
-	    medicalCond: "",
-	    medication: "",
-	    allergies: "",
-	    notes: "",
-	    primaryCareName: "",
-	    primaryCareNumber: "",
-	    contactFirstName: "",
-	    contactLastName: "",
-	    contactRelationship: "",
-	    contactNumb: "",
-		pageLoaded: false,
-		redirectToUpdate: false
-	}
-
 	componentDidMount() {
 		this.loadPatientInfo();
 	}
@@ -95,11 +71,13 @@ class PatientProfile extends Component {
 	// Triggers display of the pre-filled out patient input form when Update Profile is clicked
 	handleUpdateSubmit = (event) => {
 		event.preventDefault();
+
 		this.setState({redirectTo: true})
 	};
 
 	handleInputChange = (event) => {
 		const {id, value} = event.target;
+
 		this.setState({[id]: value});
 	};
 

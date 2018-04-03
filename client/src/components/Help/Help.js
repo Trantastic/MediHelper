@@ -2,11 +2,7 @@ import React, { Component } from 'react';
 import 'whatwg-fetch';
 import "./Help.css";
 
-let caretaker = "";
-
-let helpNumber = "";
-
-class Help extends React.Component {
+class Help extends Component {
 
   	constructor(props) {
     	super(props);
@@ -23,9 +19,6 @@ getHelp = () =>	{
     			'Content-Type': 'application/JSON'
       		},
       		body: JSON.stringify({ data: ("+1" + this.state.caretaker.phoneNumb) })
-    	})
-    	.then(resp => {
-      		console.log(resp);
     	})
 	};
 

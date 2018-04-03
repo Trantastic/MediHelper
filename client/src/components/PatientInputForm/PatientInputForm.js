@@ -77,13 +77,13 @@ handleFormSubmit = event => {
 
 handleInputChange = event => {
   const { id, value } = event.target;
+
   this.setState({
     [id]: value
   });
 };
 
   render() {
-    console.log(this.state.patientInfo);
     return (
       <div className="container mt-5 mb-5">
       	<div className="card border-secondary mb-3">
