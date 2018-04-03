@@ -13,6 +13,7 @@ class PatientProfile extends Component {
 		this.handleInputChange = this.handleInputChange.bind(this);
 		this.updateProfile=this.updateProfile.bind(this);
 
+		// Allows child (UpdatePatientProfile) access to setState for it's onChange function
 		this.state = {
 			patientInfo: [],
 			firstName: "",
@@ -36,34 +37,11 @@ class PatientProfile extends Component {
 		};
 	}
 
-	state = {
-		patientInfo: [],
-		firstName: "",
-	    lastName: "",
-	    address: "",
-	    address2: "",
-	    city: "",
-	    state: "",
-	    zip: "",
-	    preferredLanguage: "",
-	    medicalCond: "",
-	    medication: "",
-	    allergies: "",
-	    notes: "",
-	    primaryCareName: "",
-	    primaryCareNumber: "",
-	    contactFirstName: "",
-	    contactLastName: "",
-	    contactRelationship: "",
-	    contactNumb: "",
-		pageLoaded: false,
-		redirectToUpdate: false
-	}
-
 	componentDidMount() {
 		this.loadPatientInfo();
 	}
 
+	// Loads current patient's data to use in the patient profile table and update form
 	loadPatientInfo = () => {
 		API.getOnePatient(this.props.match.url.substr(this.props.match.url.lastIndexOf("/")+1))
 			.then(res =>
@@ -98,11 +76,13 @@ class PatientProfile extends Component {
 		this.setState({redirectTo: true})
 	};
 
+	// Changes state to the input user is typing in the UpdatePatientProfile.js
 	handleInputChange = (event) => {
 		const {id, value} = event.target;
 		this.setState({[id]: value});
 	};
 
+	// Sends the updated patient information to the database when user clicks Update button
 	updateProfile = (event) => {
 		event.preventDefault();
 
@@ -135,6 +115,7 @@ class PatientProfile extends Component {
 			.catch(err => console.log(err)); 
 	};
 
+	// Reloads the patient profile table to reflect the changes
 	reloadPatientProfileTable = () => {
 		if(this.props.match.url.substr(this.props.match.url.lastIndexOf("/")+1) !== this.state.patientInfo[0]._id) {
 			this.loadPatientInfo();
@@ -217,7 +198,7 @@ class PatientProfile extends Component {
 		);};
 
 		return (
-			<p>Please refresh page.</p>
+			<p>Page not found.</p>
 		)
 	};
 };
