@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { PatientDropDown, DropDownList } from '../PatientDropDown';
 import Calendar from '../Calendar';
+import EventInput from '../Calendar';
 import Login from '../Login';
 import './Dashboard.css';
 import API from "../../utils/API";
@@ -27,7 +28,7 @@ class Dashboard extends Component {
 			this.loadPatients();
 		}
 		return;
-	}
+	};
 
 	render() {
 		return (
@@ -45,6 +46,17 @@ class Dashboard extends Component {
 						);
 					})}		
 				</PatientDropDown>
+				<div className="calendar-card">
+  					<div className="calendar-card-body">
+						<Calendar />
+						
+					</div>
+				</div>
+				<div className="event-input-card">
+					<div className="event-input-body">
+						<EventInput />
+					</div>
+				</div>
 			</div>
 		);
 	}
