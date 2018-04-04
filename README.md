@@ -9,17 +9,17 @@ MediHelper is an app designed to improve the process of caretaking, and provides
 
 ## Demo
 
+View and Add Patients:  
+![](./readme_images/create&read.gif)
 
+Update Patient Information:  
+![](./readme_images/update.gif)
 
+Pain Assessment Form:  
+![](./readme_images/assessment.gif)
 
-
-
-
-
-
-
-
-
+Text Alert Feature to Notify Caretaker of Emergency:  
+![](./readme_images/textAlert.gif)
 
 
 ## Installation & Run
@@ -31,7 +31,7 @@ To run the app locally:
 1. Clone or fork the [repo](https://github.com/Trantastic/MediHelper) 
 2. Navigate to your terminal and into the MediHelper folder. 
 3. In your terminal, type ```yarn install``` then ```cd``` into the client and enter ```yarn install``` again 
-4. Open another terminal and enter ```mongod```. Leave this window open.
+4. Open another terminal and enter ```mongod```. Leave this window open. 
 5. Back to the terminal with MediHelper, navigate to the root folder (MediHelper) and enter ```yarn start``` 
 6. A browser should automatically open to run the app
    
