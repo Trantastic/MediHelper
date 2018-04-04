@@ -19,7 +19,7 @@ class UpdatePatientProfile extends Component {
 			                  </div>
 			                </div>
 
-			                <div className="form-group">
+			                <div className="form-group mt-3">
 			                  <label for="address">Address</label>
 			                  <input type="text" className="form-control" id="address" placeholder={this.props.address} defaultValue={this.props.address} onChange={this.props.handleInputChange} />
 			                </div>
@@ -123,7 +123,7 @@ class UpdatePatientProfile extends Component {
 			                  <input type="text" className="form-control" id="notes" defaultValue={this.props.notes} onChange={this.props.handleInputChange} />
 			                </div>
 
-			                <h3>Primary Care Physician</h3>
+			                <h3 className="text-dark">Primary Care Physician</h3>
 			                <div className="form-row mt-4">
 			                  <div className="form-group col-md-6">
 			           		      <label for="primaryCareName">Physician Name</label>
@@ -136,7 +136,7 @@ class UpdatePatientProfile extends Component {
 			            	    </div>
 			                </div>  
 
-			                <h3>Emergency Contact</h3>
+			                <h3 className="text-dark">Emergency Contact</h3>
 			                <div className="form-row mt-4"> 
 			            	    <div className="form-group col-md-6">
 			           			    <label for="contactFirstName">First Name</label>
