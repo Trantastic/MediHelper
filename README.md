@@ -24,17 +24,17 @@ MediHelper is an app designed to improve the process of caretaking, and provides
 
 ## Installation & Run
 
-To run the app locally:  
-1. Clone or fork the [repo](https://github.com/Trantastic/MediHelper)  
-2. Navigate to your terminal and into the MediHelper folder.  
-3. In your terminal, type ```yarn install``` then ```cd``` into the client and enter ```yarn install``` again  
+Visit https://pacific-tor-26182.herokuapp.com/ (Login: test, Password: 1234) and enjoy the site live, online.
+
+
+To run the app locally: 
+1. Clone or fork the [repo](https://github.com/Trantastic/MediHelper) 
+2. Navigate to your terminal and into the MediHelper folder. 
+3. In your terminal, type ```yarn install``` then ```cd``` into the client and enter ```yarn install``` again 
 4. Open another terminal and enter ```mongod```. Leave this window open.
-5. Back to the terminal with MediHelper, navigate to the root folder (MediHelper) and enter ```yarn start```  
+5. Back to the terminal with MediHelper, navigate to the root folder (MediHelper) and enter ```yarn start``` 
 6. A browser should automatically open to run the app
    
-
-   Visit https://pacific-tor-26182.herokuapp.com/ (Login: test, Password: 1234) and enjoy the site live, online.
-
 
 ## Technology Used
  * [PassportJS](http://www.passportjs.org/)
