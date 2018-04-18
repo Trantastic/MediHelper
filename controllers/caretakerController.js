@@ -5,7 +5,7 @@ module.exports = {
 	create: function(req, res) {
 		db.Patient
 		.create(req.body)
-		.then(dbModel => res.json(dbModel))
+		.then(dbModel => {return db.Caretaker.findOneAndUpdate({}, {$push: {patient: dbModel._id}}, {new: true}) })
 		.catch(err => res.status(422).json(err));
 	},
 	// Finds specific patient from databse
