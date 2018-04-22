@@ -13,8 +13,9 @@ class Dashboard extends Component {
 		caretaker: null
 	};
 
+	// Retrieves all patients associated with caretaker
 	loadPatients = () => {
-		API.getPatients()
+		API.getPatients(this.props.caretaker._id)
 			.then(res =>
 				this.setState({patients: res.data})
 			)
