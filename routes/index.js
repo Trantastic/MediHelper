@@ -4,7 +4,7 @@ const path = require("path");
 
 router.route("/api/patient")
 	.post(caretakerController.create)
-	.get(caretakerController.findAll);	
+	.get(caretakerController.findById);	
 
 router.route("/api/patient/:id")
 	.get(caretakerController.findOne)
