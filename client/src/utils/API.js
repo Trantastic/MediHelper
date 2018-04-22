@@ -9,9 +9,9 @@ export default {
 	getOnePatient: function(id) {
 		return axios.get("/api/patient/" + id);
 	},
-	// Gets ALL patients
-	getPatients: function() {
-		return axios.get("/api/patient");
+	// Gets ALL patients for specific logged in caretaker
+	getPatients: function(id) {
+		return axios.get("/api/patient" + id);
 	},
 	// Deletes specific patient
 	deletePatient: function(id) {
