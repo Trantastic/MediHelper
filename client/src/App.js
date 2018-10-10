@@ -13,7 +13,7 @@ import Login from "./components/Login";
 import Calendar from "./components/Calendar";
 import EventInput from "./components/Calendar";
 
-import Search from "./components/Search";
+import Dictionary from "./components/Dictionary";
 
 class App extends Component {
   constructor() {
@@ -87,7 +87,7 @@ class App extends Component {
           <Route exact path="/patientform" component={PatientInputForm} />
           <Route exact path="/calendar" component={Calendar} />
           <Route exact path="/event" component={EventInput} />
-          <Route exact path="/dashboard/search" component={Search} />
+          <Route exact path="/dictionary" component={Dictionary} />
 
         </div>
       </Router>  

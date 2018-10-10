@@ -23,10 +23,13 @@ const Navbar = props => {
             <li className="nav-item">
               <Link className="nav-link" to="/dashboard/help">Helper Alert</Link>
             </li>
-            <li>
-              <Link className="nav-link" to="/dashboard/search">Search</Link> 
-            </li>
-            <li className="nav-item">
+            <form className="form-inline">
+              <button className="btn btn-outline-dark text-white my-2 my-sm-0" type="submit">
+                <Link className="nav-link" to="/dictionary">Search</Link>
+              </button>
+              <input className="form-control mr-sm-2" type="search" placeholder="Search for a medication" aria-label="Search"/>
+            </form>
+            <li className="nav-item ml-auto">
               <Link className="nav-link" to="/" onClick={props._logout}>Log Out</Link>
             </li>
           </div>

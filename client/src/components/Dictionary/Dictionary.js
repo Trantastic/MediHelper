@@ -1,20 +1,3 @@
-/*
-
-Implementing Search Bar for drug search
-
-	-Create bootstrap element in Navbar
-	-Create component
-		-require react 
-		-specify fetch to api for onClick
-			-onClick search -> trigger fetch
-			-display in component (specify query)
-	-Add route to App.js
-
-	API Query Example: https://api.fda.gov/drug/label.json?search=levodopa+AND+carbidopa
-		results[0].indications_and_usage
-
-*/
-
 import React, { Component } from 'react';
 
 class Search extends Component {
@@ -39,11 +22,9 @@ class Search extends Component {
 	}
 
 	render() {
-		{this.initSearch()}
 		return(
 			<div>
 			</div>
-
 		)
 	}
 }
