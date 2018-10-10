@@ -13,6 +13,8 @@ import Login from "./components/Login";
 import Calendar from "./components/Calendar";
 import EventInput from "./components/Calendar";
 
+import Search from "./components/Search";
+
 class App extends Component {
   constructor() {
     super()
@@ -85,6 +87,7 @@ class App extends Component {
           <Route exact path="/patientform" component={PatientInputForm} />
           <Route exact path="/calendar" component={Calendar} />
           <Route exact path="/event" component={EventInput} />
+          <Route exact path="/dashboard/search" component={Search} />
 
         </div>
       </Router>  
