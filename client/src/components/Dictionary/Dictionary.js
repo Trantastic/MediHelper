@@ -1,32 +1,37 @@
 import React, { Component } from 'react';
 
-class Search extends Component {
+class Dictionary extends Component {
 
-	// fetch('http://example.com/movies.json')
- //  .then(function(response) {
- //    return response.json();
- //  })
- //  .then(function(myJson) {
- //    console.log(JSON.stringify(myJson));
- //  });
+	state = {
+		drug: ''
+	}
 
-	initSearch = (drug) => {
-		fetch('https://api.fda.gov/drug/label.json?search=levodopa+AND+carbidopa', {method: "GET", body:JSON.stringfy(data)})
+	initSearch = (e) => {
+		e.preventDefault();
+
+		fetch('https://api.fda.gov/drug/label.json?search=levodopa+AND+carbidopa')
 			.then((req, res) => {
-				return res.json.results[0].indications_and_usage;
-				// return (res.data);
+				return res.json.results[0].indications_and_usage
 			})
-			.then((data) => {
-				console.log(data);
-			}) 
+			.catch(error => (
+				console.log('ERROR: ', error)
+			))
+	}
+
+	handleInput = (e) => {
+		const { id, value } = e.target;
+		this.setState({ [id]: value });
+		console.log(this.state);
 	}
 
 	render() {
 		return(
 			<div>
+				<input className="form-control" id='drug' value={ this.state.drug } type="search" placeholder="Search for a medication" aria-label="Search" onChange={ this.handleInput } />
+				<button className='btn btn-primary' type='submit' onClick={ this.initSearch }>Search</button>
 			</div>
 		)
 	}
 }
 
-export default Search;
+export default Dictionary;
