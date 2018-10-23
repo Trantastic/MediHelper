@@ -1,37 +1,53 @@
 import React, { Component } from 'react';
 
 class Dictionary extends Component {
-
 	state = {
-		drug: ''
+		drug: '',
+		drugUse: ''
 	}
 
-	initSearch = (e) => {
-		e.preventDefault();
+	handleChange = event => {
+		const { id, value } = event.target
 
-		fetch('https://api.fda.gov/drug/label.json?search=levodopa+AND+carbidopa')
-			.then((req, res) => {
-				return res.json.results[0].indications_and_usage
+		this.setState({
+			[id]: value
+		})
+
+	}
+
+	handleSubmit = event => {
+		event.preventDefault();
+
+		fetch('https://api.fda.gov/drug/label.json?search=' + this.state.drug)
+			.then(res => {
+				return res.json()
 			})
-			.catch(error => (
-				console.log('ERROR: ', error)
-			))
-	}
-
-	handleInput = (e) => {
-		const { id, value } = e.target;
-		this.setState({ [id]: value });
-		console.log(this.state);
+			.then(data => {
+				this.setState({
+					drugUse: data.results[0].indications_and_usage[0]
+				}) 
+				// console.log('API DATA: ', this.state.drugUse)
+			})
 	}
 
 	render() {
+		// console.log(this.state.drug)
 		return(
 			<div>
-				<input className="form-control" id='drug' value={ this.state.drug } type="search" placeholder="Search for a medication" aria-label="Search" onChange={ this.handleInput } />
-				<button className='btn btn-primary' type='submit' onClick={ this.initSearch }>Search</button>
-			</div>
+				<form class="form-inline">
+	    			<input class="form-control mr-sm-2" id="drug" type="search" placeholder="Search" aria-label="Search" onChange={ this.handleChange } />
+	    			<button class="btn btn-outline-success my-2 my-sm-0" type="submit" onClick={ this.handleSubmit }>Search</button>
+	  			</form>
+	  			<div class="card">
+				  <div class="card-body">
+				    { this.state.drugUse }
+				  </div>
+				</div>
+	  		</div>
 		)
 	}
+
+
 }
 
 export default Dictionary;
